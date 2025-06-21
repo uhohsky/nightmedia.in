@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { gsap } from 'gsap';
@@ -32,132 +31,302 @@ const ServiceDetail = () => {
     );
   }, []);
 
-  // Service data mapping
+  // Enhanced service data mapping with Lusion-inspired structure
   const serviceData = {
     'influencer-marketing': {
-      title: 'Influencer Marketing',
-      subtitle: 'Strategic Partnerships That Drive Results',
-      description: 'Connect with your audience through authentic influencer partnerships that build trust and drive conversions.',
+      title: 'INFLUENCER',
+      subtitle: 'MARKETING',
+      description: 'Strategic partnerships that amplify your brand through authentic connections and measurable impact.',
       gradient: 'from-pink-500 to-red-500',
-      problem: 'Traditional advertising is losing effectiveness as consumers increasingly trust peer recommendations over brand messages.',
-      solution: 'We leverage the power of authentic influencer partnerships to create genuine connections between your brand and your target audience.',
-      features: [
-        'Influencer Discovery & Vetting',
-        'Campaign Strategy Development',
-        'Content Creation & Approval',
-        'Performance Tracking & Analytics',
-        'ROI Optimization',
-        'Long-term Partnership Management'
-      ],
-      process: [
-        'Discovery & Strategy',
-        'Influencer Matching',
-        'Campaign Development',
-        'Content Creation',
-        'Launch & Monitoring',
-        'Analysis & Optimization'
-      ],
-      project: {
-        title: 'Fashion Brand Campaign',
-        description: 'Increased brand awareness by 300% through strategic micro-influencer partnerships',
-        metrics: ['500K+ Reach', '15% Engagement Rate', '200% ROI']
-      }
+      hero: {
+        video: 'https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4',
+        image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1920&h=1080&fit=crop'
+      },
+      sections: [
+        {
+          type: 'narrative',
+          title: 'THE POWER OF AUTHENTIC INFLUENCE',
+          content: 'In a world oversaturated with advertisements, consumers crave authenticity. Influencer marketing bridges the gap between brands and audiences through trusted voices that speak directly to your target market.',
+          visual: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop'
+        },
+        {
+          type: 'stats',
+          title: 'PROVEN IMPACT',
+          stats: [
+            { number: '11X', label: 'Higher ROI than traditional advertising' },
+            { number: '89%', label: 'Of marketers say ROI is comparable or better than other channels' },
+            { number: '49%', label: 'Of consumers depend on influencer recommendations' }
+          ]
+        },
+        {
+          type: 'process',
+          title: 'OUR APPROACH',
+          steps: [
+            {
+              number: '01',
+              title: 'DISCOVERY',
+              description: 'Deep dive into your brand, audience, and objectives to craft the perfect influencer strategy.'
+            },
+            {
+              number: '02',
+              title: 'MATCHING',
+              description: 'Identify and vet influencers who align with your brand values and speak to your target audience.'
+            },
+            {
+              number: '03',
+              title: 'CREATION',
+              description: 'Collaborate on authentic content that resonates with audiences while meeting brand guidelines.'
+            },
+            {
+              number: '04',
+              title: 'OPTIMIZATION',
+              description: 'Monitor performance and optimize campaigns in real-time for maximum impact and ROI.'
+            }
+          ]
+        },
+        {
+          type: 'showcase',
+          title: 'FEATURED WORK',
+          projects: [
+            {
+              title: 'Fashion Forward',
+              description: 'Luxury fashion brand campaign across 50+ micro-influencers',
+              image: 'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=600&h=400&fit=crop',
+              metrics: { reach: '2.5M', engagement: '12.5%', conversions: '8.3%' }
+            },
+            {
+              title: 'Tech Launch',
+              description: 'Product launch campaign with tech reviewers and lifestyle creators',
+              image: 'https://images.unsplash.com/photo-1556742400-b3aea7c8b20d?w=600&h=400&fit=crop',
+              metrics: { reach: '1.8M', engagement: '15.2%', conversions: '11.7%' }
+            }
+          ]
+        }
+      ]
     },
     'web-design': {
-      title: 'Web Design',
-      subtitle: 'Beautiful Websites That Convert',
-      description: 'Create stunning, user-friendly websites that captivate visitors and drive business growth.',
+      title: 'WEB',
+      subtitle: 'DESIGN',
+      description: 'Beautiful websites that convert visitors into customers through exceptional user experience.',
       gradient: 'from-blue-500 to-purple-600',
-      problem: 'Many websites fail to engage visitors and convert them into customers due to poor design and user experience.',
-      solution: 'We create visually stunning, user-centered websites that not only look amazing but also drive measurable business results.',
-      features: [
-        'Responsive Design',
-        'User Experience Optimization',
-        'Brand Integration',
-        'Performance Optimization',
-        'SEO Foundation',
-        'Conversion Rate Optimization'
-      ],
-      process: [
-        'Discovery & Research',
-        'Strategy & Planning',
-        'Design & Prototyping',
-        'Development',
-        'Testing & Launch',
-        'Ongoing Optimization'
-      ],
-      project: {
-        title: 'E-commerce Platform',
-        description: 'Redesigned online store resulting in 150% increase in conversions',
-        metrics: ['95 Page Speed', '150% Conversion Increase', '40% Bounce Rate Reduction']
-      }
+      hero: {
+        image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1920&h=1080&fit=crop'
+      },
+      sections: [
+        {
+          type: 'narrative',
+          title: 'DESIGN THAT CONVERTS',
+          content: 'Every pixel serves a purpose. Our web designs combine aesthetic beauty with conversion-focused functionality.',
+          visual: 'https://images.unsplash.com/photo-1545670723-196ed0954986?w=800&h=600&fit=crop'
+        }
+      ]
     },
     'cgi-ads': {
-      title: 'CGI Ads',
-      subtitle: 'Photorealistic 3D Advertising',
-      description: 'Create stunning CGI advertisements that capture attention and drive engagement across all platforms.',
+      title: 'CGI',
+      subtitle: 'ADVERTISING',
+      description: 'Photorealistic 3D advertisements that capture attention and drive engagement.',
       gradient: 'from-green-500 to-teal-500',
-      problem: 'Traditional product photography is expensive, time-consuming, and limits creative possibilities.',
-      solution: 'Our CGI technology creates photorealistic product visuals that are cost-effective, infinitely customizable, and visually stunning.',
-      features: [
-        'Photorealistic 3D Modeling',
-        'Product Visualization',
-        'Dynamic Animations',
-        'Virtual Photography',
-        'Multi-platform Optimization',
-        'Unlimited Variations'
-      ],
-      process: [
-        '3D Modeling',
-        'Texturing & Materials',
-        'Lighting Setup',
-        'Rendering',
-        'Post-production',
-        'Final Delivery'
-      ],
-      project: {
-        title: 'Luxury Watch Campaign',
-        description: 'CGI product visualization that achieved 500% higher engagement than traditional photography',
-        metrics: ['500% Higher Engagement', '2M+ Views', '25% CTR']
-      }
+      hero: {
+        image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&h=1080&fit=crop'
+      },
+      sections: [
+        {
+          type: 'narrative',
+          title: 'BEYOND REALITY',
+          content: 'CGI technology allows us to create impossible visuals that capture imagination and drive results.',
+          visual: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&h=600&fit=crop'
+        }
+      ]
     },
     'video-editing': {
-      title: 'Video Editing',
-      subtitle: 'Cinematic Storytelling',
-      description: 'Professional video editing and post-production that brings your stories to life with cinematic quality.',
+      title: 'VIDEO',
+      subtitle: 'EDITING',
+      description: 'Cinematic storytelling through professional video editing and post-production.',
       gradient: 'from-yellow-500 to-orange-500',
-      problem: 'Raw footage lacks the polish and storytelling structure needed to engage modern audiences.',
-      solution: 'Our expert video editors transform raw content into compelling narratives using advanced techniques and cinematic principles.',
-      features: [
-        'Professional Color Grading',
-        'Motion Graphics',
-        'Sound Design & Mixing',
-        'Visual Effects',
-        'Multi-platform Optimization',
-        'Fast Turnaround'
-      ],
-      process: [
-        'Footage Review',
-        'Story Structure',
-        'Rough Cut',
-        'Fine Editing',
-        'Color & Sound',
-        'Final Delivery'
-      ],
-      project: {
-        title: 'Brand Documentary',
-        description: 'Award-winning corporate documentary that increased brand trust by 200%',
-        metrics: ['1M+ Views', '90% Completion Rate', '200% Brand Trust Increase']
-      }
+      hero: {
+        image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1920&h=1080&fit=crop'
+      },
+      sections: [
+        {
+          type: 'narrative',
+          title: 'STORIES THAT MOVE',
+          content: 'Transform raw footage into compelling narratives that engage audiences and drive action.',
+          visual: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=600&fit=crop'
+        }
+      ]
     }
   };
 
   const service = serviceData[slug as keyof typeof serviceData];
 
   if (!service) {
-    return <div>Service not found</div>;
+    return (
+      <div className="pt-24 pb-20 text-center">
+        <h1 className="text-4xl font-mono font-bold mb-4">Service Not Found</h1>
+        <Link to="/services" className="text-blue-400 hover:underline">
+          Back to Services
+        </Link>
+      </div>
+    );
   }
 
+  // Special handling for Influencer Marketing page
+  if (slug === 'influencer-marketing') {
+    return (
+      <div className="pt-16 bg-black text-white">
+        {/* Hero Section - Fullscreen */}
+        <section className="service-hero min-h-screen relative flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src={service.hero.image}
+              alt="Influencer Marketing"
+              className="w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0 bg-black/60"></div>
+          </div>
+          
+          <div className="relative z-10 text-center px-6">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-mono font-bold mb-6">
+              <div className="gradient-text">{service.title}</div>
+              <div className="gradient-text">{service.subtitle}</div>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+              {service.description}
+            </p>
+          </div>
+        </section>
+
+        {/* Scroll-triggered sections */}
+        <div className="service-content">
+          {service.sections.map((section, index) => (
+            <section key={index} className="service-section">
+              {section.type === 'narrative' && (
+                <div className="min-h-screen flex items-center py-20 px-6">
+                  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div className="space-y-8">
+                      <h2 className="text-4xl md:text-6xl font-mono font-bold">
+                        {section.title}
+                      </h2>
+                      <p className="text-xl text-gray-400 leading-relaxed">
+                        {section.content}
+                      </p>
+                    </div>
+                    <div className="relative">
+                      <img
+                        src={section.visual}
+                        alt={section.title}
+                        className="w-full h-96 object-cover rounded-2xl"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {section.type === 'stats' && (
+                <div className="py-20 px-6 bg-gray-900/20">
+                  <div className="max-w-6xl mx-auto text-center">
+                    <h2 className="text-4xl md:text-6xl font-mono font-bold mb-16">
+                      {section.title}
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                      {section.stats?.map((stat, i) => (
+                        <div key={i} className="glass rounded-2xl p-8">
+                          <div className="text-5xl font-bold mb-4">{stat.number}</div>
+                          <div className="text-gray-400">{stat.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {section.type === 'process' && (
+                <div className="py-20 px-6">
+                  <div className="max-w-6xl mx-auto">
+                    <h2 className="text-4xl md:text-6xl font-mono font-bold text-center mb-16">
+                      {section.title}
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {section.steps?.map((step, i) => (
+                        <div key={i} className="glass rounded-2xl p-8 magnetic">
+                          <div className="text-6xl font-mono font-bold text-gray-600 mb-4">
+                            {step.number}
+                          </div>
+                          <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
+                          <p className="text-gray-400">{step.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {section.type === 'showcase' && (
+                <div className="py-20 px-6 bg-gray-900/20">
+                  <div className="max-w-6xl mx-auto">
+                    <h2 className="text-4xl md:text-6xl font-mono font-bold text-center mb-16">
+                      {section.title}
+                    </h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                      {section.projects?.map((project, i) => (
+                        <div key={i} className="glass rounded-2xl overflow-hidden magnetic">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-64 object-cover"
+                          />
+                          <div className="p-8">
+                            <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                            <p className="text-gray-400 mb-6">{project.description}</p>
+                            <div className="grid grid-cols-3 gap-4 text-center">
+                              {Object.entries(project.metrics).map(([key, value]) => (
+                                <div key={key}>
+                                  <div className="text-xl font-bold">{value}</div>
+                                  <div className="text-sm text-gray-500 capitalize">{key}</div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </section>
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <section className="service-section py-20 px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-6xl font-mono font-bold mb-8">
+              READY TO AMPLIFY YOUR BRAND?
+            </h2>
+            <p className="text-xl text-gray-400 mb-12">
+              Let's create an influencer marketing strategy that drives real results.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link
+                to="/contact"
+                className="glass px-12 py-6 rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all magnetic"
+              >
+                Start Your Campaign
+              </Link>
+              <Link
+                to="/services"
+                className="border border-white px-12 py-6 rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all magnetic"
+              >
+                View All Services
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  // Standard service page layout for other services
   return (
     <div className="pt-24 pb-20">
       {/* Hero Section */}
@@ -165,87 +334,41 @@ const ServiceDetail = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className={`w-32 h-32 bg-gradient-to-br ${service.gradient} rounded-full mx-auto mb-8 opacity-80`}></div>
           <h1 className="text-4xl md:text-6xl font-mono font-bold mb-6 gradient-text">
-            {service.title}
+            {service.title} {service.subtitle}
           </h1>
-          <p className="text-2xl text-gray-300 mb-8">{service.subtitle}</p>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             {service.description}
           </p>
         </div>
       </section>
 
+      {/* Content sections */}
       <div className="service-content">
-        {/* Problem/Solution Section */}
-        <section className="service-section px-6 py-16 bg-gray-900/20">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div className="glass rounded-2xl p-8">
-                <h2 className="text-3xl font-bold mb-6 text-red-400">The Problem</h2>
-                <p className="text-gray-400 text-lg">{service.problem}</p>
-              </div>
-              <div className="glass rounded-2xl p-8">
-                <h2 className="text-3xl font-bold mb-6 text-green-400">Our Solution</h2>
-                <p className="text-gray-400 text-lg">{service.solution}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section className="service-section px-6 py-16">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-mono font-bold text-center mb-12 gradient-text">
-              What's Included
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {service.features.map((feature, index) => (
-                <div key={index} className="glass rounded-xl p-6 magnetic">
-                  <div className="w-2 h-2 bg-white rounded-full mb-4"></div>
-                  <h3 className="font-semibold">{feature}</h3>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className="service-section px-6 py-16 bg-gray-900/20">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-mono font-bold text-center mb-12 gradient-text">
-              Our Process
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {service.process.map((step, index) => (
-                <div key={index} className="glass rounded-xl p-6 text-center magnetic">
-                  <div className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4">
-                    {index + 1}
+        {service.sections.map((section, index) => (
+          <section key={index} className="service-section px-6 py-16">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-mono font-bold text-center mb-12 gradient-text">
+                {section.title}
+              </h2>
+              {section.content && (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  <div>
+                    <p className="text-lg text-gray-400">{section.content}</p>
                   </div>
-                  <h3 className="font-semibold">{step}</h3>
+                  {section.visual && (
+                    <div>
+                      <img
+                        src={section.visual}
+                        alt={section.title}
+                        className="w-full h-64 object-cover rounded-xl"
+                      />
+                    </div>
+                  )}
                 </div>
-              ))}
+              )}
             </div>
-          </div>
-        </section>
-
-        {/* Featured Project */}
-        <section className="service-section px-6 py-16">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-mono font-bold text-center mb-12 gradient-text">
-              Featured Work
-            </h2>
-            <div className="glass rounded-2xl p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">{service.project.title}</h3>
-              <p className="text-gray-400 mb-8">{service.project.description}</p>
-              <div className="flex justify-center space-x-8">
-                {service.project.metrics.map((metric, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-xl font-bold">{metric}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
+        ))}
 
         {/* CTA Section */}
         <section className="service-section px-6 py-16 bg-gray-900/20">
@@ -254,7 +377,7 @@ const ServiceDetail = () => {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-gray-400 mb-8">
-              Let's discuss how we can help you achieve your goals with {service.title.toLowerCase()}.
+              Let's discuss how we can help you achieve your goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -25,6 +26,13 @@ const Hero = () => {
     setTimeout(typeWriter, 1000);
   }, []);
 
+  const scrollToProjects = () => {
+    const projectsSection = document.querySelector('.projects-section');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background gradient */}
@@ -48,12 +56,18 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up">
-          <button className="glass px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all magnetic">
+          <button 
+            onClick={scrollToProjects}
+            className="glass px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all magnetic"
+          >
             Explore Our Work
           </button>
-          <button className="border border-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all magnetic">
+          <Link
+            to="/contact"
+            className="border border-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all magnetic"
+          >
             Start Your Project
-          </button>
+          </Link>
         </div>
 
         <div className="mt-16 fade-in-up">
