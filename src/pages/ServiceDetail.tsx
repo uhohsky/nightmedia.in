@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { gsap } from 'gsap';
@@ -279,12 +280,18 @@ const ServiceDetail = () => {
                             <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                             <p className="text-gray-400 mb-6">{project.description}</p>
                             <div className="grid grid-cols-3 gap-4 text-center">
-                              {Object.entries(project.metrics).map(([key, value]) => (
-                                <div key={key}>
-                                  <div className="text-xl font-bold">{value}</div>
-                                  <div className="text-sm text-gray-500 capitalize">{key}</div>
-                                </div>
-                              ))}
+                              <div>
+                                <div className="text-xl font-bold">{project.metrics.reach}</div>
+                                <div className="text-sm text-gray-500">Reach</div>
+                              </div>
+                              <div>
+                                <div className="text-xl font-bold">{project.metrics.engagement}</div>
+                                <div className="text-sm text-gray-500">Engagement</div>
+                              </div>
+                              <div>
+                                <div className="text-xl font-bold">{project.metrics.conversions}</div>
+                                <div className="text-sm text-gray-500">Conversions</div>
+                              </div>
                             </div>
                           </div>
                         </div>
