@@ -150,24 +150,24 @@ const Projects = () => {
   ];
 
   return (
-    <div className="bg-black text-white overflow-hidden">
+    <div className="bg-gray-50 text-black overflow-hidden">
       {/* Cinematic Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
         <div ref={heroRef} className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-blue-900/20"></div>
-          <div className="floating-bg absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 via-white to-gray-200/50"></div>
+          <div className="floating-bg absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl"></div>
           <div className="floating-bg absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
         </div>
         
         <div className="relative z-10 text-center px-6">
-          <div className="inline-block px-4 py-2 border border-white/20 rounded-full text-sm font-medium mb-8 tracking-wide">
+          <div className="inline-block px-4 py-2 border border-black/20 rounded-full text-sm font-medium mb-8 tracking-wide">
             PORTFOLIO
           </div>
-          <h1 className="text-6xl md:text-8xl font-light tracking-tight mb-8 leading-none">
+          <h1 className="text-6xl md:text-8xl font-light tracking-tight mb-8 leading-none text-black">
             Creative<br />
             <span className="italic">Excellence</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Discover our most impactful work where creativity meets technology to create unforgettable digital experiences
           </p>
         </div>
@@ -188,31 +188,31 @@ const Projects = () => {
                   }`}
                 >
                   {/* Project Visual */}
-                  <div className={`relative overflow-hidden rounded-2xl ${
+                  <div className={`relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-700 ${
                     project.size === 'large' 
                       ? (index % 2 === 0 ? 'lg:order-1' : 'lg:order-2')
                       : 'mb-8'
                   }`}>
                     <div className={`relative ${
                       project.size === 'large' ? 'aspect-[4/3]' : 'aspect-[16/9]'
-                    } overflow-hidden bg-gray-900`}>
+                    } overflow-hidden bg-gray-100`}>
                       <img
                         src={project.image}
                         alt={project.title}
                         className="project-image w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-500"></div>
                       
                       {/* Category Badge */}
                       <div className="absolute top-6 left-6">
-                        <span className="px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-medium">
+                        <span className="px-4 py-2 bg-white/90 backdrop-blur-md border border-black/10 rounded-full text-sm font-medium text-black">
                           {project.category}
                         </span>
                       </div>
 
                       {/* Hover Overlay */}
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <div className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full font-medium">
+                        <div className="px-8 py-4 bg-white/90 backdrop-blur-md border border-black/10 rounded-full font-medium text-black">
                           View Case Study
                         </div>
                       </div>
@@ -226,13 +226,13 @@ const Projects = () => {
                       : ''
                   }`}>
                     <div>
-                      <h2 className="text-4xl md:text-6xl font-light tracking-tight mb-2 leading-none">
+                      <h2 className="text-4xl md:text-6xl font-light tracking-tight mb-2 leading-none text-black">
                         {project.title}
                       </h2>
-                      <h3 className="text-2xl md:text-3xl font-light text-gray-400 mb-6">
+                      <h3 className="text-2xl md:text-3xl font-light text-gray-500 mb-6">
                         {project.subtitle}
                       </h3>
-                      <p className="text-lg text-gray-300 leading-relaxed max-w-xl">
+                      <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
                         {project.description}
                       </p>
                     </div>
@@ -242,7 +242,7 @@ const Projects = () => {
                       {project.tags.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-gray-400"
+                          className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-sm text-gray-600"
                         >
                           {tag}
                         </span>
@@ -253,7 +253,7 @@ const Projects = () => {
                     <div className="grid grid-cols-3 gap-6">
                       {Object.entries(project.metrics).map(([key, value]) => (
                         <div key={key} className="text-center">
-                          <div className="text-2xl font-light text-white mb-1">{value}</div>
+                          <div className="text-2xl font-light text-black mb-1">{value}</div>
                           <div className="text-sm text-gray-500 uppercase tracking-wide">
                             {key.replace(/([A-Z])/g, ' $1').trim()}
                           </div>
@@ -263,7 +263,7 @@ const Projects = () => {
 
                     {/* CTA */}
                     <div className="pt-4">
-                      <div className="inline-flex items-center text-white group-hover:text-gray-300 transition-colors">
+                      <div className="inline-flex items-center text-black group-hover:text-gray-600 transition-colors">
                         <span className="mr-3 font-medium">Explore Project</span>
                         <div className="w-8 h-px bg-current transform group-hover:translate-x-2 transition-transform duration-300"></div>
                         <div className="w-2 h-2 border-t border-r border-current transform rotate-45 ml-2 group-hover:translate-x-2 transition-transform duration-300"></div>
@@ -279,7 +279,7 @@ const Projects = () => {
           <div className="text-center mt-32">
             <Link
               to="/contact"
-              className="inline-block px-12 py-6 bg-white/5 backdrop-blur-md border border-white/20 rounded-full text-xl font-medium hover:bg-white/10 transition-all duration-300"
+              className="inline-block px-12 py-6 bg-black text-white rounded-full text-xl font-medium hover:bg-gray-900 transition-all duration-300"
             >
               Start Your Project
             </Link>
