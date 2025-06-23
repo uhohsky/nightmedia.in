@@ -3,34 +3,20 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import { 
-  Monitor, 
-  Code, 
-  TrendingUp, 
-  Users, 
-  MousePointer, 
-  Palette, 
-  Smartphone, 
-  Box, 
-  Play, 
-  Image,
-  Camera,
-  Mail
-} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
   useEffect(() => {
-    gsap.fromTo('.service-grid-item',
-      { opacity: 0, y: 50 },
+    gsap.fromTo('.service-portfolio-item',
+      { opacity: 0, y: 60 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.6,
-        stagger: 0.1,
+        duration: 0.8,
+        stagger: 0.15,
         scrollTrigger: {
-          trigger: '.services-grid',
+          trigger: '.services-portfolio',
           start: 'top 80%',
           end: 'bottom 20%',
           toggleActions: 'play none none reverse'
@@ -38,227 +24,271 @@ const Services = () => {
       }
     );
 
-    // Animated backgrounds
-    gsap.to('.floating-orb', {
-      y: -20,
-      duration: 2,
+    // Floating elements animation
+    gsap.to('.floating-element', {
+      y: -30,
+      duration: 3,
       repeat: -1,
       yoyo: true,
       ease: 'power2.inOut',
-      stagger: 0.3
-    });
-
-    gsap.to('.rotating-element', {
-      rotation: 360,
-      duration: 20,
-      repeat: -1,
-      ease: 'none'
-    });
-
-    // Neon glow animation
-    gsap.to('.neon-glow', {
-      opacity: 0.3,
-      duration: 1.5,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power2.inOut'
+      stagger: 0.5
     });
   }, []);
 
   const services = [
     {
       title: 'Web Design',
-      description: 'Beautiful, responsive websites that convert visitors into customers',
-      features: ['Responsive Design', 'User Experience', 'Brand Integration', 'Performance Optimization'],
+      category: 'DESIGN • DEVELOPMENT • UX',
+      description: 'Crafting digital experiences that captivate and convert',
       slug: 'web-design',
-      icon: Monitor,
-      accentColor: 'from-cyan-400 to-blue-500',
-      glowColor: 'shadow-cyan-500/20'
-    },
-    {
-      title: 'Web Development',
-      description: 'Custom web applications built with cutting-edge technology',
-      features: ['React/Vue.js', 'Node.js Backend', 'API Integration', 'Database Design'],
-      slug: 'web-development',
-      icon: Code,
-      accentColor: 'from-emerald-400 to-teal-500',
-      glowColor: 'shadow-emerald-500/20'
+      visual: 'laptop-mockup',
+      color: 'from-blue-600 to-purple-600'
     },
     {
       title: 'Influencer Marketing',
-      description: 'Strategic partnerships that amplify your brand reach and engagement',
-      features: ['Influencer Matching', 'Campaign Strategy', 'Content Creation', 'Analytics & ROI'],
+      category: 'STRATEGY • SOCIAL • CONTENT',
+      description: 'Strategic partnerships that amplify your brand reach',
       slug: 'influencer-marketing',
-      icon: Users,
-      accentColor: 'from-pink-400 to-rose-500',
-      glowColor: 'shadow-pink-500/20'
+      visual: 'collaboration',
+      color: 'from-pink-500 to-red-500',
+      featured: true
     },
     {
-      title: 'SEO',
-      description: 'Boost your search rankings and organic traffic',
-      features: ['Keyword Research', 'On-Page SEO', 'Technical SEO', 'Link Building'],
-      slug: 'seo',
-      icon: TrendingUp,
-      accentColor: 'from-yellow-400 to-orange-500',
-      glowColor: 'shadow-yellow-500/20'
+      title: 'CGI Advertising',
+      category: 'CONCEPT • 3D • ANIMATION',
+      description: 'Photorealistic 3D advertisements that stop the scroll',
+      slug: 'cgi-ads',
+      visual: 'abstract-3d',
+      color: 'from-emerald-500 to-teal-600'
     },
     {
-      title: 'Social Media Marketing',
-      description: 'Build and engage your community across all platforms',
-      features: ['Content Strategy', 'Community Management', 'Paid Advertising', 'Analytics'],
-      slug: 'social-media-marketing',
-      icon: Users,
-      accentColor: 'from-purple-400 to-indigo-500',
-      glowColor: 'shadow-purple-500/20'
+      title: 'Video Production',
+      category: 'PRODUCTION • EDITING • MOTION',
+      description: 'Cinematic storytelling through expert post-production',
+      slug: 'video-editing',
+      visual: 'video-setup',
+      color: 'from-orange-500 to-red-600'
     },
     {
-      title: 'Paid Ads',
-      description: 'Maximize ROI with targeted Meta and Google advertising',
-      features: ['Meta Ads', 'Google Ads', 'Campaign Optimization', 'A/B Testing'],
-      slug: 'paid-ads',
-      icon: MousePointer,
-      accentColor: 'from-blue-400 to-indigo-500',
-      glowColor: 'shadow-blue-500/20'
-    },
-    {
-      title: 'Branding & Identity',
-      description: 'Create a memorable brand that stands out in the market',
-      features: ['Logo Design', 'Brand Guidelines', 'Visual Identity', 'Brand Strategy'],
+      title: 'Brand Identity',
+      category: 'BRAND • DESIGN • STRATEGY',
+      description: 'Creating memorable brands that resonate with audiences',
       slug: 'branding-identity',
-      icon: Palette,
-      accentColor: 'from-red-400 to-pink-500',
-      glowColor: 'shadow-red-500/20'
+      visual: 'brand-elements',
+      color: 'from-purple-600 to-pink-600'
+    },
+    {
+      title: 'Digital Marketing',
+      category: 'MARKETING • ANALYTICS • GROWTH',
+      description: 'Data-driven strategies that deliver measurable results',
+      slug: 'paid-ads',
+      visual: 'analytics-dashboard',
+      color: 'from-blue-500 to-cyan-500'
     },
     {
       title: 'UI/UX Design',
-      description: 'User-centered design that drives engagement and conversions',
-      features: ['User Research', 'Wireframing', 'Prototyping', 'Usability Testing'],
+      category: 'DESIGN • RESEARCH • PROTOTYPING',
+      description: 'User-centered design that drives engagement',
       slug: 'ui-ux-design',
-      icon: Smartphone,
-      accentColor: 'from-teal-400 to-cyan-500',
-      glowColor: 'shadow-teal-500/20'
+      visual: 'interface-design',
+      color: 'from-indigo-500 to-blue-600'
     },
     {
-      title: '3D Design & Animation',
-      description: 'Stunning 3D visuals and animations that captivate audiences',
-      features: ['3D Modeling', 'Animation', 'Rendering', 'Motion Graphics'],
-      slug: '3d-design-animation',
-      icon: Box,
-      accentColor: 'from-orange-400 to-red-500',
-      glowColor: 'shadow-orange-500/20'
-    },
-    {
-      title: 'Video Editing',
-      description: 'Professional video production and post-production services',
-      features: ['Color Grading', 'Motion Graphics', 'Sound Design', 'Visual Effects'],
-      slug: 'video-editing',
-      icon: Play,
-      accentColor: 'from-blue-400 to-cyan-500',
-      glowColor: 'shadow-blue-500/20'
-    },
-    {
-      title: 'Graphic Design',
-      description: 'Eye-catching graphics for all your marketing needs',
-      features: ['Print Design', 'Digital Graphics', 'Packaging', 'Marketing Materials'],
-      slug: 'graphic-design',
-      icon: Image,
-      accentColor: 'from-green-400 to-emerald-500',
-      glowColor: 'shadow-green-500/20'
-    },
-    {
-      title: 'CGI Ads',
-      description: 'Photorealistic 3D advertisements that stop the scroll',
-      features: ['Product Visualization', 'CGI Animation', 'Compositing', 'Retouching'],
-      slug: 'cgi-ads',
-      icon: Camera,
-      accentColor: 'from-violet-400 to-purple-500',
-      glowColor: 'shadow-violet-500/20'
+      title: 'SEO Optimization',
+      category: 'SEO • CONTENT • ANALYTICS',
+      description: 'Boosting visibility and organic growth',
+      slug: 'seo',
+      visual: 'growth-chart',
+      color: 'from-green-500 to-emerald-600'
     }
   ];
 
-  return (
-    <div className="pt-24 pb-20 px-6 bg-black relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="floating-orb absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-xl"></div>
-        <div className="floating-orb absolute top-40 right-20 w-48 h-48 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-xl"></div>
-        <div className="floating-orb absolute bottom-40 left-1/4 w-24 h-24 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 rounded-full blur-xl"></div>
-        <div className="rotating-element absolute top-1/2 right-10 w-16 h-16 border border-cyan-500/20 rounded-lg transform rotate-45"></div>
-      </div>
+  const getVisualElement = (visual: string, color: string) => {
+    switch (visual) {
+      case 'laptop-mockup':
+        return (
+          <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative transform rotate-12 scale-90">
+              <div className="w-64 h-40 bg-gray-900 rounded-lg shadow-2xl border border-gray-700">
+                <div className="w-full h-6 bg-gray-800 rounded-t-lg flex items-center px-3 space-x-1">
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                </div>
+                <div className="p-4 h-32">
+                  <div className={`w-full h-full bg-gradient-to-br ${color} rounded opacity-80`}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      case 'collaboration':
+        return (
+          <div className="relative w-full h-full flex items-center justify-center">
+            <div className="grid grid-cols-3 gap-4">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className={`w-12 h-12 bg-gradient-to-br ${color} rounded-full opacity-70 floating-element`} style={{animationDelay: `${i * 0.2}s`}}></div>
+              ))}
+            </div>
+          </div>
+        );
+      case 'abstract-3d':
+        return (
+          <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+            <div className="relative">
+              {[...Array(20)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className={`absolute w-3 h-3 bg-gradient-to-br ${color} transform rotate-45 floating-element`}
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    animationDelay: `${i * 0.1}s`
+                  }}
+                ></div>
+              ))}
+            </div>
+          </div>
+        );
+      case 'video-setup':
+        return (
+          <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative">
+              <div className="w-32 h-20 bg-gray-900 rounded-lg border border-gray-700 shadow-xl">
+                <div className={`w-full h-full bg-gradient-to-br ${color} rounded-lg opacity-60`}></div>
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                <div className="w-3 h-3 bg-white rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        );
+      case 'brand-elements':
+        return (
+          <div className="relative w-full h-full flex items-center justify-center">
+            <div className="grid grid-cols-2 gap-6">
+              <div className={`w-16 h-16 bg-gradient-to-br ${color} rounded-lg`}></div>
+              <div className="w-16 h-4 bg-gray-300 rounded"></div>
+              <div className="w-16 h-4 bg-gray-300 rounded"></div>
+              <div className={`w-16 h-16 bg-gradient-to-br ${color} rounded-full`}></div>
+            </div>
+          </div>
+        );
+      case 'analytics-dashboard':
+        return (
+          <div className="relative w-full h-full flex items-center justify-center">
+            <div className="space-y-2">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="flex items-center space-x-2">
+                  <div className={`w-${8 + i * 4} h-2 bg-gradient-to-r ${color} rounded`}></div>
+                  <div className="w-8 h-2 bg-gray-300 rounded"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      case 'interface-design':
+        return (
+          <div className="relative w-full h-full flex items-center justify-center">
+            <div className="w-40 h-32 bg-white rounded-lg shadow-xl border border-gray-200 p-4">
+              <div className="space-y-2">
+                <div className={`w-full h-4 bg-gradient-to-r ${color} rounded opacity-60`}></div>
+                <div className="w-3/4 h-2 bg-gray-200 rounded"></div>
+                <div className="w-1/2 h-2 bg-gray-200 rounded"></div>
+                <div className={`w-16 h-6 bg-gradient-to-r ${color} rounded mt-4`}></div>
+              </div>
+            </div>
+          </div>
+        );
+      case 'growth-chart':
+        return (
+          <div className="relative w-full h-full flex items-center justify-center">
+            <div className="flex items-end space-x-1">
+              {[...Array(8)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className={`w-4 bg-gradient-to-t ${color} rounded-t`}
+                  style={{ height: `${(i + 1) * 8}px` }}
+                ></div>
+              ))}
+            </div>
+          </div>
+        );
+      default:
+        return <div className={`w-full h-full bg-gradient-to-br ${color} rounded-lg opacity-60`}></div>;
+    }
+  };
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-mono font-bold mb-6 gradient-text">
-            Our Services
+  return (
+    <div className="pt-24 pb-20 px-6 bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <div className="inline-block px-4 py-2 bg-black text-white text-sm font-medium rounded-full mb-6 tracking-wide">
+            SERVICES
+          </div>
+          <h1 className="text-5xl md:text-7xl font-light text-black mb-8 tracking-tight">
+            Connecting Ideas to<br />
+            Uniquely Crafted<br />
+            <span className="italic">Solutions</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            From concept to execution, we provide end-to-end digital solutions that drive results and exceed expectations
-          </p>
+          <div className="w-24 h-px bg-cyan-400 mx-auto"></div>
         </div>
 
-        <div className="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
+        {/* Services Portfolio Grid */}
+        <div className="services-portfolio">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {services.map((service, index) => (
               <Link
                 key={service.slug}
                 to={`/services/${service.slug}`}
-                className={`service-grid-item group relative overflow-hidden rounded-2xl backdrop-blur-xl bg-white/5 border border-white/10 p-6 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:${service.glowColor} transition-all duration-500 magnetic`}
+                className={`service-portfolio-item group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-700 ${
+                  service.featured ? 'lg:col-span-2' : ''
+                }`}
               >
-                {/* Neon accent border */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${service.accentColor} opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl`}></div>
-                
-                {/* Animated background pattern */}
-                <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                  <div className="absolute top-4 right-4 w-8 h-8 border border-current rounded transform rotate-45 group-hover:rotate-90 transition-transform duration-700"></div>
-                  <div className="absolute bottom-4 left-4 w-6 h-6 border border-current rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                {/* Visual Area */}
+                <div className={`relative overflow-hidden ${service.featured ? 'h-80' : 'h-64'} bg-gray-100`}>
+                  {getVisualElement(service.visual, service.color)}
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon with neon glow */}
-                  <div className="relative mb-6">
-                    <div className={`neon-glow absolute inset-0 bg-gradient-to-r ${service.accentColor} blur-lg opacity-20 rounded-full`}></div>
-                    <div className="relative w-16 h-16 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-8 h-8 text-white group-hover:text-cyan-400 transition-colors duration-300" />
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-medium text-gray-500 tracking-wider">
+                      {service.category}
+                    </span>
+                    <div className="w-8 h-8 flex items-center justify-center">
+                      <div className="w-4 h-4 border-t-2 border-r-2 border-black transform rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
                     </div>
                   </div>
-
-                  <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-cyan-400 transition-colors duration-300">
+                  
+                  <h3 className="text-2xl md:text-3xl font-light text-black mb-3 group-hover:text-gray-600 transition-colors duration-300">
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
-                  
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="text-xs text-gray-500 flex items-center group-hover:text-gray-400 transition-colors duration-300">
-                        <div className={`w-1 h-1 bg-gradient-to-r ${service.accentColor} rounded-full mr-3 opacity-60 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Hover arrow */}
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    <div className="w-6 h-6 border-t-2 border-r-2 border-cyan-400 transform rotate-45"></div>
-                  </div>
                 </div>
+
+                {/* Hover indicator */}
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </Link>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
-        <div className="text-center mt-16">
+        {/* Bottom CTA */}
+        <div className="text-center mt-20">
           <Link
             to="/contact"
-            className="inline-block relative overflow-hidden rounded-full px-8 py-4 text-lg font-medium bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white hover:text-black transition-all duration-500 magnetic group"
+            className="inline-flex items-center space-x-3 bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-900 transition-colors duration-300 group"
           >
-            {/* Animated background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <span className="relative z-10">Start Your Project</span>
+            <span>Start Your Project</span>
+            <div className="w-2 h-2 bg-white rounded-full group-hover:translate-x-1 transition-transform duration-300"></div>
           </Link>
         </div>
       </div>
