@@ -12,17 +12,35 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success('Thank you for your message! We\'ll get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      service: '',
-      message: ''
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch('https://getform.io/f/bnlxyrxb', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
     });
-  };
+
+    if (response.ok) {
+      toast.success("Thank you for your message! We'll get back to you soon.");
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        service: '',
+        message: ''
+      });
+    } else {
+      toast.error("Failed to send your message. Please try again.");
+    }
+  } catch (error) {
+    toast.error("Network error. Please try again.");
+  }
+};
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
