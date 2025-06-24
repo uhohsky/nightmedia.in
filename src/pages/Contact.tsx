@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { toast } from 'sonner';
+import { Mail, Phone, MapPin, Send, ArrowRight } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -32,61 +33,66 @@ const Contact = () => {
 
   const contactInfo = [
     {
+      icon: Mail,
       title: 'Email',
       value: 'hello@nightmedia.com',
-      color: 'from-blue-600 to-purple-600'
+      description: 'Send us an email anytime',
+      color: 'from-blue-500 to-cyan-500'
     },
     {
+      icon: Phone,
       title: 'Phone',
       value: '+1 (555) 123-4567',
-      color: 'from-emerald-500 to-teal-600'
+      description: 'Mon-Fri from 8am to 5pm',
+      color: 'from-emerald-500 to-teal-500'
     },
     {
-      title: 'Location',
+      icon: MapPin,
+      title: 'Office',
       value: 'New York, NY',
-      color: 'from-pink-500 to-red-500'
+      description: 'Come say hello at our HQ',
+      color: 'from-purple-500 to-pink-500'
     }
   ];
 
-  const reasons = [
-    '5+ years of industry experience',
-    '100+ successful projects delivered',
-    '24/7 support and communication',
-    'Cutting-edge technology and techniques'
-  ];
-
   return (
-    <div className="pt-24 pb-20 px-6 bg-gray-50 min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-black text-white text-sm font-medium rounded-full mb-6 tracking-wide">
-            CONTACT
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+      {/* Hero Section */}
+      <div className="pt-32 pb-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center px-4 py-2 bg-black/5 rounded-full text-sm font-medium text-gray-600 mb-8">
+            <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
+            Available for new projects
           </div>
-          <h1 className="text-5xl md:text-7xl font-light text-black mb-8 tracking-tight">
-            Let's Create<br />
-            Something<br />
-            <span className="italic">Amazing</span>
+          <h1 className="text-6xl md:text-8xl font-light text-black mb-8 tracking-tight">
+            Let's work<br />
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">together</span>
           </h1>
-          <div className="w-24 h-px bg-cyan-400 mx-auto mb-12"></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to bring your vision to life? Get in touch and let's start building your next big idea.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Ready to transform your brand with cutting-edge design and technology? 
+            Let's create something extraordinary together.
           </p>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="max-w-7xl mx-auto px-6 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Form */}
-          <div className="bg-white shadow-lg rounded-2xl p-8">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-light text-black">Send us a message</h2>
-              <div className="w-8 h-8 flex items-center justify-center">
-                <div className="w-4 h-4 border-t-2 border-r-2 border-black transform rotate-45"></div>
+          <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-light text-black mb-2">Send us a message</h2>
+                <p className="text-gray-600">We'll get back to you within 24 hours</p>
+              </div>
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center">
+                <Send className="w-6 h-6 text-white" />
               </div>
             </div>
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="group">
+                  <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-3">
                     Full Name *
                   </label>
                   <input
@@ -96,11 +102,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full border border-gray-300 rounded-full px-4 py-3 focus:border-black focus:outline-none transition-colors"
+                    className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 text-gray-900 placeholder-gray-500 focus:bg-white focus:border-blue-500 focus:outline-none transition-all duration-200"
+                    placeholder="John Doe"
                   />
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="group">
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-3">
                     Email Address *
                   </label>
                   <input
@@ -110,14 +117,15 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full border border-gray-300 rounded-full px-4 py-3 focus:border-black focus:outline-none transition-colors"
+                    className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 text-gray-900 placeholder-gray-500 focus:bg-white focus:border-blue-500 focus:outline-none transition-all duration-200"
+                    placeholder="john@company.com"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="group">
+                  <label htmlFor="company" className="block text-sm font-semibold text-gray-900 mb-3">
                     Company
                   </label>
                   <input
@@ -126,11 +134,12 @@ const Contact = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-full px-4 py-3 focus:border-black focus:outline-none transition-colors"
+                    className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 text-gray-900 placeholder-gray-500 focus:bg-white focus:border-blue-500 focus:outline-none transition-all duration-200"
+                    placeholder="Your Company"
                   />
                 </div>
-                <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="group">
+                  <label htmlFor="service" className="block text-sm font-semibold text-gray-900 mb-3">
                     Service Interest
                   </label>
                   <select
@@ -138,7 +147,7 @@ const Contact = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-full px-4 py-3 bg-white focus:border-black focus:outline-none transition-colors"
+                    className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 text-gray-900 focus:bg-white focus:border-blue-500 focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
                   >
                     <option value="">Select a service</option>
                     <option value="web-design">Web Design</option>
@@ -151,8 +160,8 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="group">
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-3">
                   Project Details *
                 </label>
                 <textarea
@@ -162,85 +171,70 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:border-black focus:outline-none transition-colors resize-none"
-                  placeholder="Tell us about your project, goals, and timeline..."
+                  className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 text-gray-900 placeholder-gray-500 focus:bg-white focus:border-blue-500 focus:outline-none transition-all duration-200 resize-none"
+                  placeholder="Tell us about your project, goals, timeline, and budget..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-black text-white px-8 py-4 rounded-full font-medium hover:bg-gray-900 transition-colors"
+                className="group w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-5 rounded-2xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
               >
-                Send Message
+                <span>Send Message</span>
+                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" />
               </button>
             </form>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-8">
-            {/* Contact Details */}
-            <div className="grid grid-cols-1 gap-6">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="bg-white shadow-lg hover:shadow-2xl transition-all duration-700 rounded-2xl overflow-hidden group">
-                  <div className={`relative h-20 bg-gradient-to-br ${info.color} flex items-center justify-center overflow-hidden`}>
-                    <div className="text-2xl font-light text-white opacity-30">{String(index + 1).padStart(2, '0')}</div>
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {/* Contact Info Sidebar */}
+          <div className="space-y-6">
+            {contactInfo.map((info, index) => {
+              const IconComponent = info.icon;
+              return (
+                <div key={index} className="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 group">
+                  <div className={`w-16 h-16 bg-gradient-to-r ${info.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <div className="p-6">
-                    <h4 className="font-medium text-black mb-1">{info.title}</h4>
-                    <p className="text-gray-600">{info.value}</p>
-                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{info.title}</h3>
+                  <p className="text-gray-900 font-medium mb-1">{info.value}</p>
+                  <p className="text-gray-600 text-sm">{info.description}</p>
                 </div>
-              ))}
-            </div>
+              );
+            })}
 
-            {/* Why Choose Us */}
-            <div className="bg-white shadow-lg rounded-2xl p-8">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-light text-black">Why Choose NightMedia?</h3>
-                <div className="w-8 h-8 flex items-center justify-center">
-                  <div className="w-4 h-4 border-t-2 border-r-2 border-black transform rotate-45"></div>
-                </div>
-              </div>
-              <ul className="space-y-3">
-                {reasons.map((reason, index) => (
-                  <li key={index} className="flex items-start text-gray-600">
-                    <span className="w-2 h-2 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>{reason}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Social Links */}
-            <div className="bg-white shadow-lg rounded-2xl p-8">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-light text-black">Follow Us</h3>
-                <div className="w-8 h-8 flex items-center justify-center">
-                  <div className="w-4 h-4 border-t-2 border-r-2 border-black transform rotate-45"></div>
-                </div>
-              </div>
-              <div className="flex space-x-6">
-                <a href="#" className="text-gray-600 hover:text-black transition-colors font-medium">
-                  Instagram
-                </a>
-                <a href="#" className="text-gray-600 hover:text-black transition-colors font-medium">
-                  LinkedIn
-                </a>
-                <a href="#" className="text-gray-600 hover:text-black transition-colors font-medium">
-                  YouTube
-                </a>
+            {/* CTA Card */}
+            <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-6 text-white">
+              <h3 className="text-xl font-semibold mb-4">Ready to start?</h3>
+              <p className="text-gray-300 mb-6 text-sm leading-relaxed">
+                Join 100+ companies that trust us with their digital transformation.
+              </p>
+              <div className="flex space-x-4 text-sm">
+                <span className="flex items-center">
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span>
+                  Fast delivery
+                </span>
+                <span className="flex items-center">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                  24/7 support
+                </span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-20">
-          <div className="inline-flex items-center space-x-3 bg-black text-white px-8 py-4 rounded-full text-lg font-medium cursor-default">
-            <span>Ready to Start?</span>
-            <div className="w-2 h-2 bg-white rounded-full"></div>
-          </div>
+        {/* Stats Section */}
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { number: '100+', label: 'Projects completed' },
+            { number: '50+', label: 'Happy clients' },
+            { number: '5+', label: 'Years experience' },
+            { number: '24/7', label: 'Support available' }
+          ].map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-3xl md:text-4xl font-light text-black mb-2">{stat.number}</div>
+              <div className="text-gray-600 text-sm">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
