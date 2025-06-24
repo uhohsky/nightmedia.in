@@ -95,42 +95,21 @@ const BlogPost = () => {
         <p>Environmental consciousness is influencing design decisions, with teams optimizing for energy efficiency and reduced data transfer while maintaining visual appeal.</p>
       `
     },
-    'rebranding-3d-era-case-study': {
-      title: 'Case Study: Rebranding in the 3D Era',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=600&fit=crop',
-      category: 'Case Study',
-      readTime: '8 min read',
-      date: 'November 28, 2024',
-      author: 'Sofia Patel',
-      content: `
-        <p>When TechCorp approached us for a complete rebrand, they were facing declining engagement and a dated visual identity that didn't reflect their innovative technology solutions. Here's how we transformed their brand using 3D-first design principles.</p>
-
-        <h2>The Challenge</h2>
-        <p>TechCorp's existing brand felt flat and generic in a market full of similar tech companies. Their website had a 70% bounce rate, and social media engagement was consistently below industry averages. They needed a visual identity that would immediately communicate innovation and technical expertise.</p>
-
-        <h2>Our Approach</h2>
-        <p>We decided to build the entire brand around 3D elements, from the logo to the web experience. This wasn't just about aesthetics – we wanted every visual touchpoint to demonstrate the company's technical capabilities.</p>
-
-        <h2>The Logo Transformation</h2>
-        <p>The new logo features a dynamic 3D geometric form that can be animated and viewed from multiple angles. In digital applications, it subtly rotates and responds to user interaction, while print versions use carefully crafted shadows to maintain the 3D feel.</p>
-
-        <h2>Web Experience</h2>
-        <p>The website became a showcase of WebGL technology, featuring interactive 3D product demonstrations and immersive brand experiences. Loading times remained under 3 seconds through aggressive optimization and progressive loading techniques.</p>
-
-        <h2>Results</h2>
-        <p>The rebrand delivered exceptional results:</p>
-        <ul>
-          <li>300% increase in social media engagement</li>
-          <li>180% improvement in website conversion rates</li>
-          <li>45% increase in qualified leads</li>
-          <li>Award recognition from industry publications</li>
-        </ul>
-
-        <h2>Key Learnings</h2>
-        <p>This project reinforced our belief that bold visual choices, when backed by solid strategy and technical execution, can dramatically impact business results. The key is ensuring that every design decision serves both aesthetic and functional purposes.</p>
-      `
-    }
-  };
+    'branding-agency-transform': {
+    title: 'How a Branding Agency Can Transform Your Digital Identity',
+    image: 'https://source.unsplash.com/featured/?branding',
+    category: 'Branding',
+    readTime: '6 min read',
+    date: 'June 24, 2025',
+    author: 'NightMedia Team',
+    content: `
+      <p>In today’s digital-first world, your brand identity determines how customers perceive and engage with your business...</p>
+      <h2>Why Branding Matters</h2>
+      <p>A well-crafted brand builds trust and drives conversions...</p>
+    `
+  },
+  ...
+};
 
   const post = posts[slug as keyof typeof posts];
 
