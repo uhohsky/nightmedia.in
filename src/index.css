@@ -38,7 +38,9 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <div id="root"></div>
+  <!-- DO NOT include <script src="/src/main.tsx"> in production -->
+  <!-- Vite or Lovable will inject the correct scripts during build -->
+</body>
+
 </html>
