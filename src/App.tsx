@@ -1,4 +1,4 @@
-
+import BrandingAgencyBlog from './pages/branding-agency-transform';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,8 +20,6 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
-import Rebranding3DEraCaseStudy from "./pages/rebranding-3d-era-case-study";
-import CaseStudyRebranding3D from "./pages/CaseStudyRebranding3D";
 
 const queryClient = new QueryClient();
 
@@ -44,8 +42,6 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/blog/rebranding-3d-era-case-study" element={<Rebranding3DEraCaseStudy />} />
-              <Route path="/case-study/rebranding-3d-era" element={<CaseStudyRebranding3D />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
