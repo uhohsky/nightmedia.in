@@ -66,7 +66,7 @@ const BlogPost = () => {
         <p>Every project goes through rigorous testing across multiple devices and browsers. We use performance monitoring tools to identify bottlenecks and continuously optimize the experience throughout development.</p>
       `
     },
-    /*'visual-design-trends-2025': {
+    'visual-design-trends-2025': {
       title: 'Top 10 Trends in Visual Design',
       image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1200&h=600&fit=crop',
       category: 'Design',
@@ -93,7 +93,7 @@ const BlogPost = () => {
 
         <h2>6. Sustainable Design</h2>
         <p>Environmental consciousness is influencing design decisions, with teams optimizing for energy efficiency and reduced data transfer while maintaining visual appeal.</p>
-      `*/
+      `
         },
     'branding-agency-transform': {
       title: 'How a Branding Agency Can Transform Your Digital Identity',
