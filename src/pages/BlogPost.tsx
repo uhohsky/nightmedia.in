@@ -94,22 +94,22 @@ const BlogPost = () => {
         <h2>6. Sustainable Design</h2>
         <p>Environmental consciousness is influencing design decisions, with teams optimizing for energy efficiency and reduced data transfer while maintaining visual appeal.</p>
       `
-    },
+        },
     'branding-agency-transform': {
-    title: 'How a Branding Agency Can Transform Your Digital Identity',
-    image: 'https://source.unsplash.com/featured/?branding',
-    category: 'Branding',
-    readTime: '6 min read',
-    date: 'June 24, 2025',
-    author: 'NightMedia Team',
-    content: `
-      <p>In today’s digital-first world, your brand identity determines how customers perceive and engage with your business...</p>
-      <h2>Why Branding Matters</h2>
-      <p>A well-crafted brand builds trust and drives conversions...</p>
-    `
-  },
-  ...
-};
+      title: 'How a Branding Agency Can Transform Your Digital Identity',
+      image: 'https://source.unsplash.com/featured/?branding',
+      category: 'Branding',
+      readTime: '6 min read',
+      date: 'June 24, 2025',
+      author: 'NightMedia Team',
+      content: `
+        <p>In today’s digital-first world, your brand identity determines how customers perceive and engage with your business...</p>
+        <h2>Why Branding Matters</h2>
+        <p>A well-crafted brand builds trust and drives conversions...</p>
+      `
+    }
+  }; // <-- NO comma or ... after the last post
+
 
   const post = posts[slug as keyof typeof posts];
 
