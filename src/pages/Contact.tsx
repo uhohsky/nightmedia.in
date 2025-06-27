@@ -12,35 +12,17 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-
-  try {
-    const response = await fetch('https://getform.io/f/bnlxyrxb', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success('Thank you for your message! We\'ll get back to you soon.');
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      service: '',
+      message: ''
     });
-
-    if (response.ok) {
-      toast.success("Thank you for your message! We'll get back to you soon.");
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        service: '',
-        message: ''
-      });
-    } else {
-      toast.error("Failed to send your message. Please try again.");
-    }
-  } catch (error) {
-    toast.error("Network error. Please try again.");
-  }
-};
-
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -53,21 +35,21 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'Contact@nightmedia.in',
+      value: 'hello@nightmedia.com',
       description: 'Send us an email anytime',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+91 9899051544',
-      description: 'Mon-Fri from 10am to 7pm',
+      value: '+1 (555) 123-4567',
+      description: 'Mon-Fri from 8am to 5pm',
       color: 'from-emerald-500 to-teal-500'
     },
     {
       icon: MapPin,
       title: 'Office',
-      value: 'Delhi NCR, Noida, Ghaziabad',
+      value: 'New York, NY',
       description: 'Come say hello at our HQ',
       color: 'from-purple-500 to-pink-500'
     }
@@ -121,7 +103,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 text-gray-900 placeholder-gray-500 focus:bg-white focus:border-blue-500 focus:outline-none transition-all duration-200"
-                    placeholder="Sky"
+                    placeholder="John Doe"
                   />
                 </div>
                 <div className="group">
@@ -136,7 +118,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-gray-50 border-2 border-transparent rounded-2xl px-6 py-4 text-gray-900 placeholder-gray-500 focus:bg-white focus:border-blue-500 focus:outline-none transition-all duration-200"
-                    placeholder="sky@company.com"
+                    placeholder="john@company.com"
                   />
                 </div>
               </div>
