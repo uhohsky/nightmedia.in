@@ -1,296 +1,225 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import { Monitor, Users, Camera, Palette, TrendingUp, Search, Smartphone, Globe, Video, Zap } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
-  useEffect(() => {
-    gsap.fromTo('.service-portfolio-item',
-      { opacity: 0, y: 60 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: '.services-portfolio',
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
+  const containerRef = useRef<HTMLDivElement>(null);
+  const centerHeadingRef = useRef<HTMLHeadingElement>(null);
 
-    // Floating elements animation
-    gsap.to('.floating-element', {
-      y: -30,
-      duration: 3,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power2.inOut',
-      stagger: 0.5
-    });
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Pin the central heading
+      if (centerHeadingRef.current) {
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          pin: centerHeadingRef.current,
+          pinSpacing: false,
+        });
+      }
+
+      // Animate service cards with orbital motion
+      gsap.utils.toArray('.service-orbital').forEach((element: any, index) => {
+        const isEven = index % 2 === 0;
+        const direction = isEven ? -100 : 100;
+        const rotation = isEven ? -15 : 15;
+
+        gsap.fromTo(element, 
+          { 
+            opacity: 0,
+            x: direction,
+            rotation: rotation,
+            scale: 0.8
+          },
+          {
+            opacity: 1,
+            x: 0,
+            rotation: 0,
+            scale: 1,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+              scrub: 0.5
+            }
+          }
+        );
+
+        // Add subtle floating animation
+        gsap.to(element, {
+          y: -10,
+          duration: 2 + (index * 0.1),
+          repeat: -1,
+          yoyo: true,
+          ease: "power2.inOut",
+          delay: index * 0.2
+        });
+      });
+
+      // Scroll indicator animation
+      gsap.to('.scroll-indicator', {
+        y: 10,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power2.inOut"
+      });
+
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   const services = [
     {
       title: 'Web Design',
-      category: 'DESIGN • DEVELOPMENT • UX',
-      description: 'Crafting digital experiences that captivate and convert',
+      description: 'Stunning digital experiences that captivate and convert',
+      icon: Monitor,
       slug: 'web-design',
-      visual: 'laptop-mockup',
-      color: 'from-blue-600 to-purple-600'
+      color: 'from-cyan-400 to-blue-500'
     },
     {
       title: 'Influencer Marketing',
-      category: 'STRATEGY • SOCIAL • CONTENT',
-      description: 'Strategic partnerships that amplify your brand reach',
+      description: 'Strategic partnerships amplifying your brand reach globally',
+      icon: Users,
       slug: 'influencer-marketing',
-      visual: 'collaboration',
-      color: 'from-pink-500 to-red-500',
-      featured: true
+      color: 'from-pink-400 to-purple-500'
     },
     {
       title: 'CGI Advertising',
-      category: 'CONCEPT • 3D • ANIMATION',
-      description: 'Photorealistic 3D advertisements that stop the scroll',
+      description: 'Photorealistic 3D ads that stop the scroll',
+      icon: Camera,
       slug: 'cgi-ads',
-      visual: 'abstract-3d',
-      color: 'from-emerald-500 to-teal-600'
-    },
-    {
-      title: 'Video Production',
-      category: 'PRODUCTION • EDITING • MOTION',
-      description: 'Cinematic storytelling through expert post-production',
-      slug: 'video-editing',
-      visual: 'video-setup',
-      color: 'from-orange-500 to-red-600'
+      color: 'from-emerald-400 to-teal-500'
     },
     {
       title: 'Brand Identity',
-      category: 'BRAND • DESIGN • STRATEGY',
-      description: 'Creating memorable brands that resonate with audiences',
+      description: 'Memorable brands that resonate with audiences',
+      icon: Palette,
       slug: 'branding-identity',
-      visual: 'brand-elements',
-      color: 'from-purple-600 to-pink-600'
+      color: 'from-orange-400 to-red-500'
     },
     {
       title: 'Digital Marketing',
-      category: 'MARKETING • ANALYTICS • GROWTH',
-      description: 'Data-driven strategies that deliver measurable results',
+      description: 'Data-driven strategies delivering measurable results',
+      icon: TrendingUp,
       slug: 'paid-ads',
-      visual: 'analytics-dashboard',
-      color: 'from-blue-500 to-cyan-500'
-    },
-    {
-      title: 'UI/UX Design',
-      category: 'DESIGN • RESEARCH • PROTOTYPING',
-      description: 'User-centered design that drives engagement',
-      slug: 'ui-ux-design',
-      visual: 'interface-design',
-      color: 'from-indigo-500 to-blue-600'
+      color: 'from-indigo-400 to-purple-500'
     },
     {
       title: 'SEO Optimization',
-      category: 'SEO • CONTENT • ANALYTICS',
       description: 'Boosting visibility and organic growth',
+      icon: Search,
       slug: 'seo',
-      visual: 'growth-chart',
-      color: 'from-green-500 to-emerald-600'
+      color: 'from-green-400 to-emerald-500'
+    },
+    {
+      title: 'Mobile Apps',
+      description: 'Native and hybrid mobile experiences',
+      icon: Smartphone,
+      slug: 'mobile-apps',
+      color: 'from-yellow-400 to-orange-500'
+    },
+    {
+      title: 'UI/UX Design',
+      description: 'User-centered design driving engagement',
+      icon: Globe,
+      slug: 'ui-ux-design',
+      color: 'from-blue-400 to-cyan-500'
+    },
+    {
+      title: 'Video Production',
+      description: 'Cinematic storytelling through expert production',
+      icon: Video,
+      slug: 'video-editing',
+      color: 'from-purple-400 to-pink-500'
+    },
+    {
+      title: 'Creative Strategy',
+      description: 'Bold ideas that break through the noise',
+      icon: Zap,
+      slug: 'creative-strategy',
+      color: 'from-red-400 to-pink-500'
     }
   ];
 
-  const getVisualElement = (visual: string, color: string) => {
-    switch (visual) {
-      case 'laptop-mockup':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <div className="relative transform rotate-12 scale-90">
-              <div className="w-64 h-40 bg-gray-900 rounded-lg shadow-2xl border border-gray-700">
-                <div className="w-full h-6 bg-gray-800 rounded-t-lg flex items-center px-3 space-x-1">
-                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                </div>
-                <div className="p-4 h-32">
-                  <div className={`w-full h-full bg-gradient-to-br ${color} rounded opacity-80`}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      case 'collaboration':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <div className="grid grid-cols-3 gap-4">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className={`w-12 h-12 bg-gradient-to-br ${color} rounded-full opacity-70 floating-element`} style={{animationDelay: `${i * 0.2}s`}}></div>
-              ))}
-            </div>
-          </div>
-        );
-      case 'abstract-3d':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-            <div className="relative">
-              {[...Array(20)].map((_, i) => (
-                <div 
-                  key={i} 
-                  className={`absolute w-3 h-3 bg-gradient-to-br ${color} transform rotate-45 floating-element`}
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${i * 0.1}s`
-                  }}
-                ></div>
-              ))}
-            </div>
-          </div>
-        );
-      case 'video-setup':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <div className="relative">
-              <div className="w-32 h-20 bg-gray-900 rounded-lg border border-gray-700 shadow-xl">
-                <div className={`w-full h-full bg-gradient-to-br ${color} rounded-lg opacity-60`}></div>
-              </div>
-              <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                <div className="w-3 h-3 bg-white rounded-full"></div>
-              </div>
-            </div>
-          </div>
-        );
-      case 'brand-elements':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <div className="grid grid-cols-2 gap-6">
-              <div className={`w-16 h-16 bg-gradient-to-br ${color} rounded-lg`}></div>
-              <div className="w-16 h-4 bg-gray-300 rounded"></div>
-              <div className="w-16 h-4 bg-gray-300 rounded"></div>
-              <div className={`w-16 h-16 bg-gradient-to-br ${color} rounded-full`}></div>
-            </div>
-          </div>
-        );
-      case 'analytics-dashboard':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <div className="space-y-2">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="flex items-center space-x-2">
-                  <div className={`w-${8 + i * 4} h-2 bg-gradient-to-r ${color} rounded`}></div>
-                  <div className="w-8 h-2 bg-gray-300 rounded"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-      case 'interface-design':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <div className="w-40 h-32 bg-white rounded-lg shadow-xl border border-gray-200 p-4">
-              <div className="space-y-2">
-                <div className={`w-full h-4 bg-gradient-to-r ${color} rounded opacity-60`}></div>
-                <div className="w-3/4 h-2 bg-gray-200 rounded"></div>
-                <div className="w-1/2 h-2 bg-gray-200 rounded"></div>
-                <div className={`w-16 h-6 bg-gradient-to-r ${color} rounded mt-4`}></div>
-              </div>
-            </div>
-          </div>
-        );
-      case 'growth-chart':
-        return (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <div className="flex items-end space-x-1">
-              {[...Array(8)].map((_, i) => (
-                <div 
-                  key={i} 
-                  className={`w-4 bg-gradient-to-t ${color} rounded-t`}
-                  style={{ height: `${(i + 1) * 8}px` }}
-                ></div>
-              ))}
-            </div>
-          </div>
-        );
-      default:
-        return <div className={`w-full h-full bg-gradient-to-br ${color} rounded-lg opacity-60`}></div>;
-    }
-  };
-
   return (
-    <div className="pt-24 pb-20 px-6 bg-gray-50 min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-black text-white text-sm font-medium rounded-full mb-6 tracking-wide">
-            SERVICES
-          </div>
-          <h1 className="text-5xl md:text-7xl font-light text-black mb-8 tracking-tight">
-            Connecting Ideas to<br />
-            Uniquely Crafted<br />
-            <span className="italic">Solutions</span>
-          </h1>
-          <div className="w-24 h-px bg-cyan-400 mx-auto"></div>
-        </div>
+    <div ref={containerRef} className="relative min-h-screen bg-black text-white overflow-hidden">
+      {/* Fixed Central Heading */}
+      <div 
+        ref={centerHeadingRef}
+        className="fixed inset-0 flex items-center justify-center z-10 pointer-events-none"
+      >
+        <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center leading-tight">
+          <span className="block text-white">Everything</span>
+          <span className="block text-white">Revolves Around</span>
+          <span className="block bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            Night Media
+          </span>
+        </h1>
+      </div>
 
-        {/* Services Portfolio Grid */}
-        <div className="services-portfolio">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {services.map((service, index) => (
+      {/* Scroll Indicator */}
+      <div className="scroll-indicator fixed bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="w-px h-16 bg-gradient-to-b from-transparent via-cyan-400 to-transparent"></div>
+        <div className="w-2 h-2 bg-cyan-400 rounded-full mx-auto mt-2 animate-pulse"></div>
+      </div>
+
+      {/* Services Container */}
+      <div className="relative z-0 pt-32 pb-32">
+        {services.map((service, index) => {
+          const Icon = service.icon;
+          const isEven = index % 2 === 0;
+          
+          return (
+            <div
+              key={service.slug}
+              className={`service-orbital mb-48 ${isEven ? 'ml-4 md:ml-16' : 'mr-4 md:mr-16 ml-auto'} max-w-xs md:max-w-sm`}
+            >
               <Link
-                key={service.slug}
                 to={`/services/${service.slug}`}
-                className={`service-portfolio-item group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-700 ${
-                  service.featured ? 'lg:col-span-2' : ''
-                }`}
+                className="group block p-8 bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-2xl hover:border-gray-700 transition-all duration-500 hover:scale-105 hover:bg-gray-900/50"
               >
-                {/* Visual Area */}
-                <div className={`relative overflow-hidden ${service.featured ? 'h-80' : 'h-64'} bg-gray-100`}>
-                  {getVisualElement(service.visual, service.color)}
-                  
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Icon */}
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} p-3 mb-6 group-hover:rotate-12 transition-transform duration-300`}>
+                  <Icon className="w-full h-full text-black" />
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-medium text-gray-500 tracking-wider">
-                      {service.category}
-                    </span>
-                    <div className="w-8 h-8 flex items-center justify-center">
-                      <div className="w-4 h-4 border-t-2 border-r-2 border-black transform rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl md:text-3xl font-light text-black mb-3 group-hover:text-gray-600 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
+                  {service.title}
+                </h3>
+                
+                <p className="text-gray-400 leading-relaxed text-sm group-hover:text-gray-300 transition-colors duration-300">
+                  {service.description}
+                </p>
 
                 {/* Hover indicator */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div className={`w-0 h-px bg-gradient-to-r ${service.color} group-hover:w-full transition-all duration-500 mt-6`}></div>
               </Link>
-            ))}
-          </div>
-        </div>
+            </div>
+          );
+        })}
+      </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-20">
-          <Link
-            to="/contact"
-            className="inline-flex items-center space-x-3 bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-900 transition-colors duration-300 group"
-          >
-            <span>Start Your Project</span>
-            <div className="w-2 h-2 bg-white rounded-full group-hover:translate-x-1 transition-transform duration-300"></div>
-          </Link>
-        </div>
+      {/* Background Elements */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        {/* Animated grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
+        
+        {/* Floating orbs */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-cyan-400 rounded-full animate-ping"></div>
+        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-pink-400 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-3/4 w-3 h-3 bg-purple-400 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
       </div>
     </div>
   );
