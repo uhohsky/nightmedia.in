@@ -19,7 +19,7 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
+      fontFamily: {
         'inter': ['Inter', 'sans-serif'],
         'mono': ['JetBrains Mono', 'monospace'],
       },

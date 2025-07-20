@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import PageHeader from '../components/Layout/PageHeader';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -159,18 +160,11 @@ const Projects = () => {
           <div className="floating-bg absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="relative z-10 text-center px-6">
-          <div className="inline-block px-4 py-2 border border-black/20 rounded-full text-sm font-medium mb-8 tracking-wide">
-            PORTFOLIO
-          </div>
-          <h1 className="text-6xl md:text-8xl font-light tracking-tight mb-8 leading-none text-black">
-            Creative<br />
-            <span className="italic">Excellence</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Discover our most impactful work where creativity meets technology to create unforgettable digital experiences
-          </p>
-        </div>
+        <PageHeader
+          badge="PORTFOLIO"
+          title="Creative Excellence"
+          subtitle="Discover our most impactful work where creativity meets technology to create unforgettable digital experiences"
+        />
       </section>
 
       {/* Projects Portfolio */}

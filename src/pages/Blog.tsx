@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import PageHeader from '../components/Layout/PageHeader';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,21 +73,11 @@ const Blog = () => {
   return (
     <div className="pt-24 pb-20 px-6 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-black text-white text-sm font-medium rounded-full mb-6 tracking-wide">
-            BLOG
-          </div>
-          <h1 className="text-5xl md:text-7xl font-light text-black mb-8 tracking-tight">
-            Insights &<br />
-            Creative<br />
-            <span className="italic">Stories</span>
-          </h1>
-          <div className="w-24 h-px bg-cyan-400 mx-auto mb-12"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Insights, trends, and behind-the-scenes stories from the world of digital creativity and innovation
-          </p>
-        </div>
+        <PageHeader
+          badge="BLOG"
+          title="Insights & Creative Stories"
+          subtitle="Insights, trends, and behind-the-scenes stories from the world of digital creativity and innovation"
+        />
 
         {/* Featured Post */}
         <div className="mb-16">

@@ -10,13 +10,13 @@ interface PageHeaderProps {
 
 const PageHeader = ({ badge, title, subtitle, className = "" }: PageHeaderProps) => {
   return (
-    <div className={`text-center mb-20 ${className}`}>
+    <div className={`text-center py-15 ${className}`}>
       {badge && (
         <div className="inline-block px-4 py-2 bg-black text-white text-sm font-medium rounded-full mb-6 tracking-wide">
           {badge}
         </div>
       )}
-      <h1 className="text-5xl md:text-7xl font-light text-black mb-8 tracking-tight">
+      <h1 className="font-inter text-5xl font-bold text-black mb-8 tracking-tight">
         {title}
       </h1>
       {subtitle && (

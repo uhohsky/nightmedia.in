@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { toast } from 'sonner';
 import { Mail, Phone, MapPin, Send, ArrowRight } from 'lucide-react';
+import PageHeader from '../components/Layout/PageHeader';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -75,22 +76,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-      {/* Hero Section */}
-      <div className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center px-4 py-2 bg-black/5 rounded-full text-sm font-medium text-gray-600 mb-8">
-            <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
-            Available for new projects
-          </div>
-          <h1 className="text-6xl md:text-8xl font-light text-black mb-8 tracking-tight">
-            Let's work<br />
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">together</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Ready to transform your brand with cutting-edge design and technology? 
-            Let's create something extraordinary together.
-          </p>
-        </div>
+      <div className="pt-24 px-6">
+        <PageHeader
+          badge="CONTACT"
+          title="Let's work together"
+          subtitle="Ready to transform your brand with cutting-edge design and technology? Let's create something extraordinary together."
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 pb-20">

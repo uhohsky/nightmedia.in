@@ -7,16 +7,20 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Scroll to top immediately on route change
-    window.scrollTo(0, 0);
+    // Scroll to top immediately on route change - force instant scroll
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     
-    // Small delay to ensure GSAP ScrollTriggers are properly refreshed
-    setTimeout(() => {
+    // For service pages and any route with dynamic content
+    const timeoutId = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      
       // Trigger ScrollTrigger refresh if GSAP is available
       if (ScrollTrigger) {
         ScrollTrigger.refresh();
       }
-    }, 100);
+    }, 50);
+
+    return () => clearTimeout(timeoutId);
   }, [pathname]);
 
   return null;
