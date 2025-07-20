@@ -57,12 +57,13 @@ const ServicesPreview = () => {
     <section className="services-section py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-mono font-bold mb-6 gradient-text">
+          <h2 className="text-5xl md:text-7xl font-light text-black mb-8 tracking-tight">
             What We Do Best
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
             We specialize in creating digital experiences that push boundaries and drive results
           </p>
+          <div className="w-24 h-px bg-cyan-400 mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

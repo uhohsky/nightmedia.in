@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import PageHeader from '../components/Layout/PageHeader';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -222,18 +223,10 @@ const Services = () => {
   return (
     <div className="pt-24 pb-20 px-6 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-black text-white text-sm font-medium rounded-full mb-6 tracking-wide">
-            SERVICES
-          </div>
-          <h1 className="text-5xl md:text-7xl font-light text-black mb-8 tracking-tight">
-            Connecting Ideas to<br />
-            Uniquely Crafted<br />
-            <span className="italic">Solutions</span>
-          </h1>
-          <div className="w-24 h-px bg-cyan-400 mx-auto"></div>
-        </div>
+        <PageHeader
+          badge="SERVICES"
+          title="Connecting Ideas to Uniquely Crafted Solutions"
+        />
 
         {/* Services Portfolio Grid */}
         <div className="services-portfolio">

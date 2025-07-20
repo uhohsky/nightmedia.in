@@ -1,3 +1,4 @@
+
 import BrandingAgencyBlog from './pages/branding-agency-transform';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -8,6 +9,7 @@ import Navigation from "./components/Layout/Navigation";
 import Footer from "./components/Layout/Footer";
 import CustomCursor from "./components/Layout/CustomCursor";
 import WhatsAppFloat from "./components/Layout/WhatsAppFloat";
+import ScrollToTop from "./components/Layout/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
@@ -30,6 +32,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <CustomCursor />
           <Navigation />
