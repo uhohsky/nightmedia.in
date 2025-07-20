@@ -1,6 +1,7 @@
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -12,8 +13,8 @@ const ScrollToTop = () => {
     // Small delay to ensure GSAP ScrollTriggers are properly refreshed
     setTimeout(() => {
       // Trigger ScrollTrigger refresh if GSAP is available
-      if (window.ScrollTrigger) {
-        window.ScrollTrigger.refresh();
+      if (ScrollTrigger) {
+        ScrollTrigger.refresh();
       }
     }, 100);
   }, [pathname]);
