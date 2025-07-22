@@ -16,11 +16,11 @@ const PageHeader = ({ badge, title, subtitle, className = "" }: PageHeaderProps)
           {badge}
         </div>
       )}
-      <h1 className="font-inter text-5xl font-bold text-black mb-8 tracking-tight">
+      <h1 className="font-inter text-[52px] font-bold text-black mb-8 leading-[1.3] text-center">
         {title}
       </h1>
       {subtitle && (
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+        <p className="text-[20px] font-normal text-gray-600 max-w-[800px] mx-auto mb-8 text-center">
           {subtitle}
         </p>
       )}
