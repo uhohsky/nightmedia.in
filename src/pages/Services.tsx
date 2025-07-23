@@ -38,14 +38,6 @@ const Services = () => {
 
   const services = [
     {
-      title: 'Web Design',
-      category: 'DESIGN • DEVELOPMENT • UX',
-      description: 'Crafting digital experiences that captivate and convert',
-      slug: 'web-design',
-      visual: 'laptop-mockup',
-      color: 'from-blue-600 to-purple-600'
-    },
-    {
       title: 'Influencer Marketing',
       category: 'STRATEGY • SOCIAL • CONTENT',
       description: 'Strategic partnerships that amplify your brand reach',
@@ -53,6 +45,14 @@ const Services = () => {
       visual: 'collaboration',
       color: 'from-pink-500 to-red-500',
       featured: true
+    },
+    {
+      title: 'Web Design',
+      category: 'DESIGN • DEVELOPMENT • UX',
+      description: 'Crafting digital experiences that captivate and convert',
+      slug: 'web-design',
+      visual: 'laptop-mockup',
+      color: 'from-blue-600 to-purple-600'
     },
     {
       title: 'CGI Advertising',
