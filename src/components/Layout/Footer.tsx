@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Youtube } from 'lucide-react';
+import logo from '../../assets/nightmedia-logo.png';
 
 const Footer = () => {
   return (
@@ -9,7 +10,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-mono font-bold mb-4">NIGHTMEDIA</h3>
+            <img 
+              src={logo} 
+              alt="NIGHTMEDIA" 
+              className="h-10 w-auto mb-4"
+            />
             <p className="text-gray-400 max-w-md mb-6">
               Creating cinematic digital experiences that push the boundaries of creativity and technology.
             </p>

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import logo from '../../assets/nightmedia-logo.png';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,8 +32,12 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-mono font-bold magnetic">
-            NIGHTMEDIA
+          <Link to="/" className="magnetic flex items-center">
+            <img 
+              src={logo} 
+              alt="NIGHTMEDIA" 
+              className="h-8 w-auto transition-opacity hover:opacity-80"
+            />
           </Link>
           
           {/* Desktop Navigation */}
