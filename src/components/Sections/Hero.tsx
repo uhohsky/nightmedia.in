@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/nightmedia-logo.png';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -47,14 +46,10 @@ const Hero = () => {
 
       <div className="hero-container relative z-10 text-center px-6">
         <div className="mb-8">
-          <div className="mb-6 flex justify-center">
-            <img 
-              src={logo} 
-              alt="NIGHTMEDIA" 
-              className="h-20 md:h-32 lg:h-40 w-auto opacity-0 animate-fade-in"
-              style={{ animationDelay: '1s', animationFillMode: 'forwards' }}
-            />
-          </div>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-mono font-bold mb-4">
+            <span className="gradient-text">{text}</span>
+            <span className="animate-pulse">|</span>
+          </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-8 fade-in-up">
             Cinematic digital experiences that blur the line between reality and imagination
           </p>
