@@ -1,81 +1,34 @@
 
-/* NightMedia Design System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global Design System - NightMedia Theme */
+/* Global Design System */
 @layer base {
   :root {
-    /* Primary - Deep Navy/Near-Black (Premium Tech) */
-    --background: 230 25% 5%;
-    --foreground: 0 0% 98%;
-    
-    /* Cards & Surfaces */
-    --card: 230 20% 8%;
-    --card-foreground: 0 0% 98%;
-    --popover: 230 20% 10%;
-    --popover-foreground: 0 0% 98%;
-    
-    /* Primary Button - White on Dark */
-    --primary: 0 0% 98%;
-    --primary-foreground: 230 25% 5%;
-    
-    /* Secondary - Subtle Dark */
-    --secondary: 230 15% 15%;
-    --secondary-foreground: 0 0% 98%;
-    
-    /* Muted - For Subtle Elements */
-    --muted: 230 15% 18%;
-    --muted-foreground: 230 10% 60%;
-    
-    /* Accent - Vibrant Orange (CTAs) */
-    --accent: 24 95% 55%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 15%;
     --accent-foreground: 0 0% 100%;
-    
-    /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    
-    /* Borders & Inputs */
-    --border: 230 15% 20%;
-    --input: 230 15% 15%;
-    --ring: 24 95% 55%;
-    
-    /* Radius */
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 100%;
     --radius: 0.5rem;
-    
-    /* Custom Brand Colors */
-    --brand-orange: 24 95% 55%;
-    --brand-orange-hover: 24 95% 48%;
-    --brand-navy: 230 25% 5%;
-    --brand-navy-light: 230 20% 12%;
-    --brand-gray: 230 10% 60%;
-    --brand-white: 0 0% 98%;
-  }
-  
-  /* Light mode support (optional) */
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 230 25% 10%;
-    --card: 0 0% 98%;
-    --card-foreground: 230 25% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 10%;
-    --primary: 230 25% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 230 10% 95%;
-    --secondary-foreground: 230 25% 10%;
-    --muted: 230 10% 92%;
-    --muted-foreground: 230 10% 40%;
-    --accent: 24 95% 55%;
-    --accent-foreground: 0 0% 100%;
-    --border: 230 10% 88%;
-    --input: 230 10% 92%;
-    --ring: 24 95% 55%;
   }
 }
 
@@ -85,51 +38,12 @@
   }
   
   body {
-    @apply bg-background text-foreground font-inter antialiased;
+    @apply bg-black text-white font-inter;
     overflow-x: hidden;
   }
   
   html {
     scroll-behavior: smooth;
-  }
-  
-  /* Typography Hierarchy */
-  h1 {
-    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight;
-  }
-  
-  h2 {
-    @apply font-display text-3xl md:text-4xl font-bold tracking-tight;
-  }
-  
-  h3 {
-    @apply font-display text-2xl md:text-3xl font-semibold;
-  }
-  
-  h4 {
-    @apply font-display text-xl md:text-2xl font-semibold;
-  }
-  
-  p {
-    @apply text-base leading-relaxed text-muted-foreground;
-  }
-  
-  /* Container */
-  .container-narrow {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .container-wide {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  /* Section Spacing */
-  .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
-  }
-  
-  .section-padding-sm {
-    @apply py-12 md:py-16 lg:py-20;
   }
 }
 
@@ -188,76 +102,6 @@
   width: 0;
 }
 
-/* Scroll-triggered animations */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.animate-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Staggered children animation */
-.stagger-children > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.stagger-children.is-visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
-.stagger-children.is-visible > *:nth-child(2) { transition-delay: 80ms; opacity: 1; transform: translateY(0); }
-.stagger-children.is-visible > *:nth-child(3) { transition-delay: 160ms; opacity: 1; transform: translateY(0); }
-.stagger-children.is-visible > *:nth-child(4) { transition-delay: 240ms; opacity: 1; transform: translateY(0); }
-.stagger-children.is-visible > *:nth-child(5) { transition-delay: 320ms; opacity: 1; transform: translateY(0); }
-.stagger-children.is-visible > *:nth-child(6) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
-
-/* Card hover effects */
-.card-hover {
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px -12px hsl(var(--accent) / 0.15);
-}
-
-/* Link underline animation */
-.link-underline {
-  position: relative;
-}
-
-.link-underline::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease-out;
-}
-
-.link-underline:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* Button hover lift */
-.btn-lift {
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-}
-
-.btn-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px -8px hsl(var(--accent) / 0.3);
-}
-
-/* Fade in variants */
 .fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -271,28 +115,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Scale on hover - subtle */
-.hover-scale-subtle {
-  transition: transform 0.3s ease-out;
-}
-
-.hover-scale-subtle:hover {
-  transform: scale(1.02);
-}
-
-/* Image zoom on hover */
-.img-zoom {
-  overflow: hidden;
-}
-
-.img-zoom img {
-  transition: transform 0.6s ease-out;
-}
-
-.img-zoom:hover img {
-  transform: scale(1.05);
 }
 
 .gradient-text {
@@ -311,11 +133,11 @@
   transform: scale(1.05);
 }
 
-/* Legacy scroll animations - enhanced */
+/* Scroll animations */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
 }
 
 .reveal.active {
@@ -327,7 +149,6 @@
 .nav-backdrop {
   backdrop-filter: blur(20px);
   background: rgba(0, 0, 0, 0.8);
-  transition: background 0.3s ease-out, backdrop-filter 0.3s ease-out;
 }
 
 /* Floating WhatsApp */
@@ -344,28 +165,9 @@
   justify-content: center;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
   z-index: 1000;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transition: transform 0.3s ease;
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .animate-on-scroll,
-  .stagger-children > *,
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
+  transform: scale(1.1);
 }
