@@ -9,10 +9,28 @@ const Hero = () => {
   const fullText = 'NIGHTMEDIA';
 
   useEffect(() => {
-    gsap.fromTo('.hero-container', 
-      { opacity: 0, y: 50 }, 
-      { opacity: 1, y: 0, duration: 1, delay: 0.5 }
-    );
+    // Respect reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (!prefersReducedMotion) {
+      gsap.fromTo('.hero-container', 
+        { opacity: 0, y: 30 }, 
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.3 }
+      );
+
+      // Staggered animation for service cards
+      gsap.fromTo('.service-card-item',
+        { opacity: 0, y: 20 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.5, 
+          ease: 'power2.out',
+          stagger: 0.1,
+          delay: 0.6
+        }
+      );
+    }
 
     // Typewriter effect
     let currentIndex = 0;
@@ -24,7 +42,7 @@ const Hero = () => {
       }
     };
     
-    setTimeout(typeWriter, 1000);
+    setTimeout(typeWriter, 800);
   }, []);
 
   const scrollToProjects = () => {
@@ -64,13 +82,13 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="btn-lift">
                 <Link to="/contact">
                   Connect Now
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button variant="secondary" size="lg" onClick={scrollToProjects}>
+              <Button variant="secondary" size="lg" onClick={scrollToProjects} className="btn-lift">
                 View Our Work
               </Button>
             </div>
@@ -79,7 +97,7 @@ const Hero = () => {
           {/* Right Content - Service Cards */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-card border border-border rounded-xl p-6 aspect-square flex items-center justify-center hover:border-accent/50 transition-colors">
+              <div className="service-card-item bg-card border border-border rounded-xl p-6 aspect-square flex items-center justify-center card-hover hover:border-accent/50">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg mx-auto mb-3 flex items-center justify-center">
                     <div className="w-6 h-6 bg-accent rounded"></div>
@@ -87,19 +105,19 @@ const Hero = () => {
                   <p className="text-sm font-medium text-foreground">Web Design</p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-accent to-accent/60 rounded-xl p-6 aspect-square flex items-center justify-center">
+              <div className="service-card-item bg-gradient-to-br from-accent to-accent/60 rounded-xl p-6 aspect-square flex items-center justify-center card-hover">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-white/20 rounded-lg mx-auto mb-3"></div>
                   <p className="text-sm font-medium text-accent-foreground">CGI Ads</p>
                 </div>
               </div>
-              <div className="bg-secondary rounded-xl p-6 aspect-square flex items-center justify-center hover:bg-secondary/80 transition-colors">
+              <div className="service-card-item bg-secondary rounded-xl p-6 aspect-square flex items-center justify-center card-hover hover:bg-secondary/80">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-foreground/10 rounded-lg mx-auto mb-3"></div>
                   <p className="text-sm font-medium text-foreground">Influencer Marketing</p>
                 </div>
               </div>
-              <div className="bg-card border border-border rounded-xl p-6 aspect-square flex items-center justify-center hover:border-accent/50 transition-colors">
+              <div className="service-card-item bg-card border border-border rounded-xl p-6 aspect-square flex items-center justify-center card-hover hover:border-accent/50">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-muted rounded-lg mx-auto mb-3"></div>
                   <p className="text-sm font-medium text-foreground">Video Editing</p>
@@ -113,7 +131,7 @@ const Hero = () => {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <div className="w-6 h-10 border-2 border-muted-foreground/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-bounce"></div>
+          <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-subtle-bounce"></div>
         </div>
       </div>
     </section>

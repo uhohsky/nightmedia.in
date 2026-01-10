@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
@@ -8,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FeaturedProjects = () => {
   const [activeProject, setActiveProject] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const projects = [
     {
@@ -69,13 +69,53 @@ const FeaturedProjects = () => {
   ];
 
   useEffect(() => {
-    // Scroll-triggered animations
-    const projectsTimeline = gsap.timeline({
-      scrollTrigger: {
+    // Respect reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      // Header animation
+      gsap.fromTo('.projects-header',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.projects-section',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Individual project animations with stagger
+      projects.forEach((_, index) => {
+        gsap.fromTo(`.project-card-${index}`,
+          { 
+            opacity: 0, 
+            y: 50 
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: `.project-card-${index}`,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+      });
+
+      // Progress tracking
+      ScrollTrigger.create({
         trigger: '.projects-showcase',
         start: 'top center',
         end: 'bottom center',
-        scrub: 1,
         onUpdate: (self) => {
           const progress = self.progress;
           const newActiveProject = Math.min(
@@ -84,53 +124,27 @@ const FeaturedProjects = () => {
           );
           setActiveProject(newActiveProject);
         }
-      }
-    });
+      });
+    }, sectionRef);
 
-    // Individual project animations
-    projects.forEach((_, index) => {
-      gsap.fromTo(`.project-card-${index}`,
-        { 
-          opacity: 0, 
-          scale: 0.8,
-          y: 100 
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: `.project-card-${index}`,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    return () => ctx.revert();
   }, [projects.length]);
 
   return (
-    <section className="projects-section min-h-screen py-20 px-6 bg-black relative overflow-hidden">
+    <section ref={sectionRef} className="projects-section min-h-screen py-20 px-6 bg-background relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-white opacity-2 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-gray-500 opacity-3 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-foreground opacity-[0.02] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-muted-foreground opacity-[0.03] rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-7xl font-mono font-bold mb-8">
+        <div className="projects-header text-center mb-20">
+          <h2 className="text-5xl md:text-7xl font-display font-bold mb-8">
             <span className="gradient-text">SHOWCASE</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Discover our most impactful work — where creativity meets technology to create unforgettable digital experiences
           </p>
         </div>
@@ -145,21 +159,21 @@ const FeaturedProjects = () => {
               }`}
             >
               {/* Project Image */}
-              <div className={`relative group ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+              <div className={`relative group img-zoom ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                 <div className="aspect-[4/3] overflow-hidden rounded-2xl">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+                  <div className="absolute inset-0 bg-background/40 group-hover:bg-background/20 transition-colors duration-500"></div>
                 </div>
                 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Link
                     to={`/projects/${project.slug}`}
-                    className="glass px-8 py-4 rounded-full font-medium hover:bg-white hover:text-black transition-all magnetic"
+                    className="glass px-8 py-4 rounded-full font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 btn-lift"
                   >
                     View Project
                   </Link>
@@ -169,21 +183,21 @@ const FeaturedProjects = () => {
               {/* Project Info */}
               <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
                 <div>
-                  <span className="text-sm text-gray-500 font-medium tracking-widest uppercase">
+                  <span className="text-sm text-muted-foreground font-medium tracking-widest uppercase">
                     {project.category}
                   </span>
                 </div>
                 
                 <div>
-                  <h3 className="text-4xl lg:text-5xl font-mono font-bold mb-2">
+                  <h3 className="text-4xl lg:text-5xl font-display font-bold mb-2 text-foreground">
                     {project.title}
                   </h3>
-                  <h4 className="text-2xl lg:text-3xl font-mono font-light text-gray-400">
+                  <h4 className="text-2xl lg:text-3xl font-display font-light text-muted-foreground">
                     {project.subtitle}
                   </h4>
                 </div>
 
-                <p className="text-lg text-gray-400 leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   {project.description}
                 </p>
 
@@ -191,8 +205,8 @@ const FeaturedProjects = () => {
                 <div className="grid grid-cols-3 gap-6 pt-6">
                   {Object.entries(project.metrics).map(([key, value]) => (
                     <div key={key} className="text-center">
-                      <div className="text-2xl font-bold text-white">{value}</div>
-                      <div className="text-sm text-gray-500 uppercase tracking-wide">
+                      <div className="text-2xl font-bold text-foreground">{value}</div>
+                      <div className="text-sm text-muted-foreground uppercase tracking-wide">
                         {key.replace(/([A-Z])/g, ' $1').trim()}
                       </div>
                     </div>
@@ -201,11 +215,11 @@ const FeaturedProjects = () => {
 
                 <Link
                   to={`/projects/${project.slug}`}
-                  className="inline-flex items-center text-white hover:text-gray-300 transition-colors group mt-6"
+                  className="inline-flex items-center text-foreground hover:text-accent transition-colors duration-300 group mt-6 link-underline"
                 >
                   <span className="mr-2">Explore Case Study</span>
                   <svg 
-                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
+                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
@@ -222,7 +236,7 @@ const FeaturedProjects = () => {
         <div className="text-center mt-32">
           <Link
             to="/projects"
-            className="inline-block glass px-12 py-6 rounded-full text-xl font-medium hover:bg-white hover:text-black transition-all magnetic"
+            className="inline-block glass px-12 py-6 rounded-full text-xl font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 btn-lift"
           >
             View All Projects
           </Link>
