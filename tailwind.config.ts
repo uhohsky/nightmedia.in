@@ -19,10 +19,16 @@ export default {
 			}
 		},
 		extend: {
-      fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'monospace'],
-      },
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+				'display': ['Space Grotesk', 'sans-serif'],
+				'mono': ['JetBrains Mono', 'monospace'],
+			},
+			fontSize: {
+				'display-lg': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'display-md': ['3.5rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
+				'display-sm': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -56,6 +62,15 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				// Brand colors
+				brand: {
+					orange: 'hsl(var(--brand-orange))',
+					'orange-hover': 'hsl(var(--brand-orange-hover))',
+					navy: 'hsl(var(--brand-navy))',
+					'navy-light': 'hsl(var(--brand-navy-light))',
+					gray: 'hsl(var(--brand-gray))',
+					white: 'hsl(var(--brand-white))',
 				}
 			},
 			borderRadius: {
