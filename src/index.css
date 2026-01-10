@@ -1,34 +1,81 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* NightMedia Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global Design System */
+/* Global Design System - NightMedia Theme */
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 0 0% 15%;
+    /* Primary - Deep Navy/Near-Black (Premium Tech) */
+    --background: 230 25% 5%;
+    --foreground: 0 0% 98%;
+    
+    /* Cards & Surfaces */
+    --card: 230 20% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 230 20% 10%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Primary Button - White on Dark */
+    --primary: 0 0% 98%;
+    --primary-foreground: 230 25% 5%;
+    
+    /* Secondary - Subtle Dark */
+    --secondary: 230 15% 15%;
+    --secondary-foreground: 0 0% 98%;
+    
+    /* Muted - For Subtle Elements */
+    --muted: 230 15% 18%;
+    --muted-foreground: 230 10% 60%;
+    
+    /* Accent - Vibrant Orange (CTAs) */
+    --accent: 24 95% 55%;
     --accent-foreground: 0 0% 100%;
+    
+    /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 100%;
+    
+    /* Borders & Inputs */
+    --border: 230 15% 20%;
+    --input: 230 15% 15%;
+    --ring: 24 95% 55%;
+    
+    /* Radius */
     --radius: 0.5rem;
+    
+    /* Custom Brand Colors */
+    --brand-orange: 24 95% 55%;
+    --brand-orange-hover: 24 95% 48%;
+    --brand-navy: 230 25% 5%;
+    --brand-navy-light: 230 20% 12%;
+    --brand-gray: 230 10% 60%;
+    --brand-white: 0 0% 98%;
+  }
+  
+  /* Light mode support (optional) */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 230 25% 10%;
+    --card: 0 0% 98%;
+    --card-foreground: 230 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 10%;
+    --primary: 230 25% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 230 10% 95%;
+    --secondary-foreground: 230 25% 10%;
+    --muted: 230 10% 92%;
+    --muted-foreground: 230 10% 40%;
+    --accent: 24 95% 55%;
+    --accent-foreground: 0 0% 100%;
+    --border: 230 10% 88%;
+    --input: 230 10% 92%;
+    --ring: 24 95% 55%;
   }
 }
 
@@ -38,12 +85,51 @@
   }
   
   body {
-    @apply bg-black text-white font-inter;
+    @apply bg-background text-foreground font-inter antialiased;
     overflow-x: hidden;
   }
   
   html {
     scroll-behavior: smooth;
+  }
+  
+  /* Typography Hierarchy */
+  h1 {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight;
+  }
+  
+  h2 {
+    @apply font-display text-3xl md:text-4xl font-bold tracking-tight;
+  }
+  
+  h3 {
+    @apply font-display text-2xl md:text-3xl font-semibold;
+  }
+  
+  h4 {
+    @apply font-display text-xl md:text-2xl font-semibold;
+  }
+  
+  p {
+    @apply text-base leading-relaxed text-muted-foreground;
+  }
+  
+  /* Container */
+  .container-narrow {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .section-padding-sm {
+    @apply py-12 md:py-16 lg:py-20;
   }
 }
 
