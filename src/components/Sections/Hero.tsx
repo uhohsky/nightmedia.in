@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
+import nLogo from '@/assets/n-logo.jpg';
 
 const Hero = () => {
   const [text, setText] = useState('');
@@ -13,11 +14,15 @@ const Hero = () => {
     { title: 'CGI Ads', slug: 'cgi-ads', color: 'from-purple-500 to-indigo-600' },
     { title: 'Influencer Marketing', slug: 'influencer-marketing', color: 'from-pink-500 to-rose-500' },
     { title: 'Video Editing', slug: 'video-editing', color: 'from-orange-500 to-amber-500' },
+    { title: 'Performance Marketing', slug: 'performance-marketing', color: 'from-cyan-500 to-teal-500' },
+    { title: 'Digital Marketing', slug: 'digital-marketing', color: 'from-violet-500 to-purple-600' },
+    { title: 'SEO Optimization', slug: 'seo-optimization', color: 'from-emerald-500 to-green-600' },
+    { title: 'UI/UX Design', slug: 'ui-ux-design', color: 'from-red-500 to-pink-500' },
   ];
 
   const sliceAngle = 360 / services.length;
-  const radius = 140;
-  const centerSize = 45;
+  const radius = 160;
+  const centerSize = 55;
 
   useEffect(() => {
     gsap.fromTo('.hero-container', 
@@ -49,8 +54,8 @@ const Hero = () => {
     const endAngle = ((index + 1) * sliceAngle - 90) * (Math.PI / 180);
     const r = isHovered ? radius + 10 : radius;
     const innerR = centerSize;
-    const cx = 160;
-    const cy = 160;
+    const cx = 180;
+    const cy = 180;
 
     const x1 = cx + innerR * Math.cos(startAngle);
     const y1 = cy + innerR * Math.sin(startAngle);
@@ -66,10 +71,10 @@ const Hero = () => {
 
   const getTextPosition = (index: number) => {
     const midAngle = ((index + 0.5) * sliceAngle - 90) * (Math.PI / 180);
-    const textRadius = (radius + centerSize) / 2 + 15;
+    const textRadius = (radius + centerSize) / 2 + 20;
     return {
-      x: 160 + textRadius * Math.cos(midAngle),
-      y: 160 + textRadius * Math.sin(midAngle),
+      x: 180 + textRadius * Math.cos(midAngle),
+      y: 180 + textRadius * Math.sin(midAngle),
       rotation: (index + 0.5) * sliceAngle,
     };
   };
@@ -84,6 +89,13 @@ const Hero = () => {
       'to-rose-500': '#f43f5e',
       'from-orange-500': '#f97316',
       'to-amber-500': '#f59e0b',
+      'from-cyan-500': '#06b6d4',
+      'to-teal-500': '#14b8a6',
+      'from-violet-500': '#8b5cf6',
+      'to-purple-600': '#9333ea',
+      'from-emerald-500': '#10b981',
+      'to-green-600': '#16a34a',
+      'from-red-500': '#ef4444',
     };
 
     const parts = colorClass.split(' ');
@@ -135,9 +147,9 @@ const Hero = () => {
             {/* Desktop: Circular Wheel */}
             <div className="hidden md:block relative">
               <svg
-                width="320"
-                height="320"
-                viewBox="0 0 320 320"
+                width="360"
+                height="360"
+                viewBox="0 0 360 360"
                 className="transform transition-transform duration-500"
               >
                 <defs>
@@ -154,11 +166,9 @@ const Hero = () => {
                       <stop offset="100%" style={{ stopColor: getGradientColor(service.color, 'to') }} />
                     </linearGradient>
                   ))}
-                  <linearGradient id="hero-center-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#3b82f6" />
-                    <stop offset="50%" stopColor="#8b5cf6" />
-                    <stop offset="100%" stopColor="#ec4899" />
-                  </linearGradient>
+                  <clipPath id="centerClip">
+                    <circle cx="180" cy="180" r={centerSize} />
+                  </clipPath>
                 </defs>
 
                 {/* Pie Slices */}
@@ -182,7 +192,7 @@ const Hero = () => {
                         onMouseLeave={() => setHoveredIndex(null)}
                         style={{
                           transform: isHovered ? 'scale(1.03)' : 'scale(1)',
-                          transformOrigin: '160px 160px',
+                          transformOrigin: '180px 180px',
                         }}
                       />
                     </Link>
@@ -212,9 +222,9 @@ const Hero = () => {
                       }`}
                       style={{
                         fill: 'white',
-                        fontSize: isHovered ? '11px' : '9px',
+                        fontSize: isHovered ? '10px' : '8px',
                         fontWeight: isHovered ? '700' : '500',
-                        textShadow: '0 2px 4px rgba(0,0,0,0.4)',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.5)',
                         transform: `rotate(${textRotation}deg)`,
                         transformOrigin: `${pos.x}px ${pos.y}px`,
                       }}
@@ -224,35 +234,23 @@ const Hero = () => {
                   );
                 })}
 
-                {/* Center Circle with "N" */}
+                {/* Center Circle with N Logo Image */}
                 <circle
-                  cx="160"
-                  cy="160"
-                  r={centerSize}
+                  cx="180"
+                  cy="180"
+                  r={centerSize + 3}
                   fill="white"
                   className="drop-shadow-lg"
                 />
-                <circle
-                  cx="160"
-                  cy="160"
-                  r={centerSize - 3}
-                  fill="none"
-                  stroke="url(#hero-center-gradient)"
-                  strokeWidth="2"
+                <image
+                  href={nLogo}
+                  x={180 - centerSize}
+                  y={180 - centerSize}
+                  width={centerSize * 2}
+                  height={centerSize * 2}
+                  clipPath="url(#centerClip)"
+                  preserveAspectRatio="xMidYMid slice"
                 />
-                <text
-                  x="160"
-                  y="165"
-                  textAnchor="middle"
-                  className="font-bold"
-                  style={{
-                    fill: 'url(#hero-center-gradient)',
-                    fontSize: '36px',
-                    fontFamily: 'serif',
-                  }}
-                >
-                  N
-                </text>
               </svg>
 
               {/* Hover Info Display */}
