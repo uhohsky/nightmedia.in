@@ -41,7 +41,7 @@ const serviceCategories = [
 const socialLinks = [
   { name: 'LinkedIn', url: 'https://linkedin.com' },
   { name: 'Facebook', url: 'https://facebook.com' },
-  { name: 'Instagram', url: 'https://instagram.com' },
+  { name: 'Instagram', url: 'https://instagram.com/_nightmedia.in' },
   { name: 'Twitter', url: 'https://twitter.com' },
   { name: 'WhatsApp', url: 'https://wa.me/919899051544' },
   { name: 'YouTube', url: 'https://youtube.com' }
