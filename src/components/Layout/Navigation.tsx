@@ -42,9 +42,9 @@ const socialLinks = [
   { name: 'LinkedIn', url: 'https://linkedin.com' },
   { name: 'Facebook', url: 'https://facebook.com' },
   { name: 'Instagram', url: 'https://www.instagram.com/_nightmedia.in' },
-  { name: 'Twitter', url: 'https://twitter.com' },
-  { name: 'WhatsApp', url: 'https://wa.me/919899051544' },
-  { name: 'YouTube', url: 'https://youtube.com' }
+  { name: 'Twitter', url: 'https://x.com/Nightmediaindia' },
+  { name: 'WhatsApp', url: 'https://wa.me/919899505154' },
+  { name: 'YouTube', url: 'https://www.youtube.com/@NightMediaindia' }
 ];
 
 const Navigation = () => {
@@ -91,14 +91,15 @@ const Navigation = () => {
                   onMouseEnter={() => setShowMegaMenu(true)}
                   onMouseLeave={() => setShowMegaMenu(false)}
                 >
-                  <button
+                  <Link
+                    to={item.path}
                     className={`text-sm font-medium transition-colors hover:text-gray-300 magnetic flex items-center gap-1 ${
                       location.pathname.startsWith('/services') ? 'text-white' : 'text-gray-400'
                     }`}
                   >
                     {item.name}
                     <ChevronDown size={14} className={`transition-transform duration-200 ${showMegaMenu ? 'rotate-180' : ''}`} />
-                  </button>
+                  </Link>
                 </div>
               ) : (
                 <Link

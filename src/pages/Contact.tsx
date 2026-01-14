@@ -1,8 +1,16 @@
 
 import React, { useState } from 'react';
 import { toast } from 'sonner';
-import { Mail, Phone, MapPin, Send, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ArrowRight, Facebook, Instagram, MessageCircle, Youtube } from 'lucide-react';
 import PageHeader from '../components/Layout/PageHeader';
+
+const socialMediaLinks = [
+  { name: 'Facebook', emoji: '📘', icon: Facebook, url: 'https://facebook.com' },
+  { name: 'Instagram', emoji: '📸', icon: Instagram, url: 'https://www.instagram.com/_nightmedia.in/' },
+  { name: 'X (Twitter)', emoji: '❌', icon: null, url: 'https://x.com/Nightmediaindia' },
+  { name: 'WhatsApp', emoji: '💬', icon: MessageCircle, url: 'https://wa.me/919899505154' },
+  { name: 'YouTube', emoji: '▶️', icon: Youtube, url: 'https://www.youtube.com/@NightMediaindia' }
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -210,6 +218,25 @@ const Contact = () => {
                 </div>
               );
             })}
+
+            {/* Social Media Section */}
+            <div className="bg-white rounded-3xl p-6 shadow-xl border border-gray-100">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Follow Us</h3>
+              <div className="space-y-3">
+                {socialMediaLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 text-gray-700 hover:text-gray-900 transition-colors group"
+                  >
+                    <span className="text-xl">{social.emoji}</span>
+                    <span className="font-medium group-hover:underline">{social.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
 
             {/* CTA Card */}
             <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-6 text-white">
