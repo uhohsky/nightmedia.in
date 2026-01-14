@@ -14,7 +14,7 @@ const Footer = () => {
               Creating cinematic digital experiences that push the boundaries of creativity and technology.
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com/_nightmedia.in" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors magnetic">
+              <a href="https://www.instagram.com/_nightmedia.in" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors magnetic">
                 <Instagram size={20} />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors magnetic">
