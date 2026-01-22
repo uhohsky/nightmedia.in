@@ -7,7 +7,7 @@ import CallToAction from '../components/Sections/CallToAction';
 
 const Index = () => {
   return (
-    <div className="pt-16">
+    <div className="pt-16 bg-white">
       <Hero />
       <ServicesPreview />
       <FeaturedProjects />
