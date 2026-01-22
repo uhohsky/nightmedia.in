@@ -15,7 +15,7 @@ const FeaturedProjects = () => {
       subtitle: 'CAMPAIGN',
       category: 'Influencer Marketing',
       description: 'A high-end fashion campaign featuring top-tier influencers across multiple platforms, achieving unprecedented engagement rates and brand visibility.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop&q=80',
       metrics: {
         reach: '2M+',
         engagement: '15%',
@@ -29,7 +29,7 @@ const FeaturedProjects = () => {
       subtitle: 'WEBGL EXPERIENCE',
       category: 'Web Design',
       description: 'An immersive 3D web experience showcasing cutting-edge technology through interactive WebGL animations and smooth scroll narratives.',
-      image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&h=800&fit=crop',
+      image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=800&fit=crop&q=80',
       metrics: {
         visitors: '500K+',
         timeOnSite: '4.5min',
@@ -43,7 +43,7 @@ const FeaturedProjects = () => {
       subtitle: 'CGI REVOLUTION',
       category: 'CGI Ads',
       description: 'Photorealistic 3D product visualization that revolutionized brand marketing with cinematic quality renders and dynamic animations.',
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=800&fit=crop',
+      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop&q=80',
       metrics: {
         views: '5M+',
         shares: '25K',
@@ -57,7 +57,7 @@ const FeaturedProjects = () => {
       subtitle: 'CINEMATIC EDIT',
       category: 'Video Editing',
       description: 'Award-winning brand documentary that combines storytelling with cinematic production values to create emotional connections.',
-      image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&h=800&fit=crop',
+      image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop&q=80',
       metrics: {
         awards: '3',
         views: '1.2M',
@@ -69,7 +69,7 @@ const FeaturedProjects = () => {
 
   useEffect(() => {
     gsap.fromTo('.projects-header',
-      { opacity: 0, y: 40 },
+      { opacity: 0, y: 50 },
       {
         opacity: 1,
         y: 0,
@@ -77,7 +77,7 @@ const FeaturedProjects = () => {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.projects-section',
-          start: 'top 80%',
+          start: 'top 75%',
         }
       }
     );
@@ -104,64 +104,66 @@ const FeaturedProjects = () => {
   }, [projects.length]);
 
   return (
-    <section className="projects-section py-32 lg:py-40 px-6 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
+    <section className="projects-section py-28 lg:py-40 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="projects-header text-center mb-20">
-          <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">Showcase</p>
+        <div className="projects-header text-center mb-16 lg:mb-24">
+          <p className="text-xs text-gray-400 uppercase tracking-[0.2em] mb-4 font-medium">Showcase</p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-gray-900 tracking-tight mb-6">
             Our Work
           </h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Discover our most impactful work — where creativity meets technology to create unforgettable digital experiences.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="projects-showcase space-y-24 lg:space-y-32">
+        <div className="projects-showcase space-y-20 lg:space-y-32">
           {projects.map((project, index) => (
             <div 
               key={project.id}
-              className={`project-card-${index} grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
-                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-              }`}
+              className={`project-card-${index} grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center`}
             >
               {/* Project Image */}
-              <div className={`relative group ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-200">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
+              <div className={`lg:col-span-7 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <Link 
+                  to={`/projects/${project.slug}`}
+                  className="block relative group"
+                >
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl lg:rounded-3xl bg-gray-100">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 rounded-2xl lg:rounded-3xl" />
+                </Link>
               </div>
 
               {/* Project Info */}
-              <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                <span className="text-sm text-gray-400 font-medium tracking-widest uppercase">
+              <div className={`lg:col-span-5 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <span className="text-xs text-gray-400 font-medium tracking-[0.15em] uppercase">
                   {project.category}
                 </span>
                 
-                <div>
-                  <h3 className="text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight mb-2">
-                    {project.title}
-                  </h3>
-                  <h4 className="text-xl lg:text-2xl font-normal text-gray-400">
-                    {project.subtitle}
-                  </h4>
-                </div>
+                <h3 className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-gray-900 tracking-tight mt-4 mb-2">
+                  {project.title}
+                </h3>
+                <h4 className="text-xl lg:text-2xl font-normal text-gray-400 mb-6">
+                  {project.subtitle}
+                </h4>
 
-                <p className="text-lg text-gray-500 leading-relaxed">
+                <p className="text-base lg:text-lg text-gray-500 leading-relaxed mb-8">
                   {project.description}
                 </p>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-6 py-6 border-t border-gray-200">
+                <div className="grid grid-cols-3 gap-6 py-6 border-t border-gray-100 mb-8">
                   {Object.entries(project.metrics).map(([key, value]) => (
                     <div key={key}>
-                      <div className="text-2xl font-semibold text-gray-900">{value}</div>
-                      <div className="text-sm text-gray-400 capitalize">
+                      <div className="text-xl lg:text-2xl font-semibold text-gray-900">{value}</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wide mt-1">
                         {key.replace(/([A-Z])/g, ' $1').trim()}
                       </div>
                     </div>
@@ -172,7 +174,7 @@ const FeaturedProjects = () => {
                   to={`/projects/${project.slug}`}
                   className="inline-flex items-center gap-2 text-gray-900 font-medium hover:text-gray-600 transition-colors duration-300 group"
                 >
-                  Explore Case Study
+                  View Case Study
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
@@ -181,10 +183,10 @@ const FeaturedProjects = () => {
         </div>
 
         {/* View All Projects CTA */}
-        <div className="text-center mt-24">
+        <div className="text-center mt-20 lg:mt-28">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-3 bg-gray-900 text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-[1.02]"
+            className="inline-flex items-center gap-3 bg-gray-900 text-white px-10 py-5 rounded-full text-base font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-gray-900/20"
           >
             View All Projects
             <ArrowRight className="w-5 h-5" />
