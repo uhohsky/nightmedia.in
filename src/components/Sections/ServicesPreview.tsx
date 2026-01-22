@@ -1,7 +1,11 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ServicesPreview = () => {
   const services = [
@@ -27,46 +31,80 @@ const ServicesPreview = () => {
     },
   ];
 
+  useEffect(() => {
+    gsap.fromTo('.service-header',
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.services-section',
+          start: 'top 80%',
+        }
+      }
+    );
+
+    gsap.fromTo('.service-card',
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.services-grid',
+          start: 'top 80%',
+        }
+      }
+    );
+  }, []);
+
   return (
-    <section className="services-section py-20 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-light text-black mb-8 tracking-tight">
+    <section className="services-section py-32 lg:py-40 px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="service-header text-center mb-20">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-gray-900 tracking-tight mb-6">
             What We Do Best
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            We specialize in creating digital experiences that push boundaries and drive results
+          <p className="text-xl text-gray-500 max-w-xl mx-auto leading-relaxed">
+            We specialize in creating digital experiences that push boundaries and drive results.
           </p>
-          <div className="w-24 h-px bg-cyan-400 mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {/* Services Grid */}
+        <div className="services-grid grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-16">
           {services.map((service, index) => (
             <Link
               key={service.slug}
               to={`/services/${service.slug}`}
-              className="group p-8 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300"
+              className="service-card group p-8 lg:p-10 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-500"
             >
-              <div className="flex justify-between items-start mb-4">
+              <div className="flex justify-between items-start mb-6">
                 <span className="text-sm text-gray-400 font-mono">0{index + 1}</span>
-                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-black group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-gray-900 group-hover:translate-x-1 transition-all duration-300" />
               </div>
-              <h3 className="text-2xl font-semibold text-black mb-3 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-2xl lg:text-3xl font-semibold text-gray-900 mb-4 tracking-tight group-hover:text-gray-700 transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-500 leading-relaxed text-lg">
                 {service.description}
               </p>
             </Link>
           ))}
         </div>
 
+        {/* CTA */}
         <div className="text-center">
           <Link
             to="/services"
-            className="inline-block bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-all"
+            className="inline-flex items-center gap-2 text-gray-900 text-lg font-medium hover:text-gray-600 transition-colors duration-300 group"
           >
             Explore All Services
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>
       </div>

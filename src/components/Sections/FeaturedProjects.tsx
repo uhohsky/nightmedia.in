@@ -1,14 +1,13 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FeaturedProjects = () => {
-  const [activeProject, setActiveProject] = useState(0);
-
   const projects = [
     {
       id: 1,
@@ -69,43 +68,31 @@ const FeaturedProjects = () => {
   ];
 
   useEffect(() => {
-    // Scroll-triggered animations
-    const projectsTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.projects-showcase',
-        start: 'top center',
-        end: 'bottom center',
-        scrub: 1,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          const newActiveProject = Math.min(
-            Math.floor(progress * projects.length),
-            projects.length - 1
-          );
-          setActiveProject(newActiveProject);
+    gsap.fromTo('.projects-header',
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.projects-section',
+          start: 'top 80%',
         }
       }
-    });
+    );
 
-    // Individual project animations
     projects.forEach((_, index) => {
       gsap.fromTo(`.project-card-${index}`,
-        { 
-          opacity: 0, 
-          scale: 0.8,
-          y: 100 
-        },
+        { opacity: 0, y: 60 },
         {
           opacity: 1,
-          scale: 1,
           y: 0,
-          duration: 1.2,
-          ease: "power3.out",
+          duration: 1,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: `.project-card-${index}`,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
+            start: 'top 85%',
           }
         }
       );
@@ -117,82 +104,64 @@ const FeaturedProjects = () => {
   }, [projects.length]);
 
   return (
-    <section className="projects-section min-h-screen py-20 px-6 bg-black relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-white opacity-2 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-gray-500 opacity-3 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section className="projects-section py-32 lg:py-40 px-6 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-7xl font-mono font-bold mb-8">
-            <span className="gradient-text">SHOWCASE</span>
+        <div className="projects-header text-center mb-20">
+          <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">Showcase</p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-gray-900 tracking-tight mb-6">
+            Our Work
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Discover our most impactful work — where creativity meets technology to create unforgettable digital experiences
+          <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            Discover our most impactful work — where creativity meets technology to create unforgettable digital experiences.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="projects-showcase space-y-32">
+        <div className="projects-showcase space-y-24 lg:space-y-32">
           {projects.map((project, index) => (
             <div 
               key={project.id}
-              className={`project-card-${index} grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+              className={`project-card-${index} grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
                 index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
               }`}
             >
               {/* Project Image */}
               <div className={`relative group ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+                <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gray-200">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
-                </div>
-                
-                {/* Hover overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <Link
-                    to={`/projects/${project.slug}`}
-                    className="glass px-8 py-4 rounded-full font-medium hover:bg-white hover:text-black transition-all magnetic"
-                  >
-                    View Project
-                  </Link>
                 </div>
               </div>
 
               {/* Project Info */}
               <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                <div>
-                  <span className="text-sm text-gray-500 font-medium tracking-widest uppercase">
-                    {project.category}
-                  </span>
-                </div>
+                <span className="text-sm text-gray-400 font-medium tracking-widest uppercase">
+                  {project.category}
+                </span>
                 
                 <div>
-                  <h3 className="text-4xl lg:text-5xl font-mono font-bold mb-2">
+                  <h3 className="text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight mb-2">
                     {project.title}
                   </h3>
-                  <h4 className="text-2xl lg:text-3xl font-mono font-light text-gray-400">
+                  <h4 className="text-xl lg:text-2xl font-normal text-gray-400">
                     {project.subtitle}
                   </h4>
                 </div>
 
-                <p className="text-lg text-gray-400 leading-relaxed">
+                <p className="text-lg text-gray-500 leading-relaxed">
                   {project.description}
                 </p>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-6 pt-6">
+                <div className="grid grid-cols-3 gap-6 py-6 border-t border-gray-200">
                   {Object.entries(project.metrics).map(([key, value]) => (
-                    <div key={key} className="text-center">
-                      <div className="text-2xl font-bold text-white">{value}</div>
-                      <div className="text-sm text-gray-500 uppercase tracking-wide">
+                    <div key={key}>
+                      <div className="text-2xl font-semibold text-gray-900">{value}</div>
+                      <div className="text-sm text-gray-400 capitalize">
                         {key.replace(/([A-Z])/g, ' $1').trim()}
                       </div>
                     </div>
@@ -201,17 +170,10 @@ const FeaturedProjects = () => {
 
                 <Link
                   to={`/projects/${project.slug}`}
-                  className="inline-flex items-center text-white hover:text-gray-300 transition-colors group mt-6"
+                  className="inline-flex items-center gap-2 text-gray-900 font-medium hover:text-gray-600 transition-colors duration-300 group"
                 >
-                  <span className="mr-2">Explore Case Study</span>
-                  <svg 
-                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  Explore Case Study
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             </div>
@@ -219,12 +181,13 @@ const FeaturedProjects = () => {
         </div>
 
         {/* View All Projects CTA */}
-        <div className="text-center mt-32">
+        <div className="text-center mt-24">
           <Link
             to="/projects"
-            className="inline-block glass px-12 py-6 rounded-full text-xl font-medium hover:bg-white hover:text-black transition-all magnetic"
+            className="inline-flex items-center gap-3 bg-gray-900 text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-[1.02]"
           >
             View All Projects
+            <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </div>
