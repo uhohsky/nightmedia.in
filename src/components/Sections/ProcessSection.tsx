@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Search, Map, Code, TestTube, Rocket } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,20 +27,7 @@ const ProcessSection = () => {
         opacity: 1,
         y: 0,
         duration: 0.6,
-        stagger: 0.12,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.process-grid',
-          start: 'top 85%',
-        }
-      }
-    );
-
-    gsap.fromTo('.process-line',
-      { scaleX: 0 },
-      {
-        scaleX: 1,
-        duration: 1.2,
+        stagger: 0.15,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.process-grid',
@@ -49,74 +35,92 @@ const ProcessSection = () => {
         }
       }
     );
+
+    // Animate the connecting line
+    gsap.fromTo('.process-line',
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        duration: 1.5,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.process-grid',
+          start: 'top 75%',
+        }
+      }
+    );
   }, []);
 
   const steps = [
     {
-      icon: Search,
       number: '01',
       title: 'Strategy & Research',
-      description: 'We analyze your business, competitors, and target audience to build a winning strategy.',
+      description: 'Deep dive into your business, audience, and goals to craft the perfect approach.',
     },
     {
-      icon: Map,
       number: '02',
-      title: 'UX & Funnel Mapping',
-      description: 'Map user journeys and conversion paths that guide visitors to take action.',
+      title: 'Funnel Mapping',
+      description: 'Map out the complete user journey from first touch to conversion.',
     },
     {
-      icon: Code,
       number: '03',
       title: 'Design & Development',
-      description: 'Craft pixel-perfect designs and develop lightning-fast, responsive websites.',
+      description: 'Build your high-converting website with pixel-perfect precision.',
     },
     {
-      icon: TestTube,
       number: '04',
-      title: 'Optimization & Testing',
-      description: 'Test, refine, and optimize every element for maximum conversion.',
+      title: 'Optimization',
+      description: 'Continuous testing and refinement to maximize performance.',
     },
     {
-      icon: Rocket,
       number: '05',
       title: 'Launch & Scale',
-      description: 'Deploy your site and implement growth systems to scale your success.',
+      description: 'Go live and implement systems for sustainable growth.',
     },
   ];
 
   return (
-    <section className="process-section py-24 lg:py-32 px-6 bg-card/50">
-      <div className="max-w-7xl mx-auto">
+    <section className="process-section py-32 lg:py-40 px-6 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/50 to-transparent" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="process-header text-center mb-16 lg:mb-20">
-          <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] mb-4 font-medium">Our Process</p>
+        <div className="process-header text-center mb-20">
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-4 font-medium">Our Process</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-6">
-            Our 5-Step Growth Process
+            Our Growth Framework
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A proven methodology that delivers measurable results.
+            A proven 5-step process to transform your digital presence.
           </p>
         </div>
 
         {/* Process Steps */}
         <div className="process-grid relative">
-          {/* Connection Line */}
-          <div className="process-line hidden lg:block absolute top-16 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-border to-transparent origin-left" />
+          {/* Connecting line - Desktop only */}
+          <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[2px]">
+            <div className="process-line h-full bg-gradient-to-r from-transparent via-primary/30 to-transparent origin-left" />
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
             {steps.map((step, index) => (
-              <div key={index} className="process-step relative text-center lg:text-left">
-                {/* Number & Icon */}
-                <div className="relative inline-flex flex-col items-center lg:items-start mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center mb-3 relative z-10">
-                    <step.icon className="w-7 h-7 text-foreground" />
+              <div key={index} className="process-step text-center relative">
+                {/* Step number */}
+                <div className="relative inline-flex items-center justify-center mb-6">
+                  <div className="w-24 h-24 rounded-full glass-card flex items-center justify-center relative z-10">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                      {step.number}
+                    </span>
                   </div>
-                  <span className="text-xs font-mono text-muted-foreground tracking-wider">{step.number}</span>
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 w-24 h-24 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                {/* Content */}
                 <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed max-w-[200px] mx-auto">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>

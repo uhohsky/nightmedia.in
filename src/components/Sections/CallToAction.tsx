@@ -25,39 +25,49 @@ const CallToAction = () => {
   }, []);
 
   return (
-    <section className="cta-section py-24 lg:py-32 px-6 bg-card/50 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="cta-content relative rounded-3xl bg-gradient-to-br from-secondary via-card to-secondary p-12 lg:p-20 text-center border border-border overflow-hidden">
-          {/* Background elements */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-bl from-primary/5 via-transparent to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gradient-to-tr from-primary/3 via-transparent to-transparent rounded-full blur-3xl" />
+    <section className="cta-section py-32 lg:py-40 px-6 relative overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] rounded-full bg-gradient-to-r from-primary/20 via-accent/15 to-primary/10 blur-[120px] animate-pulse" />
+      </div>
+
+      <div className="max-w-5xl mx-auto relative z-10">
+        <div className="cta-content glass-card rounded-[2.5rem] p-12 lg:p-20 text-center relative overflow-hidden">
+          {/* Inner glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-gradient-to-b from-primary/10 to-transparent blur-3xl" />
+
+          {/* Grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] rounded-[2.5rem]" />
 
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground tracking-tight mb-6 leading-[1.1]">
               Let's Build a Website That
               <br />
-              <span className="text-muted-foreground">Actually Grows Your Business</span>
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                Grows Your Business
+              </span>
             </h2>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Book a free strategy session to audit your current website or discuss your project.
+            <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+              Book a free strategy session to audit your current website or discuss your next project.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 rounded-full text-base font-semibold hover:bg-foreground/90 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-foreground/10"
+                className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-full text-base font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02]"
               >
-                <Calendar className="w-5 h-5" />
-                Book Free Strategy Call
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
+                <Calendar className="relative z-10 w-5 h-5 text-primary-foreground" />
+                <span className="relative z-10 text-primary-foreground">Book Free Strategy Call</span>
+                <ArrowRight className="relative z-10 w-5 h-5 text-primary-foreground group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/services"
-                className="text-foreground px-8 py-4 rounded-full text-base font-medium border border-border hover:bg-card transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-8 py-5 rounded-full text-base font-medium glass glow-border transition-all duration-300"
               >
-                Explore Our Services
+                <span className="text-foreground">Explore Our Services</span>
               </Link>
             </div>
           </div>

@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Target, Zap, Smartphone, Lightbulb, TrendingUp } from 'lucide-react';
+import { Target, Zap, User, TrendingUp, Server } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,37 +41,40 @@ const TrustSection = () => {
   const trustPoints = [
     {
       icon: Target,
-      title: 'Conversion-Driven Design',
-      description: 'Every pixel is designed with one goal: turning visitors into customers.',
+      title: 'Conversion-Driven Strategy',
+      description: 'Every design decision backed by data and focused on turning visitors into customers.',
     },
     {
       icon: Zap,
-      title: 'Performance-Focused Development',
-      description: 'Lightning-fast websites that score 90+ on Core Web Vitals.',
+      title: 'Performance-First Development',
+      description: 'Lightning-fast websites that score 95+ on Core Web Vitals.',
     },
     {
-      icon: Smartphone,
-      title: 'Mobile-First Approach',
-      description: 'Responsive designs that convert beautifully on every device.',
-    },
-    {
-      icon: Lightbulb,
-      title: 'Strategy-Led Execution',
-      description: 'Data-informed decisions, not guesswork.',
+      icon: User,
+      title: 'Founder-Led Execution',
+      description: 'Direct access to senior talent, not junior handoffs.',
     },
     {
       icon: TrendingUp,
-      title: 'Built for Lead Generation',
-      description: 'Optimized funnels that capture and convert qualified leads.',
+      title: 'Growth-Focused Systems',
+      description: 'Built-in optimization loops for continuous improvement.',
+    },
+    {
+      icon: Server,
+      title: 'Scalable Infrastructure',
+      description: 'Architecture designed to grow with your business.',
     },
   ];
 
   return (
-    <section className="trust-section py-24 lg:py-32 px-6 bg-card/50">
-      <div className="max-w-7xl mx-auto">
+    <section className="trust-section py-32 lg:py-40 px-6 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/50 to-transparent" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="trust-header text-center mb-16 lg:mb-20">
-          <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] mb-4 font-medium">Why Choose Us</p>
+        <div className="trust-header text-center mb-20">
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-4 font-medium">Why Choose Us</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-6">
             Why Businesses Choose Night Media
           </h2>
@@ -85,10 +88,10 @@ const TrustSection = () => {
           {trustPoints.map((point, index) => (
             <div
               key={index}
-              className="trust-item group p-6 rounded-2xl bg-card border border-border hover:border-muted transition-all duration-300"
+              className="trust-item group glass-card glow-border rounded-2xl p-6"
             >
-              <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-4 group-hover:bg-muted transition-colors">
-                <point.icon className="w-6 h-6 text-foreground" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-5 group-hover:from-primary/30 group-hover:to-accent/20 transition-all duration-300">
+                <point.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">{point.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{point.description}</p>

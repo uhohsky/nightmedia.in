@@ -1,37 +1,13 @@
 
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Layout, Layers, BarChart3 } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight, Globe, Layers, BarChart3 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ServicesPreview = () => {
-  const services = [
-    {
-      icon: Layout,
-      title: 'High-Converting Website Design',
-      description: 'UX, UI, responsive design, and brand positioning that drives action.',
-      features: ['User Experience Design', 'Conversion-Optimized UI', 'Brand Positioning', 'Mobile-First Design'],
-      slug: 'web-design',
-    },
-    {
-      icon: Layers,
-      title: 'Funnel & Landing Page Development',
-      description: 'Lead generation, sales funnels, and conversion flows that capture customers.',
-      features: ['Landing Pages', 'Lead Capture Funnels', 'Sales Sequences', 'A/B Testing Ready'],
-      slug: 'performance-marketing',
-    },
-    {
-      icon: BarChart3,
-      title: 'Growth & Performance Systems',
-      description: 'Tracking, optimization, automation & CRO that scales your business.',
-      features: ['Analytics Setup', 'Conversion Tracking', 'Marketing Automation', 'Performance Optimization'],
-      slug: 'digital-marketing',
-    },
-  ];
-
   useEffect(() => {
     gsap.fromTo('.services-header',
       { opacity: 0, y: 40 },
@@ -42,7 +18,7 @@ const ServicesPreview = () => {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.services-section',
-          start: 'top 75%',
+          start: 'top 80%',
         }
       }
     );
@@ -63,55 +39,85 @@ const ServicesPreview = () => {
     );
   }, []);
 
+  const services = [
+    {
+      icon: Globe,
+      title: 'Conversion Website Systems',
+      description: 'High-converting websites engineered to capture leads and drive revenue.',
+      features: ['Custom UX/UI Design', 'Responsive Development', 'Performance Optimization', 'Analytics Integration'],
+      href: '/services/web-design',
+      gradient: 'from-primary/20 to-primary/5',
+    },
+    {
+      icon: Layers,
+      title: 'Sales Funnels & Landing Pages',
+      description: 'Strategic funnels designed to guide visitors through your conversion journey.',
+      features: ['Landing Page Design', 'Lead Capture Systems', 'A/B Testing Setup', 'Conversion Tracking'],
+      href: '/services/performance-marketing',
+      gradient: 'from-accent/20 to-accent/5',
+    },
+    {
+      icon: BarChart3,
+      title: 'Growth Infrastructure Setup',
+      description: 'Complete growth stack to scale your digital presence systematically.',
+      features: ['CRM Integration', 'Marketing Automation', 'Analytics Dashboards', 'Scalable Architecture'],
+      href: '/services/digital-marketing',
+      gradient: 'from-primary/15 via-accent/10 to-primary/5',
+    },
+  ];
+
   return (
-    <section className="services-section py-24 lg:py-32 px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section className="services-section py-32 lg:py-40 px-6 relative overflow-hidden">
+      {/* Gradient orb */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-primary/5 via-transparent to-accent/5 blur-[100px]" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="services-header text-center mb-16 lg:mb-20">
-          <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] mb-4 font-medium">What We Do</p>
+        <div className="services-header text-center mb-20">
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-4 font-medium">Our Services</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-6">
-            Our Core Services
+            What We Do Best
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Focused solutions designed to grow your business online.
+            Focused expertise in building conversion-driven digital experiences.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="services-grid grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="services-grid grid grid-cols-1 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Link
-              key={service.slug}
-              to={`/services/${service.slug}`}
-              className="service-card group relative p-8 rounded-2xl bg-card border border-border hover:border-muted transition-all duration-500 flex flex-col"
+              key={index}
+              to={service.href}
+              className="service-card group glass-card glow-border rounded-3xl p-8 relative overflow-hidden"
             >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 group-hover:bg-muted transition-colors">
-                <service.icon className="w-7 h-7 text-foreground" />
-              </div>
+              {/* Card gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              
+              <div className="relative z-10">
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="w-7 h-7 text-primary" />
+                </div>
 
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-foreground mb-3 tracking-tight group-hover:text-muted-foreground transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
-                {service.description}
-              </p>
+                {/* Content */}
+                <h3 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
+                  {service.title}
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                </h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {service.description}
+                </p>
 
-              {/* Features */}
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-foreground/50" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Arrow */}
-              <div className="flex items-center gap-2 text-foreground font-medium">
-                <span className="text-sm">Learn More</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                {/* Features */}
+                <ul className="space-y-2">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Link>
           ))}
