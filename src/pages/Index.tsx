@@ -9,7 +9,10 @@ import CallToAction from '../components/Sections/CallToAction';
 
 const Index = () => {
   return (
-    <div className="pt-16 bg-background">
+    <div className="pt-16 bg-background relative">
+      {/* Noise overlay */}
+      <div className="noise-overlay" />
+      
       <Hero />
       <TrustSection />
       <ServicesPreview />

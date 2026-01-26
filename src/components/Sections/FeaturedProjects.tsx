@@ -3,13 +3,13 @@ import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TrendingUp, Zap, Users } from 'lucide-react';
+import { ArrowUpRight, TrendingUp, Clock, Users } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FeaturedProjects = () => {
   useEffect(() => {
-    gsap.fromTo('.proof-header',
+    gsap.fromTo('.projects-header',
       { opacity: 0, y: 40 },
       {
         opacity: 1,
@@ -17,23 +17,23 @@ const FeaturedProjects = () => {
         duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: '.proof-section',
+          trigger: '.projects-section',
           start: 'top 80%',
         }
       }
     );
 
-    gsap.fromTo('.proof-card',
-      { opacity: 0, y: 40 },
+    gsap.fromTo('.project-card',
+      { opacity: 0, y: 50 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.7,
+        duration: 0.8,
         stagger: 0.2,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: '.proof-grid',
-          start: 'top 85%',
+          trigger: '.projects-grid',
+          start: 'top 80%',
         }
       }
     );
@@ -41,43 +41,47 @@ const FeaturedProjects = () => {
 
   const projects = [
     {
-      title: 'E-commerce Redesign',
-      category: 'Website + Funnel',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=80',
-      metrics: [
-        { icon: TrendingUp, value: '+156%', label: 'Conversion Rate' },
-        { icon: Zap, value: '0.8s', label: 'Load Time' },
-      ],
+      title: 'E-Commerce Platform',
+      category: 'Conversion Website',
       slug: 'luxe-fashion',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+      metrics: [
+        { icon: TrendingUp, label: 'Conversion Rate', value: '+156%' },
+        { icon: Clock, label: 'Load Time', value: '1.2s' },
+      ],
     },
     {
       title: 'SaaS Landing Page',
-      category: 'Lead Generation',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80',
-      metrics: [
-        { icon: Users, value: '3x', label: 'More Leads' },
-        { icon: TrendingUp, value: '+89%', label: 'Sign-up Rate' },
-      ],
+      category: 'Sales Funnel',
       slug: 'techcorp',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+      metrics: [
+        { icon: Users, label: 'Lead Capture', value: '+340%' },
+        { icon: TrendingUp, label: 'Sign-ups', value: '+89%' },
+      ],
     },
     {
-      title: 'Service Business Website',
-      category: 'Brand + Website',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop&q=80',
-      metrics: [
-        { icon: TrendingUp, value: '+210%', label: 'Inquiries' },
-        { icon: Zap, value: '95+', label: 'PageSpeed Score' },
-      ],
+      title: 'Growth Infrastructure',
+      category: 'Full Stack',
       slug: 'artisan-collective',
+      image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=600&fit=crop',
+      metrics: [
+        { icon: TrendingUp, label: 'Revenue', value: '+210%' },
+        { icon: Clock, label: 'Time to Market', value: '-40%' },
+      ],
     },
   ];
 
   return (
-    <section className="proof-section projects-section py-24 lg:py-32 px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
+    <section className="projects-section py-32 lg:py-40 px-6 relative overflow-hidden">
+      {/* Gradient orbs */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-primary/10 via-transparent to-transparent blur-[100px]" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-accent/10 via-transparent to-transparent blur-[80px]" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="proof-header text-center mb-16 lg:mb-20">
-          <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] mb-4 font-medium">Case Studies</p>
+        <div className="projects-header text-center mb-20">
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-4 font-medium">Case Studies</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-6">
             Built for Performance
           </h2>
@@ -87,39 +91,46 @@ const FeaturedProjects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="proof-grid grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+        <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Link
               key={index}
               to={`/projects/${project.slug}`}
-              className="proof-card group relative rounded-2xl overflow-hidden bg-card border border-border hover:border-muted transition-all duration-500"
+              className="project-card group glass-card glow-border rounded-3xl overflow-hidden"
             >
               {/* Image */}
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                
+                {/* Category badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 text-xs font-medium glass rounded-full text-foreground">
+                    {project.category}
+                  </span>
+                </div>
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">{project.category}</span>
-                <h3 className="text-xl font-semibold text-foreground mt-2 mb-4 group-hover:text-muted-foreground transition-colors">
+                <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
                   {project.title}
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
                 </h3>
 
                 {/* Metrics */}
-                <div className="flex gap-6">
+                <div className="grid grid-cols-2 gap-4">
                   {project.metrics.map((metric, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <metric.icon className="w-4 h-4 text-green-500" />
-                      <div>
-                        <span className="text-lg font-semibold text-foreground">{metric.value}</span>
-                        <span className="text-xs text-muted-foreground ml-1">{metric.label}</span>
+                    <div key={i} className="glass rounded-xl p-3">
+                      <div className="flex items-center gap-2 mb-1">
+                        <metric.icon className="w-4 h-4 text-primary" />
+                        <span className="text-xs text-muted-foreground">{metric.label}</span>
                       </div>
+                      <span className="text-lg font-semibold text-foreground">{metric.value}</span>
                     </div>
                   ))}
                 </div>
@@ -128,14 +139,14 @@ const FeaturedProjects = () => {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
+        {/* View all link */}
+        <div className="text-center mt-16">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 text-foreground font-medium hover:text-muted-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors"
           >
-            View All Case Studies
-            <ArrowRight className="w-4 h-4" />
+            View All Projects
+            <ArrowUpRight className="w-5 h-5" />
           </Link>
         </div>
       </div>
