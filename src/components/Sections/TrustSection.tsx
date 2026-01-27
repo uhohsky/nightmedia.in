@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Target, Zap, User, TrendingUp, Server } from 'lucide-react';
@@ -7,94 +7,131 @@ import { Target, Zap, User, TrendingUp, Server } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const TrustSection = () => {
-  useEffect(() => {
-    gsap.fromTo('.trust-header',
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.trust-section',
-          start: 'top 80%',
-        }
-      }
-    );
+  const sectionRef = useRef<HTMLElement>(null);
 
-    gsap.fromTo('.trust-item',
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.trust-grid',
-          start: 'top 85%',
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header animation
+      gsap.fromTo('.trust-header',
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.trust-section',
+            start: 'top 75%',
+          }
         }
-      }
-    );
+      );
+
+      // Trust items stagger animation
+      gsap.fromTo('.trust-item',
+        { opacity: 0, y: 50, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          stagger: {
+            amount: 0.6,
+            from: 'start'
+          },
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.trust-grid',
+            start: 'top 80%',
+          }
+        }
+      );
+
+      // Parallax for background elements
+      gsap.to('.trust-orb', {
+        y: -80,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 2,
+        }
+      });
+
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   const trustPoints = [
     {
       icon: Target,
-      title: 'Conversion-Driven Strategy',
-      description: 'Every design decision backed by data and focused on turning visitors into customers.',
+      title: 'Conversion-Driven',
+      description: 'Every decision optimized for turning visitors into customers.',
+      gradient: 'from-blue-500/20 to-cyan-500/5',
     },
     {
       icon: Zap,
-      title: 'Performance-First Development',
-      description: 'Lightning-fast websites that score 95+ on Core Web Vitals.',
+      title: 'Performance-First',
+      description: 'Lightning-fast websites scoring 95+ on Core Web Vitals.',
+      gradient: 'from-purple-500/20 to-pink-500/5',
     },
     {
       icon: User,
-      title: 'Founder-Led Execution',
-      description: 'Direct access to senior talent, not junior handoffs.',
+      title: 'Founder-Led',
+      description: 'Direct access to senior talent. No junior handoffs.',
+      gradient: 'from-emerald-500/20 to-teal-500/5',
     },
     {
       icon: TrendingUp,
-      title: 'Growth-Focused Systems',
+      title: 'Growth-Focused',
       description: 'Built-in optimization loops for continuous improvement.',
+      gradient: 'from-orange-500/20 to-amber-500/5',
     },
     {
       icon: Server,
-      title: 'Scalable Infrastructure',
+      title: 'Scalable Systems',
       description: 'Architecture designed to grow with your business.',
+      gradient: 'from-cyan-500/20 to-blue-500/5',
     },
   ];
 
   return (
-    <section className="trust-section py-32 lg:py-40 px-6 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/50 to-transparent" />
+    <section ref={sectionRef} className="trust-section py-32 lg:py-48 px-6 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
+      <div className="trust-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-primary/5 via-transparent to-accent/5 blur-[100px]" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="trust-header text-center mb-20">
-          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-4 font-medium">Why Choose Us</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-6">
-            Why Businesses Choose Night Media
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-5 font-medium">Why Choose Us</p>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-6">
+            Why Businesses Choose
+            <br />
+            <span className="gradient-text-primary">Night Media</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             We don't just build websites. We build growth engines.
           </p>
         </div>
 
         {/* Trust Points Grid */}
-        <div className="trust-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="trust-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {trustPoints.map((point, index) => (
             <div
               key={index}
-              className="trust-item group glass-card glow-border rounded-2xl p-6"
+              className="trust-item group glass-card glow-border rounded-2xl p-7 relative overflow-hidden hover-lift"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-5 group-hover:from-primary/30 group-hover:to-accent/20 transition-all duration-300">
-                <point.icon className="w-6 h-6 text-primary" />
+              {/* Gradient overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${point.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <point.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{point.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{point.description}</p>
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{point.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{point.description}</p>
             </div>
           ))}
         </div>
