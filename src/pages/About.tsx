@@ -51,7 +51,7 @@ const About = () => {
       color: 'from-emerald-500 to-teal-600'
     },
     {
-      name: 'Kartik',
+      name: 'Ritu',
       role: 'Influencer Strategist',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
       bio: 'Expert in influencer partnerships and social media strategy.',
