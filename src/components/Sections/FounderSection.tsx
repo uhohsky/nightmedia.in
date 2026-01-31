@@ -119,7 +119,7 @@ const FounderSection = () => {
           <div className="founder-image-wrapper relative">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass-card">
               <img
-  src="/images/team/founder-v2.jpg"
+  src="/images/team/founder-v2.jpg?v=3"
   alt="Sky - Founder of Night Media"
   className="w-full h-full object-cover"
  />
