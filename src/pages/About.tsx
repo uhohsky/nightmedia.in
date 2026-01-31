@@ -37,29 +37,29 @@ const About = () => {
 
   const team = [
     {
-      name: 'Alex Rivera',
+      name: 'Sky',
       role: 'Creative Director',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
       bio: 'Visionary leader with 8+ years in digital design and brand strategy.',
       color: 'from-blue-600 to-purple-600'
     },
     {
-      name: 'Maya Chen',
+      name: 'Vibha Yadav',
       role: 'Lead Developer',
       image: 'https://images.unsplash.com/photo-1494790108755-2616b332b76c?w=400&h=400&fit=crop&crop=face',
       bio: 'Full-stack developer specializing in WebGL and immersive experiences.',
       color: 'from-emerald-500 to-teal-600'
     },
     {
-      name: 'Jordan Smith',
+      name: 'Kartik',
       role: 'Influencer Strategist',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
       bio: 'Expert in influencer partnerships and social media strategy.',
       color: 'from-pink-500 to-red-500'
     },
     {
-      name: 'Sofia Patel',
-      role: 'Video Producer',
+      name: 'Ms Nitu',
+      role: 'Graphic Designer',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
       bio: 'Award-winning video producer with expertise in cinematic storytelling.',
       color: 'from-orange-500 to-red-600'
