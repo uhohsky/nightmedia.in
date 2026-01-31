@@ -1,10 +1,10 @@
-
 import BrandingAgencyBlog from './pages/branding-agency-transform';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Navigation from "./components/Layout/Navigation";
 import Footer from "./components/Layout/Footer";
 import CustomCursor from "./components/Layout/CustomCursor";
@@ -27,6 +27,7 @@ import Rebranding3DEraCaseStudy from "./pages/Rebranding3DEraCaseStudy";
 const queryClient = new QueryClient();
 
 const App = () => (
+  <HelmetProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -59,6 +60,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
