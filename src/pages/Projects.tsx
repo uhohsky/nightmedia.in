@@ -7,7 +7,7 @@ import PageHeader from '../components/Layout/PageHeader';
 gsap.registerPlugin(ScrollTrigger);
 
 /* =========================
-   PROJECT DATA (TOP ONLY)
+   PROJECT DATA
 ========================= */
 const projects = [
   {
@@ -19,7 +19,7 @@ const projects = [
       'SYNFICTION.AI is an AI-first product website built to showcase advanced artificial intelligence capabilities with a clean, high-performance, conversion-focused interface.',
     image: '/images/projects/sfai.jpg',
     slug: 'synfiction-ai',
-    tags: ['AI', 'Web Design', 'SaaS', 'Product Website'],
+    tags: ['AI', 'Web Design', 'SaaS'],
     metrics: {
       pageSpeed: '95+',
       engagement: 'High',
@@ -29,6 +29,7 @@ const projects = [
     size: 'large',
     externalLink: 'https://synfiction.ai',
   },
+
   {
     id: 1,
     title: 'LUXE FASHION',
@@ -44,33 +45,42 @@ const projects = [
     featured: true,
     size: 'large',
   },
+
   {
     id: 2,
-    title: 'TECHCORP',
-    subtitle: 'WEBGL EXPERIENCE',
-    category: 'Web Design',
+    title: 'RECENT WEBSITE LAUNCHES',
+    subtitle: 'Web Design & Development Projects',
+    category: 'Website Development',
     description:
-      'An immersive 3D web experience showcasing cutting-edge technology with interactive WebGL elements.',
+      'A curated collection of high-performing client websites designed and developed by Night Media. This includes eCommerce, legal, fashion, and brand-focused platforms.',
     image:
-      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1200&h=800&fit=crop',
-    slug: 'techcorp-webgl-experience',
-    tags: ['WebGL', 'React', '3D'],
-    metrics: { pageSpeed: '95', conversion: '180%', engagement: '45%' },
-    size: 'medium',
+      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop',
+    slug: 'recent-website-launches',
+    tags: ['Web Design', 'Development', 'Client Work'],
+    metrics: {
+      projects: '4+',
+      industries: 'Multiple',
+      performance: 'High',
+    },
+    featured: true,
+    size: 'large',
   },
+
   {
     id: 3,
     title: 'PRODUCT LAUNCH',
-    subtitle: 'CGI REVOLUTION',
-    category: 'CGI Ads',
+    subtitle: 'CGI & PRODUCT EXPERIENCE',
+    category: 'CGI & Web Experience',
     description:
-      'Photorealistic 3D product visualization for a major brand launch.',
+      'A visually driven product launch experience combining CGI, motion, and interactive design for maximum brand impact.',
     image:
       'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=800&fit=crop',
-    slug: 'product-launch-cgi',
-    tags: ['3D', 'CGI', 'Product'],
-    metrics: { views: '5M+', shares: '100K', ctr: '25%' },
-    size: 'medium',
+    slug: 'product-launch',
+    tags: ['CGI', 'Product', 'Launch'],
+    metrics: { views: '5M+', ctr: '25%', engagement: 'High' },
+    featured: true,
+    size: 'large',
+    externalLink: 'https://example-product-launch.com', // 🔁 replace later
   },
 ];
 
@@ -79,7 +89,6 @@ const projects = [
 ========================= */
 const Projects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -113,12 +122,9 @@ const Projects = () => {
         />
       </section>
 
-      <section
-        ref={containerRef}
-        className="projects-container py-20 px-6"
-      >
+      <section ref={containerRef} className="projects-container py-20 px-6">
         <div className="max-w-7xl mx-auto space-y-32">
-          {projects.map((project, index) => {
+          {projects.map((project) => {
             const Wrapper = project.externalLink ? 'a' : Link;
             const wrapperProps = project.externalLink
               ? {
@@ -132,11 +138,7 @@ const Projects = () => {
               <div key={project.id} className="project-showcase">
                 <Wrapper
                   {...wrapperProps}
-                  className={`group block ${
-                    project.size === 'large'
-                      ? 'grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'
-                      : 'max-w-4xl mx-auto'
-                  }`}
+                  className="group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
                 >
                   <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
                     <div className="aspect-[4/3] overflow-hidden">
