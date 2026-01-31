@@ -10,7 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 const Projects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-
+  
+  console.log('PROJECTS ARRAY:', projects);
+  
   useEffect(() => {
     // Hero parallax effect
     gsap.to(heroRef.current, {
@@ -75,6 +77,7 @@ const Projects = () => {
   }, []);
 
   const projects = [
+   
     {
       id: 1,
       title: 'LUXE FASHION',
@@ -88,6 +91,26 @@ const Projects = () => {
       featured: true,
       size: 'large'
     },
+     {
+  id: 0,
+  title: 'SYNFICTION.AI',
+  subtitle: 'AI PRODUCT WEBSITE',
+  category: 'Web Design & Development',
+  description:
+    'SYNFICTION.AI is an AI-first product website built to showcase advanced artificial intelligence capabilities with a clean, high-performance, conversion-focused interface. The project emphasizes speed, clarity, and modern AI storytelling.',
+  image: '/images/projects/sfai.jpg',
+  slug: 'synfiction-ai',
+  tags: ['AI', 'Web Design', 'SaaS', 'Product Website'],
+  metrics: {
+    pageSpeed: '95+',
+    engagement: 'High',
+    conversion: 'Optimized',
+  },
+  featured: true,
+  size: 'large',
+  externalLink: 'https://synfiction.ai'
+},
+
     {
       id: 2,
       title: 'TECHCORP',
