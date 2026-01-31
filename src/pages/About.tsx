@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,239 +7,191 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   useEffect(() => {
-    gsap.fromTo('.about-section',
+    gsap.fromTo(
+      '.about-section',
       { opacity: 0, y: 60 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        duration: 0.9,
         stagger: 0.15,
+        ease: 'power3.out',
         scrollTrigger: {
           trigger: '.about-content',
           start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
-        }
+        },
       }
     );
 
-    // Floating elements animation
-    gsap.to('.floating-element', {
-      y: -30,
-      duration: 3,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power2.inOut',
-      stagger: 0.5
-    });
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
   }, []);
 
   const team = [
-  {
-    name: 'Mr Sky',
-    role: 'Lead Web Engineer',
-    image: '/images/team/founder.jpg',
-    bio: 'Lead Web Engineer with 8+ years of experience building high-performance, conversion-focused websites.',
-  },
-  {
-    name: 'Ms Pihu',
-    role: 'Frontend Developer',
-    image: '/images/team/dev.jpg',
-    bio: 'Frontend developer focused on modern UI, motion design, and scalable web interfaces.',
-  },
-  {
-    name: 'Mr Kartik',
-    role: 'Growth & Influencer Strategist',
-    image: '/images/team/strategist.jpg',
-    bio: 'Growth strategist specializing in influencer campaigns and performance-driven social media execution.',
-  },
-  {
-    name: 'Ms Vibha',
-    role: 'Video & Motion Lead',
-    image: '/images/team/video.jpg',
-    bio: 'Video producer focused on cinematic storytelling, brand films, and short-form performance content.',
-  },
-];
-
+    {
+      name: 'Mr Sky',
+      role: 'Lead Web Engineer',
+      image: '/images/team/founder.jpg',
+      bio: 'Lead Web Engineer with 8+ years of experience building high-performance, conversion-focused websites.',
+    },
+    {
+      name: 'Ms Pihu',
+      role: 'Frontend Developer',
+      image: '/images/team/dev.jpg',
+      bio: 'Frontend developer focused on modern UI, motion design, and scalable web interfaces.',
+    },
+    {
+      name: 'Mr Kartik',
+      role: 'Growth & Influencer Strategist',
+      image: '/images/team/strategist.jpg',
+      bio: 'Growth strategist specializing in influencer campaigns and performance-driven social execution.',
+    },
+    {
+      name: 'Ms Vibha',
+      role: 'Video & Motion Lead',
+      image: '/images/team/video.jpg',
+      bio: 'Video producer focused on cinematic storytelling, brand films, and short-form content.',
+    },
+  ];
 
   const values = [
     {
       title: 'Innovation',
-      description: 'We push boundaries and explore new technologies to create cutting-edge solutions.',
-      color: 'from-blue-500 to-cyan-500'
+      description: 'We push boundaries and adopt new technologies to stay ahead.',
     },
     {
       title: 'Quality',
-      description: 'Every project receives meticulous attention to detail and uncompromising quality standards.',
-      color: 'from-purple-600 to-pink-600'
+      description: 'Every project is executed with obsessive attention to detail.',
     },
     {
       title: 'Collaboration',
-      description: 'We work closely with our clients as partners to achieve shared success.',
-      color: 'from-emerald-500 to-teal-600'
+      description: 'Clients work directly with experts — no layers, no noise.',
     },
     {
       title: 'Results',
-      description: 'Our focus is always on delivering measurable outcomes that drive business growth.',
-      color: 'from-orange-500 to-red-600'
-    }
+      description: 'Everything we build is engineered to drive measurable growth.',
+    },
   ];
 
   return (
-    <div className="pt-24 pb-20 px-6 bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 text-black min-h-screen pt-24 pb-20 px-6">
       <div className="max-w-7xl mx-auto">
         <PageHeader
           badge="ABOUT US"
-          title="Creative Agency Building Digital Experiences"
-          subtitle="We're a creative agency that blurs the line between technology and artistry, creating digital experiences that captivate, engage, and deliver results."
+          title="Building Digital Growth Systems"
+          subtitle="We design and engineer digital experiences that look premium, perform flawlessly, and convert consistently."
         />
 
-        <div className="about-content">
-          {/* Mission & Vision */}
-          <div className="about-section mb-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-white shadow-lg hover:shadow-2xl transition-all duration-700 rounded-2xl overflow-hidden group">
-                <div className="relative h-64 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center overflow-hidden">
-                  <div className="text-6xl font-light text-white opacity-20">01</div>
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-medium text-gray-500 tracking-wider">
-                      MISSION
-                    </span>
-                    <div className="w-8 h-8 flex items-center justify-center">
-                      <div className="w-4 h-4 border-t-2 border-r-2 border-black transform rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
-                    </div>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-light text-black mb-3">
-                    Our Mission
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    To empower brands with innovative digital solutions that push creative 
-                    boundaries while delivering measurable business impact.
-                  </p>
-                </div>
-              </div>
+        <div className="about-content space-y-24">
 
-              <div className="bg-white shadow-lg hover:shadow-2xl transition-all duration-700 rounded-2xl overflow-hidden group">
-                <div className="relative h-64 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center overflow-hidden">
-                  <div className="text-6xl font-light text-white opacity-20">02</div>
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-medium text-gray-500 tracking-wider">
-                      VISION
-                    </span>
-                    <div className="w-8 h-8 flex items-center justify-center">
-                      <div className="w-4 h-4 border-t-2 border-r-2 border-black transform rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
-                    </div>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-light text-black mb-3">
-                    Our Vision
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    To be the leading creative agency that defines the future of digital 
-                    experiences and sets new standards for the industry.
-                  </p>
-                </div>
-              </div>
+          {/* MISSION & VISION */}
+          <section className="about-section grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="bg-white rounded-2xl shadow-lg p-10">
+              <span className="text-sm tracking-widest text-gray-400">MISSION</span>
+              <h3 className="text-3xl font-light mt-3 mb-4">Our Mission</h3>
+              <p className="text-gray-600 leading-relaxed">
+                To help ambitious brands scale using high-performance websites,
+                growth systems, and digital strategies that generate real ROI.
+              </p>
             </div>
-          </div>
 
-          {/* Values */}
-          <div className="about-section mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-light text-black mb-4">
-                Our Values
-              </h2>
-              <div className="w-16 h-px bg-cyan-400 mx-auto"></div>
+            <div className="bg-white rounded-2xl shadow-lg p-10">
+              <span className="text-sm tracking-widest text-gray-400">VISION</span>
+              <h3 className="text-3xl font-light mt-3 mb-4">Our Vision</h3>
+              <p className="text-gray-600 leading-relaxed">
+                To become the go-to digital growth partner for founders who care
+                about performance as much as aesthetics.
+              </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, index) => (
-                <div key={index} className="bg-white shadow-lg hover:shadow-2xl transition-all duration-700 rounded-2xl overflow-hidden group">
-                  <div className={`relative h-32 bg-gradient-to-br ${value.color} flex items-center justify-center overflow-hidden`}>
-                    <div className="text-3xl font-light text-white opacity-30">{String(index + 1).padStart(2, '0')}</div>
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-light text-black mb-3">{value.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
-                  </div>
+          </section>
+
+          {/* VALUES */}
+          <section className="about-section">
+            <h2 className="text-4xl font-light text-center mb-12">Our Values</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {values.map((value, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-2xl shadow-lg p-8 text-center"
+                >
+                  <h4 className="text-xl font-light mb-3">{value.title}</h4>
+                  <p className="text-gray-600 text-sm">{value.description}</p>
                 </div>
               ))}
             </div>
-          </div>
+          </section>
 
-          {/* Team */}
-          <div className="about-section mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-light text-black mb-4">
-                Meet Our Team
-              </h2>
-              <div className="w-16 h-px bg-cyan-400 mx-auto"></div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* TEAM */}
+          <section className="about-section">
+            <h2 className="text-4xl font-light text-center mb-12">
+              Meet Our Team
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
               {team.map((member, index) => (
-                <div key={index} className="bg-white shadow-lg hover:shadow-2xl transition-all duration-700 rounded-2xl overflow-hidden group">
-                  <div className="relative h-48 overflow-hidden">
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden group"
+                >
+                  {/* IMAGE — FIXED */}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-light text-black mb-1">{member.name}</h3>
-                    <p className="text-gray-500 text-sm mb-3">{member.role}</p>
-                    <p className="text-gray-600 text-xs leading-relaxed">{member.bio}</p>
+
+                  {/* TEXT */}
+                  <div className="p-6 text-center">
+                    <h3 className="text-lg font-medium">{member.name}</h3>
+                    <p className="text-sm text-gray-500 mb-3">
+                      {member.role}
+                    </p>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {member.bio}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
+          </section>
 
-          {/* Stats */}
-          <div className="about-section">
-            <div className="bg-white shadow-lg rounded-2xl p-12">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-light text-black mb-4">
-                  Our Impact
-                </h2>
-                <div className="w-16 h-px bg-cyan-400 mx-auto"></div>
+          {/* STATS */}
+          <section className="about-section bg-white rounded-2xl shadow-lg p-12">
+            <h2 className="text-4xl font-light text-center mb-12">
+              Our Impact
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-4xl font-light">100+</div>
+                <p className="text-gray-600">Projects Delivered</p>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                  <div className="text-4xl font-light text-black mb-2">100+</div>
-                  <div className="text-gray-600">Projects Delivered</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-light text-black mb-2">50+</div>
-                  <div className="text-gray-600">Happy Clients</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-light text-black mb-2">5+</div>
-                  <div className="text-gray-600">Years Experience</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-light text-black mb-2">24/7</div>
-                  <div className="text-gray-600">Support</div>
-                </div>
+              <div>
+                <div className="text-4xl font-light">50+</div>
+                <p className="text-gray-600">Clients Served</p>
+              </div>
+              <div>
+                <div className="text-4xl font-light">5+</div>
+                <p className="text-gray-600">Years Experience</p>
+              </div>
+              <div>
+                <div className="text-4xl font-light">24/7</div>
+                <p className="text-gray-600">Founder Access</p>
               </div>
             </div>
-          </div>
+          </section>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-20">
+        {/* CTA */}
+        <div className="text-center mt-24">
           <a
             href="/contact"
-            className="inline-flex items-center space-x-3 bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-900 transition-colors duration-300 group"
+            className="inline-block bg-black text-white px-10 py-4 rounded-full text-lg font-medium hover:bg-gray-900 transition"
           >
-            <span>Start Your Project</span>
-            <div className="w-2 h-2 bg-white rounded-full group-hover:translate-x-1 transition-transform duration-300"></div>
+            Start Your Project
           </a>
         </div>
       </div>
