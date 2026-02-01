@@ -2,188 +2,180 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import PageHeader from '../components/Layout/PageHeader';
+import { ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* =========================
-   PROJECT DATA
-========================= */
 const projects = [
   {
-    id: 0,
+    id: 'synfiction-ai',
     title: 'SYNFICTION.AI',
-    subtitle: 'AI PRODUCT WEBSITE',
-    category: 'Web Design & Development',
-    description:
-      'SYNFICTION.AI is an AI-first product website built to showcase advanced artificial intelligence capabilities with a clean, high-performance, conversion-focused interface.',
+    category: 'AI Product, Web Design, Development',
     image: '/images/projects/sfai.jpg',
     slug: 'synfiction-ai',
-    tags: ['AI', 'Web Design', 'SaaS'],
-    metrics: {
-      pageSpeed: '95+',
-      engagement: 'High',
-      conversion: 'Optimized',
-    },
-    featured: true,
-    size: 'large',
     externalLink: 'https://synfiction.ai',
   },
-
   {
-    id: 1,
-    title: 'LUXE FASHION',
-    subtitle: 'INFLUENCER CAMPAIGN',
-    category: 'Influencer Marketing',
-    description:
-      'A high-end fashion campaign featuring top-tier influencers across multiple platforms, resulting in massive brand growth.',
-    image:
-      'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop',
-    slug: 'luxe-fashion-campaign',
-    tags: ['Fashion', 'Instagram', 'TikTok'],
-    metrics: { reach: '2.5M', engagement: '15%', roi: '400%' },
-    featured: true,
-    size: 'large',
+    id: 'aidrum-fashion',
+    title: 'Aidrum Fashion',
+    category: 'eCommerce, Web Design, Branding',
+    image: '/images/projects/ecommerce-fashion.jpg',
+    slug: 'aidrum-fashion',
   },
-
   {
-    id: 2,
-    title: 'RECENT WEBSITE LAUNCHES',
-    subtitle: 'Web Design & Development Projects',
-    category: 'Website Development',
-    description:
-      'A curated collection of high-performing client websites designed and developed by Night Media. This includes eCommerce, legal, fashion, and brand-focused platforms.',
-    image:
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop',
-    slug: 'recent-website-launches',
-    tags: ['Web Design', 'Development', 'Client Work'],
-    metrics: {
-      projects: '4+',
-      industries: 'Multiple',
-      performance: 'High',
-    },
-    featured: true,
-    size: 'large',
+    id: 'saas-analytics',
+    title: 'SaaS Analytics Platform',
+    category: 'Product Design, UI/UX, Development',
+    image: '/images/projects/saas-dashboard.jpg',
+    slug: 'saas-analytics',
   },
-
   {
-    id: 3,
-    title: 'PRODUCT LAUNCH',
-    subtitle: 'CGI & PRODUCT EXPERIENCE',
-    category: 'CGI & Web Experience',
-    description:
-      'A visually driven product launch experience combining CGI, motion, and interactive design for maximum brand impact.',
-    image:
-      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=800&fit=crop',
-    slug: 'product-launch',
-    tags: ['CGI', 'Product', 'Launch'],
-    metrics: { views: '5M+', ctr: '25%', engagement: 'High' },
-    featured: true,
-    size: 'large',
-    externalLink: 'https://example-product-launch.com', // 🔁 replace later
+    id: 'blamy-kuby',
+    title: 'Blamy Kuby Cosmetics',
+    category: 'Brand Identity, Packaging, Strategy',
+    image: '/images/projects/brand-identity.jpg',
+    slug: 'blamy-kuby',
+  },
+  {
+    id: 'realestate-platform',
+    title: 'Luxury Real Estate',
+    category: 'Web Design, Development, SEO',
+    image: '/images/projects/real-estate.jpg',
+    slug: 'luxury-realestate',
+  },
+  {
+    id: 'fitness-wellness',
+    title: 'Fitness & Wellness App',
+    category: 'Mobile App, UI/UX, Product',
+    image: '/images/projects/fitness-app.jpg',
+    slug: 'fitness-wellness',
   },
 ];
 
-/* =========================
-   COMPONENT
-========================= */
 const Projects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      '.project-showcase',
-      { opacity: 0, y: 80 },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.25,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.projects-container',
-          start: 'top 80%',
-        },
-      }
-    );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.project-card',
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.15,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.projects-grid',
+            start: 'top 85%',
+          },
+        }
+      );
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+      gsap.fromTo(
+        '.hero-title',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+        }
+      );
+
+      gsap.fromTo(
+        '.hero-subtitle',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.2,
+          ease: 'power3.out',
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div className="bg-gray-50 text-black overflow-hidden">
-      <section className="relative bg-white pt-20">
-        <PageHeader
-          badge="PORTFOLIO"
-          title="Creative Excellence"
-          subtitle="Selected projects where strategy, design, and technology meet"
-        />
+    <div ref={containerRef} className="bg-white text-black min-h-screen">
+      <section className="pt-32 pb-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-light text-black tracking-tight mb-8">
+            Our Work
+          </h1>
+          <p className="hero-subtitle text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-light">
+            Selected projects where design, technology, and performance intersect
+          </p>
+        </div>
       </section>
 
-      <section ref={containerRef} className="projects-container py-20 px-6">
-        <div className="max-w-7xl mx-auto space-y-32">
-          {projects.map((project) => {
-            const projectContent = (
-              <>
-                <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
-                  <div className="aspect-[4/3] overflow-hidden">
+      <section className="pb-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="projects-grid grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {projects.map((project) => {
+              const CardContent = (
+                <div className="project-card group cursor-pointer">
+                  <div className="relative overflow-hidden rounded-lg bg-gray-100 aspect-[4/3]">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                  </div>
+                  <div className="mt-6 space-y-2">
+                    <h3 className="text-xl md:text-2xl font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 font-light tracking-wide">
+                      {project.category}
+                    </p>
                   </div>
                 </div>
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-sm text-gray-500 uppercase tracking-wider">{project.category}</span>
-                    <h3 className="text-4xl font-light text-black mt-2 mb-4 group-hover:text-gray-700 transition-colors duration-300">{project.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{project.description}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="inline-flex items-center text-black group-hover:translate-x-2 transition-transform duration-300">
-                    <span className="mr-2">{project.externalLink ? 'Visit Site' : 'View Project'}</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </>
-            );
+              );
 
-            return (
-              <div key={project.id} className="project-showcase">
-                {project.externalLink ? (
+              if (project.externalLink) {
+                return (
                   <a
+                    key={project.id}
                     href={project.externalLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
                   >
-                    {projectContent}
+                    {CardContent}
                   </a>
-                ) : (
-                  <Link
-                    to={`/projects/${project.slug}`}
-                    className="group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-                  >
-                    {projectContent}
-                  </Link>
-                )}
-              </div>
-            );
-          })}
+                );
+              }
+
+              return (
+                <Link key={project.id} to={`/projects/${project.slug}`}>
+                  {CardContent}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-light text-black mb-6">
+            Have a project in mind?
+          </h2>
+          <p className="text-gray-600 mb-10 text-lg font-light max-w-xl mx-auto">
+            Let's create something exceptional together. We'd love to hear about your vision.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors duration-300"
+          >
+            Get in Touch
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
     </div>
