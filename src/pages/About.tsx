@@ -213,7 +213,7 @@ const About = () => {
 </div>
 
 
-          {/* Stats */}
+        
           <div className="about-section">
             <div className="bg-white shadow-lg rounded-2xl p-12">
               <div className="text-center mb-12">
