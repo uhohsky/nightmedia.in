@@ -125,43 +125,62 @@ const Projects = () => {
       <section ref={containerRef} className="projects-container py-20 px-6">
         <div className="max-w-7xl mx-auto space-y-32">
           {projects.map((project) => {
-            const Wrapper = project.externalLink ? 'a' : Link;
-            const wrapperProps = project.externalLink
-              ? {
-                  href: project.externalLink,
-                  target: '_blank',
-                  rel: 'noopener noreferrer',
-                }
-              : { to: `/projects/${project.slug}` };
+            const projectContent = (
+              <>
+                <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-6">
+                  <div>
+                    <span className="text-sm text-gray-500 uppercase tracking-wider">{project.category}</span>
+                    <h3 className="text-4xl font-light text-black mt-2 mb-4 group-hover:text-gray-700 transition-colors duration-300">{project.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{project.description}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="inline-flex items-center text-black group-hover:translate-x-2 transition-transform duration-300">
+                    <span className="mr-2">{project.externalLink ? 'Visit Site' : 'View Project'}</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </>
+            );
 
             return (
               <div key={project.id} className="project-showcase">
-                <Wrapper
-                  {...wrapperProps}
-                  className="group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-                >
-                  <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <h2 className="text-5xl font-light">
-                      {project.title}
-                    </h2>
-                    <h3 className="text-2xl text-gray-500">
-                      {project.subtitle}
-                    </h3>
-                    <p className="text-gray-600 max-w-xl">
-                      {project.description}
-                    </p>
-                  </div>
-                </Wrapper>
+                {project.externalLink ? (
+                  <a
+                    href={project.externalLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                  >
+                    {projectContent}
+                  </a>
+                ) : (
+                  <Link
+                    to={`/projects/${project.slug}`}
+                    className="group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                  >
+                    {projectContent}
+                  </Link>
+                )}
               </div>
             );
           })}
