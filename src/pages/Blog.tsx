@@ -1,136 +1,202 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import PageHeader from '../components/Layout/PageHeader';
+import { ArrowRight, Sparkles, TrendingUp } from 'lucide-react';
+
+// AI-generated blog images
+import influencerMarketingImg from '@/assets/blog/influencer-marketing.jpg';
+import cgiWebglImg from '@/assets/blog/cgi-webgl-design.jpg';
+import visualDesignImg from '@/assets/blog/visual-design-trends.jpg';
+import rebranding3dImg from '@/assets/blog/rebranding-3d-era.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Blog = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
-    gsap.fromTo('.blog-card',
-      { opacity: 0, y: 60 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: '.blog-grid',
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.blog-hero-badge',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+      );
+      
+      gsap.fromTo('.blog-hero-title',
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.8, delay: 0.1, ease: 'power3.out' }
+      );
+      
+      gsap.fromTo('.blog-hero-subtitle',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: 'power3.out' }
+      );
+
+      gsap.fromTo('.featured-post',
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.3,
+          ease: 'power3.out'
         }
-      }
-    );
+      );
+
+      gsap.fromTo('.blog-card',
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: '.blog-grid',
+            start: 'top 80%',
+          }
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   const posts = [
     {
       title: 'Why Influencer Marketing Drives ROI in 2025',
       excerpt: 'Discover how authentic influencer partnerships are revolutionizing brand marketing and delivering unprecedented returns on investment.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
+      image: influencerMarketingImg,
       slug: 'influencer-marketing-roi-2025',
       category: 'Marketing',
       readTime: '5 min read',
       date: 'Dec 15, 2024',
-      color: 'from-pink-500 to-red-500',
-      featured: true
+      featured: true,
+      trending: true
     },
     {
       title: 'How We Design with CGI & WebGL',
       excerpt: 'Behind the scenes of our creative process: from concept to photorealistic 3D visuals that stop the scroll.',
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop',
+      image: cgiWebglImg,
       slug: 'cgi-webgl-design-process',
       category: 'Technology',
       readTime: '7 min read',
       date: 'Dec 10, 2024',
-      color: 'from-emerald-500 to-teal-600'
+      trending: true
     },
     {
       title: 'Top 10 Trends in Visual Design',
       excerpt: 'The visual design trends shaping 2025: from glassmorphism to AI-generated art, explore what\'s next in digital aesthetics.',
-      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop',
+      image: visualDesignImg,
       slug: 'visual-design-trends-2025',
       category: 'Design',
       readTime: '6 min read',
-      date: 'Dec 5, 2024',
-      color: 'from-blue-600 to-purple-600'
+      date: 'Dec 5, 2024'
     },
     {
       title: 'Case Study: Rebranding in the 3D Era',
       excerpt: 'How we transformed a traditional brand into a 3D-first digital experience, resulting in 300% increased engagement.',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop',
+      image: rebranding3dImg,
       slug: 'rebranding-3d-era-case-study',
       category: 'Case Study',
       readTime: '8 min read',
-      date: 'Nov 28, 2024',
-      color: 'from-orange-500 to-red-600'
+      date: 'Nov 28, 2024'
     }
   ];
 
   return (
-    <div className="pt-24 pb-20 px-6 bg-gray-50 min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        <PageHeader
-          badge="BLOG"
-          title="Insights & Creative Stories"
-          subtitle="Insights, trends, and behind-the-scenes stories from the world of digital creativity and innovation"
-        />
+    <section ref={sectionRef} className="pt-24 pb-20 bg-background min-h-screen relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="gradient-orb gradient-orb-1 absolute top-[10%] left-[10%] w-[600px] h-[600px]" />
+        <div className="gradient-orb gradient-orb-2 absolute bottom-[20%] right-[5%] w-[500px] h-[500px]" />
+      </div>
+      
+      <div className="noise-overlay" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Hero Section */}
+        <div className="text-center mb-20 pt-12">
+          <div className="blog-hero-badge inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-card mb-8">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm text-muted-foreground font-medium">Insights & Strategy</span>
+          </div>
+          
+          <h1 className="blog-hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
+            Performance-Driven{' '}
+            <span className="gradient-text-primary">Insights</span>
+          </h1>
+          
+          <p className="blog-hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Strategies, trends, and case studies on marketing, growth, and digital performance.
+          </p>
+        </div>
 
         {/* Featured Post */}
-        <div className="mb-16">
+        <div className="featured-post mb-16">
           <Link
             to={`/blog/${posts[0].slug}`}
-            className="block bg-white shadow-lg hover:shadow-2xl transition-all duration-700 rounded-2xl overflow-hidden group"
+            className="block glass-card glow-border rounded-3xl overflow-hidden group hover-lift"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-              <div className="relative h-64 lg:h-auto overflow-hidden">
+              <div className="relative h-64 lg:h-auto lg:min-h-[400px] overflow-hidden">
                 <img
                   src={posts[0].image}
                   alt={posts[0].title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500"></div>
-                <div className="absolute top-6 left-6">
-                  <span className="bg-white text-black px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                <div className="absolute top-6 left-6 flex gap-2">
+                  <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary text-xs font-medium backdrop-blur-sm border border-primary/20">
                     Featured
                   </span>
+                  {posts[0].trending && (
+                    <span className="px-3 py-1.5 rounded-full bg-accent/20 text-accent text-xs font-medium backdrop-blur-sm border border-accent/20 flex items-center gap-1">
+                      <TrendingUp className="w-3 h-3" />
+                      Trending
+                    </span>
+                  )}
                 </div>
               </div>
               
               <div className="p-8 lg:p-12 flex flex-col justify-center">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
-                    <span>{posts[0].category}</span>
-                    <span>•</span>
-                    <span>{posts[0].readTime}</span>
-                    <span>•</span>
-                    <span>{posts[0].date}</span>
-                  </div>
-                  <div className="w-8 h-8 flex items-center justify-center">
-                    <div className="w-4 h-4 border-t-2 border-r-2 border-black transform rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
-                  </div>
+                <div className="flex items-center gap-3 mb-4 text-sm text-muted-foreground">
+                  <span className="text-primary font-medium">{posts[0].category}</span>
+                  <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
+                  <span>{posts[0].readTime}</span>
+                  <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
+                  <span>{posts[0].date}</span>
                 </div>
-                <h2 className="text-3xl lg:text-4xl font-light text-black mb-4 group-hover:text-gray-600 transition-colors duration-300">
+                
+                <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                   {posts[0].title}
                 </h2>
-                <p className="text-gray-600 text-lg leading-relaxed">
+                
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                   {posts[0].excerpt}
                 </p>
+                
+                <div className="flex items-center gap-2 text-primary font-medium">
+                  <span>Read Article</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
+                </div>
               </div>
             </div>
           </Link>
         </div>
 
+        {/* Section Divider */}
+        <div className="flex items-center gap-4 mb-10">
+          <h2 className="text-xl font-semibold text-foreground">Recent Posts</h2>
+          <div className="flex-1 h-px bg-border" />
+        </div>
+
         {/* Blog Grid */}
-        <div className="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.slice(1).map((post, index) => (
+        <div className="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          {posts.slice(1).map((post) => (
             <Link
               key={post.slug}
               to={`/blog/${post.slug}`}
-              className="blog-card bg-white shadow-lg hover:shadow-2xl transition-all duration-700 rounded-2xl overflow-hidden group"
+              className="blog-card glass-card glow-border rounded-2xl overflow-hidden group hover-lift"
             >
               <div className="relative h-48 overflow-hidden">
                 <img
@@ -138,29 +204,31 @@ const Blog = () => {
                   alt={post.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-500"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium backdrop-blur-sm border border-primary/20">
                     {post.category}
                   </span>
+                  {post.trending && (
+                    <span className="px-2 py-1 rounded-full bg-accent/20 text-accent text-xs backdrop-blur-sm border border-accent/20">
+                      <TrendingUp className="w-3 h-3" />
+                    </span>
+                  )}
                 </div>
               </div>
               
               <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2 text-xs text-gray-500">
-                    <span>{post.readTime}</span>
-                    <span>•</span>
-                    <span>{post.date}</span>
-                  </div>
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <div className="w-3 h-3 border-t-2 border-r-2 border-black transform rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
-                  </div>
+                <div className="flex items-center gap-2 mb-3 text-xs text-muted-foreground">
+                  <span>{post.readTime}</span>
+                  <span className="w-1 h-1 rounded-full bg-muted-foreground/50" />
+                  <span>{post.date}</span>
                 </div>
-                <h3 className="text-xl font-light text-black mb-3 group-hover:text-gray-600 transition-colors duration-300">
+                
+                <h3 className="text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                
+                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
                   {post.excerpt}
                 </p>
               </div>
@@ -168,38 +236,39 @@ const Blog = () => {
           ))}
         </div>
 
-        {/* Newsletter */}
-        <div className="mt-16">
-          <div className="bg-white shadow-lg rounded-2xl p-8 max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-light text-black mb-4">Stay Updated</h2>
-            <p className="text-gray-600 mb-6">
-              Subscribe to our newsletter for the latest insights on digital creativity and marketing trends.
-            </p>
-            <div className="flex gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 border border-gray-300 rounded-full px-4 py-3 focus:border-black focus:outline-none transition-colors"
-              />
-              <button className="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-900 transition-colors">
-                Subscribe
-              </button>
-            </div>
+        {/* Newsletter CTA */}
+        <div className="glass-card glow-border rounded-3xl p-8 md:p-12 text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+            Stay Ahead of the Curve
+          </h2>
+          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+            Get weekly insights on marketing, growth strategies, and performance optimization delivered to your inbox.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 bg-secondary/50 border border-border rounded-full px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
+            />
+            <button className="btn-primary-glow px-6 py-3.5 rounded-full text-primary-foreground font-medium whitespace-nowrap">
+              Subscribe
+            </button>
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-20">
+        <div className="text-center">
+          <p className="text-muted-foreground mb-6">Ready to apply these insights to your business?</p>
           <Link
             to="/contact"
-            className="inline-flex items-center space-x-3 bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-900 transition-colors duration-300 group"
+            className="inline-flex items-center gap-3 btn-primary-glow px-8 py-4 rounded-full text-primary-foreground font-semibold group"
           >
             <span>Start Your Project</span>
-            <div className="w-2 h-2 bg-white rounded-full group-hover:translate-x-1 transition-transform duration-300"></div>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
