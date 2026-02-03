@@ -1,19 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { toast } from 'sonner';
-import { Mail, Phone, MapPin, ArrowRight, Instagram, MessageCircle, Youtube, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight, Instagram, MessageCircle, Youtube, Sparkles, Linkedin } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// X (Twitter) Icon component
+const XIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
 const socialMediaLinks = [
   { name: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/_nightmedia.in/' },
+  { name: 'X', icon: XIcon, url: 'https://x.com/Nightmediaindia' },
+  { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/company/nightmediaindia/' },
   { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/919899505154' },
   { name: 'YouTube', icon: Youtube, url: 'https://www.youtube.com/@NightMediaindia' }
 ];
 
 const Contact = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -65,12 +75,14 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('https://getform.io/f/bnlxyrxb', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify(formData)
       });
@@ -89,6 +101,8 @@ const Contact = () => {
       }
     } catch (error) {
       toast.error("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -129,7 +143,7 @@ const Contact = () => {
     {
       number: '02',
       title: 'Strategy Review',
-      description: "We review your requirements and schedule a discovery call within 24 hours."
+      description: 'We review your requirements and schedule a discovery call within 24 hours.'
     },
     {
       number: '03',
@@ -157,13 +171,13 @@ const Contact = () => {
           </div>
           
           <h1 className="contact-hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
-            Let's Build Something{' '}
+            Let&apos;s Build Something{' '}
             <span className="gradient-text-primary">That Converts</span>
           </h1>
           
           <p className="contact-hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Night Media combines strategic design with performance-driven development. 
-            Whether it's web design, growth systems, or brand identity—we're here to help you scale.
+            Whether it&apos;s web design, growth systems, or brand identity—we&apos;re here to help you scale.
           </p>
         </div>
       </section>
@@ -180,7 +194,7 @@ const Contact = () => {
                     Start a Conversation
                   </h2>
                   <p className="text-muted-foreground">
-                    Tell us about your project. We'll get back to you within 24 hours.
+                    Tell us about your project. We&apos;ll get back to you within 24 hours.
                   </p>
                 </div>
 
@@ -275,9 +289,10 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-3 btn-primary-glow px-8 py-4 rounded-full text-primary-foreground font-semibold group"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center gap-3 btn-primary-glow px-8 py-4 rounded-full text-primary-foreground font-semibold group disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </form>
@@ -319,7 +334,7 @@ const Contact = () => {
               {/* Social Links */}
               <div className="glass-card glow-border rounded-2xl p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-6">Follow Us</h3>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                   {socialMediaLinks.map((social, index) => {
                     const IconComponent = social.icon;
                     return (
@@ -328,10 +343,11 @@ const Contact = () => {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center hover:bg-primary/20 transition-colors"
+                        className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center hover:bg-primary/20 transition-colors group"
                         aria-label={social.name}
+                        title={social.name}
                       >
-                        <IconComponent className="w-5 h-5 text-primary" />
+                        <IconComponent className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                       </a>
                     );
                   })}
@@ -342,8 +358,8 @@ const Contact = () => {
               <div className="glass-card glow-border rounded-2xl p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">A Note from Sky</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  "At Night Media, you work directly with the people who build your project. No account managers, 
-                  no layers—just transparent collaboration focused on results. We treat every project like our own."
+                  &quot;At Night Media, you work directly with the people who build your project. No account managers, 
+                  no layers—just transparent collaboration focused on results. We treat every project like our own.&quot;
                 </p>
                 <p className="text-primary text-sm font-medium">— Sky, Founder</p>
               </div>
@@ -383,7 +399,7 @@ const Contact = () => {
             Ready to Grow Your Business?
           </h2>
           <p className="text-muted-foreground mb-10 text-lg max-w-xl mx-auto">
-            Let's turn your vision into a high-performing digital experience.
+            Let&apos;s turn your vision into a high-performing digital experience.
           </p>
           <a
             href="#top"

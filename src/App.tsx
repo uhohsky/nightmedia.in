@@ -23,6 +23,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 import Rebranding3DEraCaseStudy from "./pages/Rebranding3DEraCaseStudy";
+import PerformanceMarketingTrends2025 from "./pages/performance-marketing-trends-2025";
+import AIMarketingAutomationGuide from "./pages/ai-marketing-automation-guide";
+import GrowthSystemsFramework from "./pages/growth-systems-framework";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +51,9 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/blog/rebranding-3d-era-case-study" element={<Rebranding3DEraCaseStudy />} />
+              <Route path="/blog/performance-marketing-trends-2025" element={<PerformanceMarketingTrends2025 />} />
+              <Route path="/blog/ai-marketing-automation-guide" element={<AIMarketingAutomationGuide />} />
+              <Route path="/blog/growth-systems-framework" element={<GrowthSystemsFramework />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />

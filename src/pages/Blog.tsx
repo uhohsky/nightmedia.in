@@ -4,11 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, TrendingUp } from 'lucide-react';
 
-// AI-generated blog images
+// Blog images
 import influencerMarketingImg from '@/assets/blog/influencer-marketing.jpg';
-import cgiWebglImg from '@/assets/blog/cgi-webgl-design.jpg';
-import visualDesignImg from '@/assets/blog/visual-design-trends.jpg';
-import rebranding3dImg from '@/assets/blog/rebranding-3d-era.jpg';
+import performanceMarketingImg from '@/assets/blog/performance-marketing-2025.jpg';
+import aiMarketingImg from '@/assets/blog/ai-marketing-automation.jpg';
+import growthSystemsImg from '@/assets/blog/growth-systems-brands.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,43 +63,43 @@ const Blog = () => {
 
   const posts = [
     {
-      title: 'Why Influencer Marketing Drives ROI in 2025',
-      excerpt: 'Discover how authentic influencer partnerships are revolutionizing brand marketing and delivering unprecedented returns on investment.',
-      image: influencerMarketingImg,
-      slug: 'influencer-marketing-roi-2025',
-      category: 'Marketing',
-      readTime: '5 min read',
-      date: 'Dec 15, 2024',
+      title: 'Performance Marketing Trends That Will Define 2025-2026',
+      excerpt: 'Discover the key shifts in paid advertising, attribution models, and AI-powered optimization that are reshaping digital marketing success.',
+      image: performanceMarketingImg,
+      slug: 'performance-marketing-trends-2025',
+      category: 'Performance Marketing',
+      readTime: '8 min read',
+      date: 'Jan 28, 2026',
       featured: true,
       trending: true
     },
     {
-      title: 'How We Design with CGI & WebGL',
-      excerpt: 'Behind the scenes of our creative process: from concept to photorealistic 3D visuals that stop the scroll.',
-      image: cgiWebglImg,
-      slug: 'cgi-webgl-design-process',
-      category: 'Technology',
+      title: 'How AI is Revolutionizing Marketing Automation',
+      excerpt: 'From predictive analytics to automated creative optimization—learn how leading brands leverage AI to scale their marketing operations.',
+      image: aiMarketingImg,
+      slug: 'ai-marketing-automation-guide',
+      category: 'AI & Automation',
       readTime: '7 min read',
-      date: 'Dec 10, 2024',
+      date: 'Jan 20, 2026',
       trending: true
     },
     {
-      title: 'Top 10 Trends in Visual Design',
-      excerpt: 'The visual design trends shaping 2025: from glassmorphism to AI-generated art, explore what\'s next in digital aesthetics.',
-      image: visualDesignImg,
-      slug: 'visual-design-trends-2025',
-      category: 'Design',
-      readTime: '6 min read',
-      date: 'Dec 5, 2024'
+      title: 'Building Scalable Growth Systems for Brands',
+      excerpt: 'A comprehensive framework for creating conversion funnels that compound growth—from acquisition to retention and beyond.',
+      image: growthSystemsImg,
+      slug: 'growth-systems-framework',
+      category: 'Growth Strategy',
+      readTime: '10 min read',
+      date: 'Jan 15, 2026'
     },
     {
-      title: 'Case Study: Rebranding in the 3D Era',
-      excerpt: 'How we transformed a traditional brand into a 3D-first digital experience, resulting in 300% increased engagement.',
-      image: rebranding3dImg,
-      slug: 'rebranding-3d-era-case-study',
-      category: 'Case Study',
-      readTime: '8 min read',
-      date: 'Nov 28, 2024'
+      title: 'Why Influencer Marketing Drives ROI in 2025',
+      excerpt: 'Discover how authentic influencer partnerships are revolutionizing brand marketing and delivering unprecedented returns on investment.',
+      image: influencerMarketingImg,
+      slug: 'influencer-marketing-roi-2025',
+      category: 'Influencer Marketing',
+      readTime: '6 min read',
+      date: 'Jan 10, 2026'
     }
   ];
 
@@ -118,7 +118,7 @@ const Blog = () => {
         <div className="text-center mb-20 pt-12">
           <div className="blog-hero-badge inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-card mb-8">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground font-medium">Insights & Strategy</span>
+            <span className="text-sm text-muted-foreground font-medium">Performance Insights</span>
           </div>
           
           <h1 className="blog-hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
@@ -127,7 +127,7 @@ const Blog = () => {
           </h1>
           
           <p className="blog-hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Strategies, trends, and case studies on marketing, growth, and digital performance.
+            Strategies, trends, and case studies on marketing, growth, AI, and digital performance.
           </p>
         </div>
 
