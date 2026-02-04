@@ -11,6 +11,7 @@ const projects = [
     id: 'synfiction-ai',
     title: 'SYNFICTION.AI',
     category: 'AI Product, Web Design, Development',
+    description: 'A stealth AI startup needed a product-led website that could explain complex technology simply—and convert technical users into early adopters.',
     image: '/images/projects/sfai.jpg',
     slug: 'synfiction-ai',
     externalLink: 'https://synfiction.ai',
@@ -19,6 +20,7 @@ const projects = [
     id: 'aidrum-fashion',
     title: 'Aidrum Fashion',
     category: 'eCommerce, Web Design, Branding',
+    description: 'A D2C fashion brand struggling with cart abandonment. We rebuilt the funnel—40% conversion lift in 60 days.',
     image: '/images/projects/ecommerce-fashion.jpg',
     slug: 'aidrum-fashion',
   },
@@ -26,6 +28,7 @@ const projects = [
     id: 'saas-analytics',
     title: 'SaaS Analytics Platform',
     category: 'Product Design, UI/UX, Development',
+    description: 'Series A SaaS company needed to reduce churn. New dashboard UX cut support tickets by 60% and improved activation.',
     image: '/images/projects/saas-dashboard.jpg',
     slug: 'saas-analytics',
   },
@@ -33,6 +36,7 @@ const projects = [
     id: 'blamy-kuby',
     title: 'Blamy Kuby Cosmetics',
     category: 'Brand Identity, Packaging, Strategy',
+    description: 'Luxury cosmetics brand entering a crowded market. Positioning and identity that justified 3x premium pricing.',
     image: '/images/projects/brand-identity.jpg',
     slug: 'blamy-kuby',
   },
@@ -40,6 +44,7 @@ const projects = [
     id: 'realestate-platform',
     title: 'Luxury Real Estate',
     category: 'Web Design, Development, SEO',
+    description: 'High-end real estate platform where leads were leaking. New system generated 200+ qualified inquiries monthly.',
     image: '/images/projects/real-estate.jpg',
     slug: 'luxury-realestate',
   },
@@ -47,6 +52,7 @@ const projects = [
     id: 'fitness-wellness',
     title: 'Fitness & Wellness App',
     category: 'Mobile App, UI/UX, Product',
+    description: 'Wellness app with retention problems. UX overhaul increased 30-day retention from 18% to 47%.',
     image: '/images/projects/fitness-app.jpg',
     slug: 'fitness-wellness',
   },
@@ -114,12 +120,12 @@ const Projects = () => {
           </div>
           
           <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
-            Our{' '}
-            <span className="gradient-text-primary">Work</span>
+            Proof of{' '}
+            <span className="gradient-text-primary">Execution</span>
           </h1>
           
           <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Selected projects where design, technology, and performance intersect
+            Real problems. Real systems. Measurable outcomes. Each project answers one question: can Night Media scale a business?
           </p>
         </div>
       </section>
@@ -145,6 +151,9 @@ const Projects = () => {
                     </h3>
                     <p className="text-sm text-muted-foreground font-medium tracking-wide">
                       {project.category}
+                    </p>
+                    <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                      {project.description}
                     </p>
                   </div>
                 </div>
@@ -177,10 +186,10 @@ const Projects = () => {
       <section className="relative z-10 py-24 px-6">
         <div className="max-w-4xl mx-auto text-center glass-card glow-border rounded-3xl p-12 md:p-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Have a project in mind?
+            Ready to Be Our Next Case Study?
           </h2>
           <p className="text-muted-foreground mb-10 text-lg max-w-xl mx-auto">
-            Let&apos;s create something exceptional together. We&apos;d love to hear about your vision.
+            We work with founders who want systems, not campaigns. If you are serious about scale, lets talk.
           </p>
           <Link
             to="/contact"

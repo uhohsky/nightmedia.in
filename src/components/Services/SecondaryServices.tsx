@@ -43,37 +43,37 @@ const SecondaryServices = () => {
     {
       icon: TrendingUp,
       title: 'Performance Marketing',
-      description: 'Data-driven paid campaigns across Google, Meta & LinkedIn that maximize ROI.',
+      description: 'Paid acquisition that compounds. We optimize for profitable scale, not vanity metrics.',
       href: '/services/paid-ads'
     },
     {
       icon: Users,
       title: 'Influencer Marketing',
-      description: 'Strategic creator partnerships to amplify reach and build authentic connections.',
+      description: 'Creator partnerships measured by revenue, not reach. Strategic placements that convert.',
       href: '/services/influencer-marketing'
     },
     {
       icon: Film,
       title: 'Video Production',
-      description: 'Cinematic video content from concept to final edit that captures attention.',
+      description: 'Content that stops the scroll and moves the needle. From concept to conversion.',
       href: '/services/video-editing'
     },
     {
       icon: Palette,
       title: 'Brand Identity',
-      description: 'Complete brand systems from logo to guidelines that differentiate and resonate.',
+      description: 'Positioning that commands premium. Systems that scale with your ambition.',
       href: '/services/branding-identity'
     },
     {
       icon: Search,
       title: 'SEO Optimization',
-      description: 'Technical and content SEO strategies for sustainable organic growth.',
+      description: 'Own your category in search. Long-term traffic you dont have to pay for.',
       href: '/services/seo'
     },
     {
       icon: Megaphone,
       title: 'CGI Advertising',
-      description: 'Photorealistic 3D product visuals and animations that stop the scroll.',
+      description: 'Photorealistic 3D that stops the scroll. Product visuals that outperform.',
       href: '/services/cgi-ads'
     }
   ];
@@ -86,14 +86,13 @@ const SecondaryServices = () => {
         {/* Header */}
         <div className="secondary-header text-center mb-16">
           <p className="text-xs text-primary uppercase tracking-[0.3em] mb-4 font-medium">
-            Full-Service Growth
+            Complete Growth Stack
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-6">
-            Beyond Web Design
+            The System Beyond Web
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Your website is the foundation. We offer complementary services to drive traffic, 
-            build brand, and scale your business.
+            Your website is the foundation. These services drive traffic to it, build trust around it, and multiply what it produces.
           </p>
         </div>
 

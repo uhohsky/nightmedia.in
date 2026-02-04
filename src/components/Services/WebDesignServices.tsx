@@ -43,48 +43,48 @@ const WebDesignServices = () => {
     {
       icon: Paintbrush,
       title: 'UI/UX Design',
-      description: 'Beautiful, intuitive interfaces designed with conversion psychology. We create designs that look stunning and perform.',
-      features: ['User Research', 'Wireframing', 'Prototyping', 'Visual Design'],
+      description: 'Not just beautiful—strategically designed to guide users toward conversion. Every screen has a job.',
+      features: ['Conversion Mapping', 'User Psychology', 'A/B Ready', 'Mobile-First'],
       color: 'from-purple-500/20 to-pink-500/10',
       href: '/services/ui-ux-design'
     },
     {
       icon: Code,
       title: 'Web Development',
-      description: 'Clean, performant code that brings designs to life. Built with modern technologies for speed and scalability.',
-      features: ['React/Next.js', 'Custom CMS', 'E-commerce', 'API Integration'],
+      description: 'Clean code that performs. Built for speed, SEO, and the scale youre planning for.',
+      features: ['React/Next.js', 'Headless CMS', 'API-First', 'Performance-Tuned'],
       color: 'from-blue-500/20 to-cyan-500/10',
       href: '/services/web-design'
     },
     {
       icon: Smartphone,
-      title: 'Responsive Design',
-      description: 'Mobile-first approach ensuring perfect experience across all devices. 60%+ of traffic is mobile—we optimize for it.',
-      features: ['Mobile-First', 'Tablet Optimized', 'Cross-Browser', 'Touch-Friendly'],
+      title: 'Responsive Systems',
+      description: '60%+ of your traffic is mobile. We build for the device your customers actually use.',
+      features: ['Mobile-First', 'Touch-Optimized', 'Fast Load', 'Cross-Browser'],
       color: 'from-emerald-500/20 to-teal-500/10',
       href: '/services/web-design'
     },
     {
       icon: Gauge,
-      title: 'Performance Optimization',
-      description: 'Lightning-fast load times that improve conversions and SEO rankings. Sub-2 second loads guaranteed.',
-      features: ['Core Web Vitals', 'Image Optimization', 'Code Splitting', 'CDN Setup'],
+      title: 'Performance Engineering',
+      description: 'Speed is revenue. Sub-2-second loads, 95+ Core Web Vitals. No exceptions.',
+      features: ['Core Web Vitals', 'CDN Setup', 'Image Optimization', 'Code Splitting'],
       color: 'from-orange-500/20 to-amber-500/10',
       href: '/services/web-design'
     },
     {
       icon: Search,
-      title: 'SEO-Ready Builds',
-      description: 'Built with search engines in mind from day one. Technical SEO foundation for organic growth.',
-      features: ['Semantic HTML', 'Schema Markup', 'Meta Optimization', 'Site Speed'],
+      title: 'SEO Architecture',
+      description: 'Built for Google from day one. Technical foundation that makes ranking inevitable.',
+      features: ['Semantic HTML', 'Schema Markup', 'Site Structure', 'Speed Optimized'],
       color: 'from-green-500/20 to-lime-500/10',
       href: '/services/seo'
     },
     {
       icon: Shield,
-      title: 'Security & Maintenance',
-      description: 'Enterprise-grade security and ongoing maintenance to keep your site safe and updated.',
-      features: ['SSL Setup', 'Security Audits', 'Regular Updates', '24/7 Monitoring'],
+      title: 'Maintenance & Security',
+      description: 'Your system stays secure, updated, and performing. No surprises, no downtime.',
+      features: ['24/7 Monitoring', 'Security Audits', 'Regular Updates', 'Backup Systems'],
       color: 'from-red-500/20 to-rose-500/10',
       href: '/services/web-design'
     }
@@ -99,14 +99,13 @@ const WebDesignServices = () => {
         {/* Header */}
         <div className="webdesign-header text-center mb-16">
           <p className="text-xs text-primary uppercase tracking-[0.3em] mb-4 font-medium">
-            Our Core Expertise
+            Web as Revenue Infrastructure
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-6">
-            Web Design & Development Services
+            Every Component Optimized for Conversion
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            End-to-end web solutions from concept to launch. We handle design, development, 
-            optimization, and everything in between.
+            Your website is not a brochure—its a conversion system. Each layer is engineered to move visitors toward action.
           </p>
         </div>
 

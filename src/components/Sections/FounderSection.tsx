@@ -73,13 +73,13 @@ const FounderSection = () => {
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Building digital growth systems for ambitious brands since 2019. I believe every business deserves a website that actually converts – not just looks good.
+                Six years building growth infrastructure for brands that refuse to stay small. I think in systems, not campaigns—because campaigns expire, systems compound.
               </p>
               <p>
-                At Night Media, we combine creative excellence with performance obsession. Every pixel, every line of code, every campaign is engineered for one thing: <span className="text-foreground font-medium">growth</span>.
+                Night Media exists for one reason: to build the digital infrastructure that turns ambition into revenue. <span className="text-foreground font-medium">Web, ads, funnels, automation</span>—unified under one strategic vision.
               </p>
               <p>
-                When you work with us, you work directly with me. No junior handoffs. No communication gaps. Just focused execution that drives results.
+                When you work with us, you get an operator who understands unit economics, CAC payback, and what it takes to scale. No account managers. No runaround. Direct line to execution.
               </p>
             </div>
 

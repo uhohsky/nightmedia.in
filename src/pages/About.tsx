@@ -89,46 +89,46 @@ const About = () => {
   const values = [
     {
       number: '01',
-      title: 'Craft Over Chaos',
-      description: 'We believe in thoughtful design that serves a purpose. Every pixel, every interaction, every line of code is intentional.',
+      title: 'Systems Over Campaigns',
+      description: 'Campaigns decay. Systems compound. We build infrastructure that gets smarter with every dollar invested.',
     },
     {
       number: '02',
-      title: 'Results-Driven',
-      description: 'Beautiful design means nothing without performance. We measure success by the growth we deliver.',
+      title: 'Revenue as the North Star',
+      description: 'Design awards are nice. Revenue growth is the only metric that matters. Everything we build is measured against it.',
     },
     {
       number: '03',
-      title: 'Partnership First',
-      description: 'We work with you, not for you. Collaboration and transparency are at the core of everything we do.',
+      title: 'Operator Alignment',
+      description: 'We work with founders, not procurement teams. Direct access to decision-makers means faster execution and better outcomes.',
     },
     {
       number: '04',
-      title: 'Always Evolving',
-      description: 'The digital landscape never stops moving. Neither do we. Continuous learning keeps us ahead.',
+      title: 'Long-Term Thinking',
+      description: 'Quick wins are a byproduct, not the goal. We architect for where you will be in 3 years, not 3 months.',
     },
   ];
 
   const timeline = [
     {
       year: '2020',
-      title: 'The Beginning',
-      description: 'Night Media launched with a clear mission: help ambitious brands build digital systems that actually convert.',
+      title: 'First Principles',
+      description: 'Night Media launched with one thesis: most agencies optimize for deliverables, not outcomes. We chose the harder path—building systems that generate revenue.',
     },
     {
       year: '2022',
-      title: 'Scaling Growth Systems',
-      description: 'Expanded beyond web design to offer complete growth infrastructure—performance marketing, lead generation, and conversion optimization.',
+      title: 'Beyond Web Design',
+      description: 'Expanded into performance marketing, lead generation, and conversion systems. Realized that great websites need great traffic to perform.',
     },
     {
       year: '2024',
-      title: 'Full-Service Agency',
-      description: 'Brought on specialists in AI, video production, and influencer marketing to deliver end-to-end digital transformation.',
+      title: 'Full-Stack Growth',
+      description: 'Assembled specialists across AI, video, influencer marketing, and paid acquisition. One team. One system. Complete growth infrastructure.',
     },
     {
       year: '2026',
-      title: 'Building the Future',
-      description: 'Focused on scalable digital growth systems, partnering with brands ready to dominate their markets with data-driven strategies.',
+      title: 'Compounding Forward',
+      description: 'Now focused on working with fewer, better clients—operators serious about scale. Deep partnerships over volume. Outcomes over outputs.',
     },
   ];
 
@@ -151,12 +151,12 @@ const About = () => {
           </div>
           
           <h1 className="about-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
-            Building Digital Experiences{' '}
-            <span className="gradient-text-primary">That Drive Growth</span>
+            Operators Who Build{' '}
+            <span className="gradient-text-primary">Growth Systems</span>
           </h1>
           
           <p className="about-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            We&apos;re a creative agency that combines design excellence with performance obsession. Every project is engineered to make an impact.
+            We are not an agency that sells hours. We are builders who architect revenue infrastructure—and stake our reputation on what it produces.
           </p>
         </div>
       </section>
@@ -270,16 +270,16 @@ const About = () => {
         {/* CTA Section */}
         <section className="about-section text-center pb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Build Something Great?
+            We Work With Operators Who Think in Systems
           </h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-            Let&apos;s create a digital experience that drives real growth for your brand.
+            If you are serious about building infrastructure that compounds, not campaigns that decay—lets talk.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-3 btn-primary-glow px-8 py-4 rounded-full text-primary-foreground font-semibold group"
           >
-            <span>Work With Night Media</span>
+            <span>Start the Conversation</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </section>

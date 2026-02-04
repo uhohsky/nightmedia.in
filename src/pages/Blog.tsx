@@ -63,8 +63,8 @@ const Blog = () => {
 
   const posts = [
     {
-      title: 'Performance Marketing Trends That Will Define 2025-2026',
-      excerpt: 'Discover the key shifts in paid advertising, attribution models, and AI-powered optimization that are reshaping digital marketing success.',
+      title: 'Performance Marketing in 2025: The Shift from Campaigns to Systems',
+      excerpt: 'Why the best operators are abandoning campaign-based thinking. A framework for building acquisition infrastructure that compounds.',
       image: performanceMarketingImg,
       slug: 'performance-marketing-trends-2025',
       category: 'Performance Marketing',
@@ -74,8 +74,8 @@ const Blog = () => {
       trending: true
     },
     {
-      title: 'How AI is Revolutionizing Marketing Automation',
-      excerpt: 'From predictive analytics to automated creative optimization—learn how leading brands leverage AI to scale their marketing operations.',
+      title: 'AI in Marketing: Beyond Automation to Strategic Advantage',
+      excerpt: 'How growth teams are using AI not just to automate, but to fundamentally rethink their approach to acquisition and retention.',
       image: aiMarketingImg,
       slug: 'ai-marketing-automation-guide',
       category: 'AI & Automation',
@@ -84,8 +84,8 @@ const Blog = () => {
       trending: true
     },
     {
-      title: 'Building Scalable Growth Systems for Brands',
-      excerpt: 'A comprehensive framework for creating conversion funnels that compound growth—from acquisition to retention and beyond.',
+      title: 'The Growth Systems Framework: Build Once, Compound Forever',
+      excerpt: 'A complete breakdown of how we architect conversion funnels that get smarter with every dollar spent. Real examples included.',
       image: growthSystemsImg,
       slug: 'growth-systems-framework',
       category: 'Growth Strategy',
@@ -93,8 +93,8 @@ const Blog = () => {
       date: 'Jan 15, 2026'
     },
     {
-      title: 'Why Influencer Marketing Drives ROI in 2025',
-      excerpt: 'Discover how authentic influencer partnerships are revolutionizing brand marketing and delivering unprecedented returns on investment.',
+      title: 'Influencer Marketing That Moves Revenue, Not Just Reach',
+      excerpt: 'Why most influencer campaigns fail to convert—and the measurement framework that separates operators from amateurs.',
       image: influencerMarketingImg,
       slug: 'influencer-marketing-roi-2025',
       category: 'Influencer Marketing',
@@ -118,16 +118,16 @@ const Blog = () => {
         <div className="text-center mb-20 pt-12">
           <div className="blog-hero-badge inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-card mb-8">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground font-medium">Performance Insights</span>
+            <span className="text-sm text-muted-foreground font-medium">From Builders, Not Marketers</span>
           </div>
           
           <h1 className="blog-hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
-            Performance-Driven{' '}
-            <span className="gradient-text-primary">Insights</span>
+            Growth Intelligence{' '}
+            <span className="gradient-text-primary">That Compounds</span>
           </h1>
           
           <p className="blog-hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Strategies, trends, and case studies on marketing, growth, AI, and digital performance.
+            Frameworks, case studies, and operator insights on building revenue systems. No fluff. Just what works.
           </p>
         </div>
 
@@ -239,10 +239,10 @@ const Blog = () => {
         {/* Newsletter CTA */}
         <div className="glass-card glow-border rounded-3xl p-8 md:p-12 text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Stay Ahead of the Curve
+            The Operators Newsletter
           </h2>
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            Get weekly insights on marketing, growth strategies, and performance optimization delivered to your inbox.
+            Weekly breakdowns on growth systems, acquisition strategies, and what is actually working. For founders who think in systems.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
@@ -258,12 +258,12 @@ const Blog = () => {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <p className="text-muted-foreground mb-6">Ready to apply these insights to your business?</p>
+          <p className="text-muted-foreground mb-6">Ready to apply these frameworks to your business?</p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-3 btn-primary-glow px-8 py-4 rounded-full text-primary-foreground font-semibold group"
           >
-            <span>Start Your Project</span>
+            <span>Book a Strategy Call</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
