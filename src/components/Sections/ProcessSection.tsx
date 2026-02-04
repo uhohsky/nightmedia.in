@@ -77,26 +77,26 @@ const ProcessSection = () => {
     {
       number: '01',
       icon: Lightbulb,
-      title: 'Strategy',
-      description: 'Deep dive into your business, market, and goals to craft a winning approach.',
+      title: 'Diagnose',
+      description: 'We audit your current funnel, identify revenue leaks, and map the fastest path to scale.',
     },
     {
       number: '02',
       icon: Map,
-      title: 'Build',
-      description: 'Design and develop your high-converting digital assets with precision.',
+      title: 'Architect',
+      description: 'Design the system—web, ads, funnels—with every component optimized for conversion.',
     },
     {
       number: '03',
       icon: Code,
-      title: 'Launch',
-      description: 'Deploy your systems with comprehensive testing and quality assurance.',
+      title: 'Deploy',
+      description: 'Build and launch in weeks, not months. Speed matters when revenue is on the line.',
     },
     {
       number: '04',
       icon: Rocket,
-      title: 'Scale',
-      description: 'Optimize, iterate, and scale your growth systems for maximum impact.',
+      title: 'Compound',
+      description: 'Continuous optimization. Your system gets smarter with every dollar spent.',
     },
   ];
 
@@ -109,12 +109,12 @@ const ProcessSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="process-header text-center mb-20">
-          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-5 font-medium">Our Process</p>
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-5 font-medium">How We Work</p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-6">
-            How We Deliver Results
+            From Diagnosis to Scale
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            A proven 4-step framework that transforms your digital presence.
+            We dont pitch. We diagnose, architect, and execute. Four phases. Measurable outcomes.
           </p>
         </div>
 

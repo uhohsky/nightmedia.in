@@ -88,63 +88,63 @@ const ServicesPreview = () => {
     {
       icon: Globe,
       title: 'Web Design & Development',
-      description: 'High-converting websites engineered to capture leads and drive revenue.',
+      description: 'Your website is your 24/7 sales system. We build ones that actually close.',
       href: '/services/web-design',
       color: 'from-blue-500/20 to-cyan-500/10',
     },
     {
       icon: Rocket,
       title: 'Performance Marketing',
-      description: 'Data-driven campaigns that maximize ROI across all channels.',
+      description: 'Profitable acquisition at scale. We optimize for ROAS, not impressions.',
       href: '/services/performance-marketing',
       color: 'from-purple-500/20 to-pink-500/10',
     },
     {
       icon: Target,
       title: 'Lead Generation',
-      description: 'Strategic systems to capture and nurture high-quality leads.',
+      description: 'Predictable pipeline, not random inquiries. Systems that compound.',
       href: '/services/lead-generation',
       color: 'from-emerald-500/20 to-teal-500/10',
     },
     {
       icon: Megaphone,
       title: 'Paid Advertising',
-      description: 'Google, Meta, and LinkedIn ads that convert at scale.',
+      description: 'Google, Meta, LinkedIn—deployed as a unified revenue engine.',
       href: '/services/paid-advertising',
       color: 'from-orange-500/20 to-amber-500/10',
     },
     {
       icon: Search,
       title: 'SEO',
-      description: 'Organic visibility that drives sustainable traffic growth.',
+      description: 'Own your category in search. Long-term traffic you dont pay for.',
       href: '/services/seo',
       color: 'from-green-500/20 to-lime-500/10',
     },
     {
       icon: Share2,
       title: 'Social Media Marketing',
-      description: 'Engaging content strategies that build brand authority.',
+      description: 'Build authority, not just followers. Content that drives decisions.',
       href: '/services/social-media',
       color: 'from-pink-500/20 to-rose-500/10',
     },
     {
       icon: Palette,
       title: 'Branding',
-      description: 'Visual identities that differentiate and resonate.',
+      description: 'Positioning that commands premium. Identity that scales with you.',
       href: '/services/branding',
       color: 'from-violet-500/20 to-purple-500/10',
     },
     {
       icon: Film,
       title: 'Video Editing',
-      description: 'Compelling video content that captures attention.',
+      description: 'Stop the scroll. Move the needle. Video that performs.',
       href: '/services/video-editing',
       color: 'from-red-500/20 to-orange-500/10',
     },
     {
       icon: Users,
       title: 'Influencer Marketing',
-      description: 'Strategic partnerships that amplify your reach.',
+      description: 'Strategic creator partnerships. Measured by revenue, not reach.',
       href: '/services/influencer-marketing',
       color: 'from-cyan-500/20 to-blue-500/10',
     },
@@ -159,12 +159,12 @@ const ServicesPreview = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="services-header text-center mb-20">
-          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-5 font-medium">What We Do</p>
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-5 font-medium">Growth Systems</p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-6">
-            Our Services
+            The Problem → System → Outcome
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Full-stack growth solutions to scale your business.
+            Each service is a module in your growth infrastructure. Together, they compound.
           </p>
         </div>
 

@@ -69,19 +69,19 @@ const CallToAction = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm text-muted-foreground">Ready to Scale?</span>
+              <span className="text-sm text-muted-foreground">For Operators Ready to Scale</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-6 leading-[1.1]">
-              Let's Build a Scalable
+              Stop Spending on Campaigns.
               <br />
               <span className="gradient-text-primary">
-                Growth System for Your Business
+                Start Building Revenue Systems.
               </span>
             </h2>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-              Book a free strategy call to discuss how we can help you scale your revenue with high-converting digital systems.
+              One call. We diagnose your funnel, identify the bottleneck, and show you the fastest path to scale. No pitch deck. Just strategy.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">

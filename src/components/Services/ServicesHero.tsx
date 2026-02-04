@@ -60,18 +60,18 @@ const ServicesHero = () => {
           <div>
             <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
               <Sparkles className="w-4 h-4" />
-              Web Design & Development Agency
+              Digital Growth Infrastructure
             </div>
             
             <h1 className="hero-title text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-[1.1] mb-6">
-              Premium Web Design &{' '}
+              Web Systems That{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">
-                Development Agency
+                Generate Revenue
               </span>
             </h1>
             
             <p className="hero-subtitle text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl">
-              We build high-converting, performance-driven websites that turn visitors into customers. From stunning UI/UX design to lightning-fast development.
+              Your website should be your best salesperson. We build conversion-focused web systems that turn traffic into customers—not just pages that look good.
             </p>
             
             <div className="hero-cta flex flex-wrap gap-4">

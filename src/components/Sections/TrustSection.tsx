@@ -65,32 +65,32 @@ const TrustSection = () => {
   const trustPoints = [
     {
       icon: Target,
-      title: 'Conversion-Driven',
-      description: 'Every decision optimized for turning visitors into customers.',
+      title: 'Outcome-Obsessed',
+      description: 'We measure in revenue generated, not deliverables shipped.',
       gradient: 'from-blue-500/20 to-cyan-500/5',
     },
     {
       icon: Zap,
-      title: 'Performance-First',
-      description: 'Lightning-fast websites scoring 95+ on Core Web Vitals.',
+      title: 'Speed to Scale',
+      description: 'From strategy to live system in weeks, not quarters.',
       gradient: 'from-purple-500/20 to-pink-500/5',
     },
     {
       icon: User,
-      title: 'Founder-Led',
-      description: 'Direct access to senior talent. No junior handoffs.',
+      title: 'Operator-Led',
+      description: 'Work directly with builders who understand unit economics.',
       gradient: 'from-emerald-500/20 to-teal-500/5',
     },
     {
       icon: TrendingUp,
-      title: 'Growth-Focused',
-      description: 'Built-in optimization loops for continuous improvement.',
+      title: 'Compounding Growth',
+      description: 'Systems that get better with data, not campaigns that decay.',
       gradient: 'from-orange-500/20 to-amber-500/5',
     },
     {
       icon: Server,
-      title: 'Scalable Systems',
-      description: 'Architecture designed to grow with your business.',
+      title: 'Full-Stack Execution',
+      description: 'Web, ads, funnels, automation—one team, one system.',
       gradient: 'from-cyan-500/20 to-blue-500/5',
     },
   ];
@@ -104,14 +104,14 @@ const TrustSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="trust-header text-center mb-20">
-          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-5 font-medium">Why Choose Us</p>
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-5 font-medium">Not For Everyone</p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-6">
-            Why Businesses Choose
+            Built for Founders Who
             <br />
-            <span className="gradient-text-primary">Night Media</span>
+            <span className="gradient-text-primary">Think in Systems</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            We don't just build websites. We build growth engines.
+            We partner with operators who want infrastructure, not just campaigns. Revenue systems, not vanity metrics.
           </p>
         </div>
 

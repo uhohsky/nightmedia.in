@@ -116,9 +116,9 @@ const Hero = () => {
   }, []);
 
   const stats = [
-    { value: '150+', label: 'Projects Shipped' },
-    { value: '3x', label: 'Avg. Revenue Lift' },
-    { value: '98%', label: 'Client Retention' },
+    { value: '₹50Cr+', label: 'Revenue Generated' },
+    { value: '150+', label: 'Systems Deployed' },
+    { value: '3.2x', label: 'Avg. Client ROAS' },
   ];
 
   return (
@@ -149,23 +149,23 @@ const Hero = () => {
           {/* Badge */}
           <div className="hero-badge inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-card mb-10">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground font-medium">Performance Advertising & Growth Agency</span>
+            <span className="text-sm text-muted-foreground font-medium">Growth Systems for Ambitious Brands</span>
           </div>
 
           {/* Main Headline */}
           <div className="mb-8 overflow-hidden">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95]">
-              <span className="hero-headline-line block text-foreground mb-2">We Build High-Converting</span>
-              <span className="hero-headline-line block text-foreground mb-2">Digital Systems That</span>
+              <span className="hero-headline-line block text-foreground mb-2">Revenue Systems</span>
+              <span className="hero-headline-line block text-foreground mb-2">That Compound.</span>
               <span className="hero-gradient-text block gradient-text-primary">
-                Scale Revenue
+                Not Campaigns That Burn.
               </span>
             </h1>
           </div>
           
           {/* Subheadline */}
           <p className="hero-subtitle text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-14 leading-relaxed">
-            Night Media is a performance-driven advertising and growth agency helping brands scale using web, funnels, performance marketing, and automation.
+            We build the digital infrastructure that turns traffic into revenue. Web systems, paid acquisition, and conversion funnels—engineered to scale.
           </p>
           
           {/* CTAs */}
