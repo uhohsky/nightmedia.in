@@ -12,9 +12,13 @@ const Hero = () => {
   const orbsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Initial entrance timeline
-      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+    // Delay animations until after first contentful paint
+    const animationDelay = requestIdleCallback ? 0 : 100;
+    
+    const timeoutId = setTimeout(() => {
+      const ctx = gsap.context(() => {
+        // Initial entrance timeline
+        const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
       
       // Badge animation
       tl.fromTo('.hero-badge', 
@@ -110,9 +114,12 @@ const Hero = () => {
         }
       });
 
-    }, heroRef);
+      }, heroRef);
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    }, animationDelay);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   const stats = [
@@ -154,18 +161,17 @@ const Hero = () => {
 
           {/* Main Headline */}
           <div className="mb-8 overflow-hidden">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95]">
-              <span className="hero-headline-line block text-foreground mb-2">Revenue Systems</span>
-              <span className="hero-headline-line block text-foreground mb-2">That Compound.</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05]">
+              <span className="hero-headline-line block text-foreground mb-2">Revenue Systems That Compound</span>
               <span className="hero-gradient-text block gradient-text-primary">
-                Not Campaigns That Burn.
+                Built Through High-Performance Websites & Growth Marketing
               </span>
             </h1>
           </div>
           
           {/* Subheadline */}
-          <p className="hero-subtitle text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-14 leading-relaxed">
-            We build the digital infrastructure that turns traffic into revenue. Web systems, paid acquisition, and conversion funnels—engineered to scale.
+          <p className="hero-subtitle text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-14 leading-relaxed">
+            Night Media is a performance-driven website development and growth agency building conversion-focused websites, funnels, and paid media systems for startups and service businesses.
           </p>
           
           {/* CTAs */}

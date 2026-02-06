@@ -119,10 +119,11 @@ const FounderSection = () => {
           <div className="founder-image-wrapper relative">
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden glass-card">
               <img
-  src="/images/team/founder.jpg"
-  alt="Sky – Founder of Night Media"
-  className="w-full h-full object-cover"
-/>
+                src="/images/team/founder.jpg"
+                alt="Sky – Founder of Night Media"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
 
 
               {/* Gradient overlay */}
