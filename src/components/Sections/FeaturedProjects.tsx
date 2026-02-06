@@ -124,11 +124,11 @@ const FeaturedProjects = () => {
               to={`/projects/${project.slug}`}
               className="project-card group glass-card rounded-3xl overflow-hidden hover-lift"
             >
-              {/* Image container */}
               <div className="relative h-64 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="project-image w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Gradient overlay */}

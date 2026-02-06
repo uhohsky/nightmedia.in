@@ -1,6 +1,6 @@
-
 import React from 'react';
 import Hero from '../components/Sections/Hero';
+import SeoSupportSection from '../components/Sections/SeoSupportSection';
 import TrustSection from '../components/Sections/TrustSection';
 import ServicesPreview from '../components/Sections/ServicesPreview';
 import ProcessSection from '../components/Sections/ProcessSection';
@@ -16,6 +16,7 @@ const Index = () => {
       
       {/* Sections */}
       <Hero />
+      <SeoSupportSection />
       <TrustSection />
       <ServicesPreview />
       <ProcessSection />
