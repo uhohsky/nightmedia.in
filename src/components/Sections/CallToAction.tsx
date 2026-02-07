@@ -11,6 +11,9 @@ const CallToAction = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
     const ctx = gsap.context(() => {
       // Content animation
       gsap.fromTo('.cta-content',
@@ -22,7 +25,7 @@ const CallToAction = () => {
           duration: 1.2,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.cta-section',
+            trigger: section,
             start: 'top 70%',
           }
         }

@@ -11,6 +11,9 @@ const FeaturedProjects = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
     const ctx = gsap.context(() => {
       // Header animation
       gsap.fromTo('.projects-header',
@@ -21,7 +24,7 @@ const FeaturedProjects = () => {
           duration: 1,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.projects-section',
+            trigger: section,
             start: 'top 75%',
           }
         }
@@ -38,7 +41,7 @@ const FeaturedProjects = () => {
           stagger: 0.2,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.projects-grid',
+            trigger: section.querySelector('.projects-grid'),
             start: 'top 80%',
           }
         }

@@ -22,6 +22,9 @@ const ServicesPreview = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
     const ctx = gsap.context(() => {
       // Header animation
       gsap.fromTo('.services-header',
@@ -32,7 +35,7 @@ const ServicesPreview = () => {
           duration: 1,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.services-section',
+            trigger: section,
             start: 'top 75%',
           }
         }
@@ -52,7 +55,7 @@ const ServicesPreview = () => {
           },
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.services-grid',
+            trigger: section.querySelector('.services-grid'),
             start: 'top 80%',
           }
         }
