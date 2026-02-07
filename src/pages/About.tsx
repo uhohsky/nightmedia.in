@@ -61,25 +61,25 @@ const About = () => {
 
   const team = [
     {
-      name: 'Mr Sky',
+      name: 'Sky',
       role: 'Lead Web Engineer',
       image: '/images/team/founder.jpg',
       bio: 'Lead Web Engineer with 8+ years of experience building high-performance, conversion-focused websites.',
     },
     {
-      name: 'Ms Pihu',
+      name: ' Shaima',
       role: 'Frontend Developer',
       image: '/images/team/dev.jpg',
       bio: 'Frontend developer focused on modern UI, motion design, and scalable web interfaces.',
     },
     {
-      name: 'Mr Kartik',
+      name: 'Kartik',
       role: 'Growth & Influencer Strategist',
       image: '/images/team/strategist.jpg',
       bio: 'Growth strategist specializing in influencer campaigns and performance-driven social media execution.',
     },
     {
-      name: 'Ms Vibha',
+      name: 'Vibha',
       role: 'Video & Motion Lead',
       image: '/images/team/video.jpg',
       bio: 'Video producer focused on cinematic storytelling, brand films, and short-form performance content.',
