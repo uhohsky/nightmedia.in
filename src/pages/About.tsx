@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
@@ -40,6 +41,22 @@ const About = () => {
           }
         }
       );
+    gsap.fromTo(
+      '.about-section',
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: '.about-content',
+          start: 'top 80%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
 
       gsap.fromTo('.timeline-item',
         { opacity: 0, x: -40 },
@@ -57,23 +74,31 @@ const About = () => {
     }, containerRef);
 
     return () => ctx.revert();
+    gsap.to('.floating-element', {
+      y: -30,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power2.inOut',
+      stagger: 0.5,
+    });
   }, []);
 
   const team = [
     {
-      name: 'Mr Sky',
+      name: 'Sky',
       role: 'Lead Web Engineer',
       image: '/images/team/founder.jpg',
       bio: 'Lead Web Engineer with 8+ years of experience building high-performance, conversion-focused websites.',
     },
     {
-      name: 'Ms Pihu',
+      name: 'Shaima',
       role: 'Frontend Developer',
       image: '/images/team/dev.jpg',
       bio: 'Frontend developer focused on modern UI, motion design, and scalable web interfaces.',
     },
     {
-      name: 'Mr Kartik',
+      name: 'Kartik',
       role: 'Growth & Influencer Strategist',
       image: '/images/team/strategist.jpg',
       bio: 'Growth strategist specializing in influencer campaigns and performance-driven social media execution.',
@@ -83,6 +108,35 @@ const About = () => {
       role: 'Video & Motion Lead',
       image: '/images/team/video.jpg',
       bio: 'Video producer focused on cinematic storytelling, brand films, and short-form performance content.',
+    },
+  ];
+    {
+      name: 'Alex Rivera',
+      role: 'Creative Director',
+      image: '/images/team/sky.jpg',
+      bio: 'Visionary leader with 8+ years in digital design and brand strategy.',
+      color: 'from-blue-600 to-purple-600',
+    },
+    {
+      name: 'Maya Chen',
+      role: 'Lead Developer',
+      image: '/images/team/pihu.jpg',
+      bio: 'Full-stack developer specializing in WebGL and immersive experiences.',
+      color: 'from-emerald-500 to-teal-600',
+    },
+    {
+      name: 'Jordan Smith',
+      role: 'Influencer Strategist',
+      image: '/images/team/kartik.jpg',
+      bio: 'Expert in influencer partnerships and social media strategy.',
+      color: 'from-pink-500 to-red-500',
+    },
+    {
+      name: 'Sofia Patel',
+      role: 'Video Producer',
+      image: '/images/team/vibha.jpg',
+      bio: 'Award-winning video producer with expertise in cinematic storytelling.',
+      color: 'from-orange-500 to-red-600',
     },
   ];
 
@@ -96,6 +150,10 @@ const About = () => {
       number: '02',
       title: 'Revenue as the North Star',
       description: 'Design awards are nice. Revenue growth is the only metric that matters. Everything we build is measured against it.',
+      title: 'Innovation',
+      description:
+        'We push boundaries and explore new technologies to create cutting-edge solutions.',
+      color: 'from-blue-500 to-cyan-500',
     },
     {
       number: '03',
@@ -119,6 +177,16 @@ const About = () => {
       year: '2022',
       title: 'Beyond Web Design',
       description: 'Expanded into performance marketing, lead generation, and conversion systems. Realized that great websites need great traffic to perform.',
+      title: 'Quality',
+      description:
+        'Every project receives meticulous attention to detail and uncompromising quality standards.',
+      color: 'from-purple-600 to-pink-600',
+    },
+    {
+      title: 'Collaboration',
+      description:
+        'We work closely with our clients as partners to achieve shared success.',
+      color: 'from-emerald-500 to-teal-600',
     },
     {
       year: '2024',
@@ -129,6 +197,11 @@ const About = () => {
       year: '2026',
       title: 'Compounding Forward',
       description: 'Now focused on working with fewer, better clients—operators serious about scale. Deep partnerships over volume. Outcomes over outputs.',
+    },
+      title: 'Results',
+      description:
+        'Our focus is always on delivering measurable outcomes that drive business growth.',
+      color: 'from-orange-500 to-red-600',
     },
   ];
 
@@ -194,6 +267,18 @@ const About = () => {
               Our Philosophy
             </h2>
             <div className="w-16 h-px bg-primary mx-auto"></div>
+    <div className="pt-24 pb-20 px-6 bg-gray-50 min-h-screen">
+      <div className="max-w-7xl mx-auto">
+        <PageHeader
+          badge="ABOUT US"
+          title="Creative Agency Building Digital Experiences"
+          subtitle="We're a creative agency that blurs the line between technology and artistry, creating digital experiences that captivate, engage, and deliver results."
+        />
+
+        <div className="about-content">
+          {/* Mission & Vision */}
+          <div className="about-section mb-20">
+            {/* unchanged */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -217,6 +302,9 @@ const About = () => {
               Meet The Team
             </h2>
             <div className="w-16 h-px bg-primary mx-auto"></div>
+          {/* Values */}
+          <div className="about-section mb-20">
+            {/* unchanged */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -264,6 +352,49 @@ const About = () => {
                 <div className="text-muted-foreground">Support</div>
               </div>
             </div>
+          {/* Team */}
+          <div className="about-section mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-light text-black mb-4">
+                Meet Our Team
+              </h2>
+              <div className="w-16 h-px bg-cyan-400 mx-auto"></div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {team.map((member, index) => (
+                <div
+                  key={index}
+                  className="bg-white shadow-lg hover:shadow-2xl transition-all duration-700 rounded-2xl overflow-hidden group"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+
+                  <div className="p-6">
+                    <h3 className="text-lg font-light text-black mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="text-gray-500 text-sm mb-3">
+                      {member.role}
+                    </p>
+                    <p className="text-gray-600 text-xs leading-relaxed">
+                      {member.bio}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="about-section">
+            {/* unchanged */}
           </div>
         </section>
 
