@@ -10,6 +10,9 @@ const TrustSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
     const ctx = gsap.context(() => {
       // Header animation
       gsap.fromTo('.trust-header',
@@ -20,7 +23,7 @@ const TrustSection = () => {
           duration: 1,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.trust-section',
+            trigger: section,
             start: 'top 75%',
           }
         }
@@ -40,7 +43,7 @@ const TrustSection = () => {
           },
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.trust-grid',
+            trigger: section.querySelector('.trust-grid'),
             start: 'top 80%',
           }
         }

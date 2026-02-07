@@ -10,6 +10,9 @@ const FounderSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
     const ctx = gsap.context(() => {
       // Content animation
       gsap.fromTo('.founder-content',
@@ -20,7 +23,7 @@ const FounderSection = () => {
           duration: 1,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.founder-section',
+            trigger: section,
             start: 'top 70%',
           }
         }
@@ -36,7 +39,7 @@ const FounderSection = () => {
           duration: 1,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.founder-section',
+            trigger: section,
             start: 'top 70%',
           }
         }

@@ -11,7 +11,12 @@ const ProcessSection = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
     const ctx = gsap.context(() => {
+      const timeline = section.querySelector('.process-timeline');
+
       // Header animation
       gsap.fromTo('.process-header',
         { opacity: 0, y: 60 },
@@ -21,7 +26,7 @@ const ProcessSection = () => {
           duration: 1,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.process-section',
+            trigger: section,
             start: 'top 75%',
           }
         }
@@ -35,7 +40,7 @@ const ProcessSection = () => {
           duration: 1.5,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.process-timeline',
+            trigger: timeline,
             start: 'top 70%',
           }
         }
@@ -51,7 +56,7 @@ const ProcessSection = () => {
           stagger: 0.2,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.process-timeline',
+            trigger: timeline,
             start: 'top 70%',
           }
         }
