@@ -96,7 +96,7 @@ const TrustSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="trust-section py-32 lg:py-48 px-6 relative overflow-hidden">
+    <section ref={sectionRef} className="trust-section py-16 sm:py-32 lg:py-48 px-4 sm:px-6 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
       <div className="trust-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-primary/5 via-transparent to-accent/5 blur-[100px]" />
@@ -105,7 +105,7 @@ const TrustSection = () => {
         {/* Header */}
         <div className="trust-header text-center mb-20">
           <p className="text-xs text-primary uppercase tracking-[0.3em] mb-5 font-medium">Not For Everyone</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-6">
             Built for Founders Who
             <br />
             <span className="gradient-text-primary">Think in Systems</span>
@@ -116,7 +116,7 @@ const TrustSection = () => {
         </div>
 
         {/* Trust Points Grid */}
-        <div className="trust-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="trust-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
           {trustPoints.map((point, index) => (
             <div
               key={index}

@@ -66,12 +66,16 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 glass rounded-lg p-4">
+          <div className="md:hidden mt-4 glass rounded-2xl p-5 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className="block py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                className={`block py-3 px-4 rounded-xl text-base font-medium transition-colors ${
+                  location.pathname === item.path 
+                    ? 'text-white bg-white/10' 
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
@@ -79,7 +83,7 @@ const Navigation = () => {
             ))}
             <Link
               to="/contact"
-              className="block mt-4 text-center glass px-6 py-2 rounded-full text-sm font-medium hover:bg-white hover:text-black transition-all"
+              className="block mt-3 text-center glass px-6 py-3 rounded-full text-base font-medium hover:bg-white hover:text-black transition-all"
               onClick={() => setIsOpen(false)}
             >
               Get In Touch

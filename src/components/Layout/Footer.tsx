@@ -17,10 +17,10 @@ const Footer = () => {
               <a href="https://www.instagram.com/_nightmedia.in" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors magnetic">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors magnetic">
+              <a href="https://www.linkedin.com/company/nightmediaindia/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors magnetic">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors magnetic">
+              <a href="https://www.youtube.com/@NightMediaindia" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors magnetic">
                 <Youtube size={20} />
               </a>
             </div>
@@ -49,7 +49,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2024 NightMedia. All rights reserved.
+            © 2025 NightMedia. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">

@@ -108,10 +108,10 @@ const ServicesHero = () => {
                 </div>
                 <div className="aspect-[4/3] relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" 
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=75&fm=webp" 
                     alt="Modern web design dashboard"
                     className="w-full h-full object-cover"
-                    loading="eager"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
                 </div>
