@@ -46,7 +46,7 @@ const CallToAction = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="cta-section py-32 lg:py-48 px-6 relative overflow-hidden">
+    <section ref={sectionRef} className="cta-section py-16 sm:py-32 lg:py-48 px-4 sm:px-6 relative overflow-hidden">
       {/* Animated background orbs */}
       <div className="cta-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px]">
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/30 via-accent/20 to-primary/10 blur-[150px] animate-pulse" />
@@ -54,7 +54,7 @@ const CallToAction = () => {
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="cta-content animated-glow-border glass-card rounded-[3rem] p-12 lg:p-20 text-center relative overflow-hidden">
+        <div className="cta-content animated-glow-border glass-card rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-20 text-center relative overflow-hidden">
           {/* Inner decorative elements */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-primary/15 to-transparent blur-[60px]" />
           
@@ -72,7 +72,7 @@ const CallToAction = () => {
               <span className="text-sm text-muted-foreground">For Operators Ready to Scale</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-6 leading-[1.1]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-foreground tracking-tight mb-4 sm:mb-6 leading-[1.1]">
               Stop Spending on Campaigns.
               <br />
               <span className="gradient-text-primary">

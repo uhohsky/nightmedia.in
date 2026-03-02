@@ -57,7 +57,7 @@ const Hero = () => {
   }, []);
 
   const stats = [
-    { value: "$5M+", label: "Revenue Generated" },
+    { value: "₹1M+", label: "Revenue Generated" },
     { value: "150+", label: "Systems Deployed" },
     { value: "3.2x", label: "Avg. ROI" },
   ];
@@ -67,7 +67,7 @@ const Hero = () => {
       ref={heroRef}
       className="min-h-screen flex items-center relative overflow-hidden"
     >
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-32 text-center">
 
         {/* Badge */}
         <div className="hero-badge inline-flex items-center gap-2 px-5 py-2 rounded-full glass-card mb-8">
@@ -78,7 +78,7 @@ const Hero = () => {
         </div>
 
         {/* ✅ SEO-SAFE H1 (single H1, animated spans inside) */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-8">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6 sm:mb-8">
           <span className="hero-line-1 block text-foreground">
             Revenue Systems That Compound
           </span>
@@ -88,14 +88,14 @@ const Hero = () => {
         </h1>
 
         {/* Subtitle */}
-        <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12">
+        <p className="hero-subtitle text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-12 px-2">
           NightMedia is a global website development and performance marketing
           agency building high-converting websites, funnels, and SEO systems for
           ambitious brands.
         </p>
 
         {/* CTAs */}
-        <div className="hero-cta-group flex flex-col sm:flex-row gap-5 justify-center mb-20">
+        <div className="hero-cta-group flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center mb-12 sm:mb-20 px-4 sm:px-0">
           <Link
             to="/contact"
             className="px-10 py-4 rounded-full btn-primary-glow font-semibold"
@@ -111,10 +111,10 @@ const Hero = () => {
         </div>
 
         {/* Stats */}
-        <div className="flex flex-wrap gap-10 md:gap-20 justify-center">
+        <div className="flex flex-wrap gap-6 sm:gap-10 md:gap-20 justify-center px-2">
           {stats.map((s, i) => (
             <div key={i} className="hero-stat text-center">
-              <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 sm:mb-2">
                 {s.value}
               </div>
               <div className="text-sm text-muted-foreground uppercase tracking-wider">

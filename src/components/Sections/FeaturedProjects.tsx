@@ -99,7 +99,7 @@ const FeaturedProjects = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="projects-section py-32 lg:py-48 px-6 relative overflow-hidden">
+    <section ref={sectionRef} className="projects-section py-16 sm:py-32 lg:py-48 px-4 sm:px-6 relative overflow-hidden">
       {/* Background orbs */}
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-primary/10 via-transparent to-transparent blur-[120px]" />
       <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-accent/10 via-transparent to-transparent blur-[100px]" />
@@ -108,7 +108,7 @@ const FeaturedProjects = () => {
         {/* Header */}
         <div className="projects-header text-center mb-20">
           <p className="text-xs text-primary uppercase tracking-[0.3em] mb-5 font-medium">Case Studies</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-6">
             Built for Performance
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">

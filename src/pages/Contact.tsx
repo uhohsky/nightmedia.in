@@ -163,14 +163,14 @@ const Contact = () => {
       <div className="noise-overlay" />
 
       {/* Hero Section */}
-      <section className="relative z-10 pt-32 pb-16 px-6">
+      <section className="relative z-10 pt-24 sm:pt-32 pb-12 sm:pb-16 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="contact-badge inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-card mb-8">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm text-muted-foreground font-medium">Get In Touch</span>
           </div>
           
-          <h1 className="contact-hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
+          <h1 className="contact-hero-title text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground tracking-tight mb-4 sm:mb-6">
             Let&apos;s Build Something{' '}
             <span className="gradient-text-primary">That Converts</span>
           </h1>
@@ -183,12 +183,12 @@ const Contact = () => {
       </section>
 
       {/* Form Section */}
-      <section className="contact-form-section relative z-10 pb-24 px-6">
+      <section className="contact-form-section relative z-10 pb-16 sm:pb-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Form */}
             <div className="lg:col-span-3">
-              <div className="glass-card glow-border rounded-3xl p-8 md:p-10">
+              <div className="glass-card glow-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10">
                 <div className="mb-8">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                     Start a Conversation
@@ -211,8 +211,9 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder-muted-foreground focus:border-primary focus:outline-none transition-colors"
+                       className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
                         placeholder="Your name"
+                        autoComplete="name"
                       />
                     </div>
                     <div>
@@ -226,8 +227,9 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder-muted-foreground focus:border-primary focus:outline-none transition-colors"
+                        className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
                         placeholder="you@company.com"
+                        autoComplete="email"
                       />
                     </div>
                   </div>
@@ -243,8 +245,9 @@ const Contact = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder-muted-foreground focus:border-primary focus:outline-none transition-colors"
+                        className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
                         placeholder="Your company"
+                        autoComplete="organization"
                       />
                     </div>
                     <div>
@@ -256,7 +259,7 @@ const Contact = () => {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground focus:border-primary focus:outline-none transition-colors appearance-none cursor-pointer"
+                        className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all appearance-none cursor-pointer"
                       >
                         <option value="">Select a service</option>
                         <option value="web-design">Web Design & Development</option>
@@ -282,7 +285,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder-muted-foreground focus:border-primary focus:outline-none transition-colors resize-none"
+                      className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none"
                       placeholder="Tell us about your project, goals, and timeline..."
                     />
                   </div>
