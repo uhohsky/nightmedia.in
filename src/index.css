@@ -541,3 +541,12 @@
   pointer-events: none;
   z-index: 1;
 }
+
+/* Hero N watermark float animation */
+@keyframes watermark-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+.hero-watermark {
+  animation: watermark-float 8s ease-in-out infinite;
+}
