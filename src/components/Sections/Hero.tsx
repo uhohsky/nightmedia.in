@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import { Sparkles, ChevronDown } from "lucide-react";
+import NightMediaIcon from "../Logo/NightMediaIcon";
 
 const isSafari =
   typeof navigator !== "undefined" &&
@@ -67,6 +68,11 @@ const Hero = () => {
       ref={heroRef}
       className="min-h-screen flex items-center relative overflow-hidden"
     >
+      {/* Oversized N watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+        <NightMediaIcon size={600} variant="white" className="opacity-[0.04] hero-watermark" />
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-32 text-center">
 
         {/* Badge */}
