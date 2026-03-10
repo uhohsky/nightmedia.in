@@ -842,7 +842,7 @@ const ServiceDetail = () => {
             {section.type === 'process' && (
               <div className="py-20 px-6">
                 <div className="max-w-6xl mx-auto">
-                  <h2 className="text-4xl md:text-6xl font-mono font-bold text-center mb-16">
+                  <h2 className="text-4xl md:text-6xl font-heading font-bold text-center mb-16">
                     {section.title}
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
