@@ -33,7 +33,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 magnetic">
             <NightMediaIcon size={28} variant="white" />
-            <span className="text-xl font-mono font-bold tracking-wide">NIGHTMEDIA</span>
+            <span className="text-xl font-heading font-bold tracking-wide">NIGHTMEDIA</span>
           </Link>
           
           {/* Desktop Navigation */}
