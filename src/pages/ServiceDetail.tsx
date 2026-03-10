@@ -848,7 +848,7 @@ const ServiceDetail = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {section.steps?.map((step, i) => (
                       <div key={i} className="glass rounded-2xl p-8 magnetic">
-                        <div className="text-6xl font-mono font-bold text-gray-600 mb-4">
+                        <div className="text-6xl font-heading font-bold text-gray-600 mb-4">
                           {step.number}
                         </div>
                         <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
