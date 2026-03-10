@@ -181,7 +181,7 @@ const ProjectDetail = () => {
         {/* CTA */}
         <section className="project-section px-6 py-16">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-mono font-bold mb-6 gradient-text">
+            <h2 className="text-4xl font-heading font-bold mb-6 gradient-text">
               Want Similar Results?
             </h2>
             <p className="text-xl text-gray-400 mb-8">
