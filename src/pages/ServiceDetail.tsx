@@ -905,7 +905,7 @@ const ServiceDetail = () => {
       {/* CTA Section */}
       <section className="service-section py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-mono font-bold mb-8">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8">
             READY TO GET STARTED?
           </h2>
           <p className="text-xl text-gray-400 mb-12">
