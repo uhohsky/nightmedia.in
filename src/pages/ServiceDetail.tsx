@@ -785,7 +785,7 @@ const ServiceDetail = () => {
         </div>
         
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-mono font-bold mb-6">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold mb-6">
             <div className="gradient-text">{service.title}</div>
             <div className="gradient-text">{service.subtitle}</div>
           </h1>
