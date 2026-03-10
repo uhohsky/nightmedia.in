@@ -642,7 +642,7 @@ const ServiceDetail = () => {
                 <div className="min-h-screen flex items-center py-20 px-6">
                   <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-8">
-                      <h2 className="text-4xl md:text-6xl font-mono font-bold">
+                      <h2 className="text-4xl md:text-6xl font-heading font-bold">
                         {section.title}
                       </h2>
                       <p className="text-xl text-gray-400 leading-relaxed">
