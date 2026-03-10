@@ -600,7 +600,7 @@ const ServiceDetail = () => {
   if (!service) {
     return (
       <div className="pt-24 pb-20 text-center">
-        <h1 className="text-4xl font-mono font-bold mb-4">Service Not Found</h1>
+        <h1 className="text-4xl font-heading font-bold mb-4">Service Not Found</h1>
         <Link to="/services" className="text-blue-400 hover:underline">
           Back to Services
         </Link>
