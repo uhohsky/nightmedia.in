@@ -102,7 +102,7 @@ const ProjectDetail = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-gray-400 font-medium">{project.category}</span>
-            <h1 className="text-4xl md:text-6xl font-mono font-bold my-6 gradient-text">
+            <h1 className="text-4xl md:text-6xl font-heading font-bold my-6 gradient-text">
               {project.title}
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
