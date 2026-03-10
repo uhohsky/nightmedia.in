@@ -863,7 +863,7 @@ const ServiceDetail = () => {
             {section.type === 'showcase' && (
               <div className="py-20 px-6 bg-gray-900/20">
                 <div className="max-w-6xl mx-auto">
-                  <h2 className="text-4xl md:text-6xl font-mono font-bold text-center mb-16">
+                  <h2 className="text-4xl md:text-6xl font-heading font-bold text-center mb-16">
                     {section.title}
                   </h2>
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
