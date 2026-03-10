@@ -21,6 +21,7 @@ export default {
 		extend: {
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
+        'heading': ['Space Grotesk', 'sans-serif'],
         'mono': ['JetBrains Mono', 'monospace'],
       },
 			colors: {

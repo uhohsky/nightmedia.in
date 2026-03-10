@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <NightMediaIcon size={28} variant="white" />
-              <h3 className="text-2xl font-mono font-bold">NIGHTMEDIA</h3>
+              <h3 className="text-2xl font-heading font-bold">NIGHTMEDIA</h3>
             </div>
             <p className="text-gray-400 max-w-md mb-6">
               Creating cinematic digital experiences that push the boundaries of creativity and technology.
