@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import nLogoLight from '@/assets/n-logo-light.png';
+import NightMediaIcon from '../Logo/NightMediaIcon';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,8 +32,8 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 magnetic">
-            <img src={nLogoLight} alt="Night Media" className="h-8 w-8 object-contain" />
-            <span className="text-xl font-heading font-bold tracking-wide">NIGHTMEDIA</span>
+            <NightMediaIcon size={28} variant="white" />
+            <span className="text-xl font-mono font-bold tracking-wide">NIGHTMEDIA</span>
           </Link>
           
           {/* Desktop Navigation */}

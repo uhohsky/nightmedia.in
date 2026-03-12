@@ -600,7 +600,7 @@ const ServiceDetail = () => {
   if (!service) {
     return (
       <div className="pt-24 pb-20 text-center">
-        <h1 className="text-4xl font-heading font-bold mb-4">Service Not Found</h1>
+        <h1 className="text-4xl font-mono font-bold mb-4">Service Not Found</h1>
         <Link to="/services" className="text-blue-400 hover:underline">
           Back to Services
         </Link>
@@ -624,7 +624,7 @@ const ServiceDetail = () => {
           </div>
           
           <div className="relative z-10 text-center px-6">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold mb-6">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-mono font-bold mb-6">
               <div className="gradient-text">{service.title}</div>
               <div className="gradient-text">{service.subtitle}</div>
             </h1>
@@ -642,7 +642,7 @@ const ServiceDetail = () => {
                 <div className="min-h-screen flex items-center py-20 px-6">
                   <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-8">
-                      <h2 className="text-4xl md:text-6xl font-heading font-bold">
+                      <h2 className="text-4xl md:text-6xl font-mono font-bold">
                         {section.title}
                       </h2>
                       <p className="text-xl text-gray-400 leading-relaxed">
@@ -663,7 +663,7 @@ const ServiceDetail = () => {
               {section.type === 'stats' && (
                 <div className="py-20 px-6 bg-gray-900/20">
                   <div className="max-w-6xl mx-auto text-center">
-                    <h2 className="text-4xl md:text-6xl font-heading font-bold mb-16">
+                    <h2 className="text-4xl md:text-6xl font-mono font-bold mb-16">
                       {section.title}
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -681,13 +681,13 @@ const ServiceDetail = () => {
               {section.type === 'process' && (
                 <div className="py-20 px-6">
                   <div className="max-w-6xl mx-auto">
-                    <h2 className="text-4xl md:text-6xl font-heading font-bold text-center mb-16">
+                    <h2 className="text-4xl md:text-6xl font-mono font-bold text-center mb-16">
                       {section.title}
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       {section.steps?.map((step, i) => (
                         <div key={i} className="glass rounded-2xl p-8 magnetic">
-                          <div className="text-6xl font-heading font-bold text-gray-600 mb-4">
+                          <div className="text-6xl font-mono font-bold text-gray-600 mb-4">
                             {step.number}
                           </div>
                           <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
@@ -702,7 +702,7 @@ const ServiceDetail = () => {
               {section.type === 'showcase' && (
                 <div className="py-20 px-6 bg-gray-900/20">
                   <div className="max-w-6xl mx-auto">
-                    <h2 className="text-4xl md:text-6xl font-heading font-bold text-center mb-16">
+                    <h2 className="text-4xl md:text-6xl font-mono font-bold text-center mb-16">
                       {section.title}
                     </h2>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -744,7 +744,7 @@ const ServiceDetail = () => {
         {/* CTA Section */}
         <section className="service-section py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8">
+            <h2 className="text-4xl md:text-6xl font-mono font-bold mb-8">
               READY TO AMPLIFY YOUR BRAND?
             </h2>
             <p className="text-xl text-gray-400 mb-12">
@@ -785,7 +785,7 @@ const ServiceDetail = () => {
         </div>
         
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold mb-6">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-mono font-bold mb-6">
             <div className="gradient-text">{service.title}</div>
             <div className="gradient-text">{service.subtitle}</div>
           </h1>
@@ -803,7 +803,7 @@ const ServiceDetail = () => {
               <div className="min-h-screen flex items-center py-20 px-6">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                   <div className="space-y-8">
-                    <h2 className="text-4xl md:text-6xl font-heading font-bold">
+                    <h2 className="text-4xl md:text-6xl font-mono font-bold">
                       {section.title}
                     </h2>
                     <p className="text-xl text-gray-400 leading-relaxed">
@@ -824,7 +824,7 @@ const ServiceDetail = () => {
             {section.type === 'stats' && (
               <div className="py-20 px-6 bg-gray-900/20">
                 <div className="max-w-6xl mx-auto text-center">
-                  <h2 className="text-4xl md:text-6xl font-heading font-bold mb-16">
+                  <h2 className="text-4xl md:text-6xl font-mono font-bold mb-16">
                     {section.title}
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -842,13 +842,13 @@ const ServiceDetail = () => {
             {section.type === 'process' && (
               <div className="py-20 px-6">
                 <div className="max-w-6xl mx-auto">
-                  <h2 className="text-4xl md:text-6xl font-heading font-bold text-center mb-16">
+                  <h2 className="text-4xl md:text-6xl font-mono font-bold text-center mb-16">
                     {section.title}
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {section.steps?.map((step, i) => (
                       <div key={i} className="glass rounded-2xl p-8 magnetic">
-                        <div className="text-6xl font-heading font-bold text-gray-600 mb-4">
+                        <div className="text-6xl font-mono font-bold text-gray-600 mb-4">
                           {step.number}
                         </div>
                         <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
@@ -863,7 +863,7 @@ const ServiceDetail = () => {
             {section.type === 'showcase' && (
               <div className="py-20 px-6 bg-gray-900/20">
                 <div className="max-w-6xl mx-auto">
-                  <h2 className="text-4xl md:text-6xl font-heading font-bold text-center mb-16">
+                  <h2 className="text-4xl md:text-6xl font-mono font-bold text-center mb-16">
                     {section.title}
                   </h2>
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -905,7 +905,7 @@ const ServiceDetail = () => {
       {/* CTA Section */}
       <section className="service-section py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8">
+          <h2 className="text-4xl md:text-6xl font-mono font-bold mb-8">
             READY TO GET STARTED?
           </h2>
           <p className="text-xl text-gray-400 mb-12">

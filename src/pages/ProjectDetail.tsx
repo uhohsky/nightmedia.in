@@ -102,7 +102,7 @@ const ProjectDetail = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-gray-400 font-medium">{project.category}</span>
-            <h1 className="text-4xl md:text-6xl font-heading font-bold my-6 gradient-text">
+            <h1 className="text-4xl md:text-6xl font-mono font-bold my-6 gradient-text">
               {project.title}
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
@@ -140,7 +140,7 @@ const ProjectDetail = () => {
         {/* Results */}
         <section className="project-section px-6 py-16">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-heading font-bold text-center mb-12 gradient-text">
+            <h2 className="text-4xl font-mono font-bold text-center mb-12 gradient-text">
               Results & Impact
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -161,7 +161,7 @@ const ProjectDetail = () => {
         {/* Gallery */}
         <section className="project-section px-6 py-16 bg-gray-900/20">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-heading font-bold text-center mb-12 gradient-text">
+            <h2 className="text-4xl font-mono font-bold text-center mb-12 gradient-text">
               Project Gallery
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -181,7 +181,7 @@ const ProjectDetail = () => {
         {/* CTA */}
         <section className="project-section px-6 py-16">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-heading font-bold mb-6 gradient-text">
+            <h2 className="text-4xl font-mono font-bold mb-6 gradient-text">
               Want Similar Results?
             </h2>
             <p className="text-xl text-gray-400 mb-8">
