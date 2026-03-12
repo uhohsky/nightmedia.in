@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import NightMediaIcon from '../Logo/NightMediaIcon';
+import nLogoLight from '@/assets/n-logo-light.png';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
