@@ -32,7 +32,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 magnetic">
-            <NightMediaIcon size={28} variant="white" />
+            <img src={nLogoLight} alt="Night Media" className="h-8 w-8 object-contain" />
             <span className="text-xl font-heading font-bold tracking-wide">NIGHTMEDIA</span>
           </Link>
           
