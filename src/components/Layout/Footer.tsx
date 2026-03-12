@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Youtube } from 'lucide-react';
-import NightMediaIcon from '../Logo/NightMediaIcon';
+import nightMediaLogo from '@/assets/night-media-logo.jpg';
 
 const Footer = () => {
   return (
