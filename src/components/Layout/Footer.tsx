@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Youtube } from 'lucide-react';
-import NightMediaIcon from '../Logo/NightMediaIcon';
+import nightMediaLogo from '@/assets/night-media-logo.jpg';
 
 const Footer = () => {
   return (
@@ -10,8 +10,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <NightMediaIcon size={28} variant="white" />
+            <div className="flex items-center gap-3 mb-4">
+              <img src={nightMediaLogo} alt="Night Media" className="h-8 w-8 rounded object-cover" />
               <h3 className="text-2xl font-mono font-bold">NIGHTMEDIA</h3>
             </div>
             <p className="text-gray-400 max-w-md mb-6">
