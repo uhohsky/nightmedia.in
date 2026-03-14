@@ -14,25 +14,19 @@ const WhyWebDesign = () => {
         { opacity: 0, y: 40 },
         {
           opacity: 1, y: 0, duration: 0.8,
-          scrollTrigger: { trigger: '.why-section', start: 'top 80%' }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' }
         }
       );
 
-      gsap.fromTo('.why-card',
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1, y: 0, duration: 0.6, stagger: 0.15,
-          scrollTrigger: { trigger: '.why-grid', start: 'top 80%' }
-        }
-      );
-
-      gsap.fromTo('.why-image',
-        { opacity: 0, scale: 0.95 },
-        {
-          opacity: 1, scale: 1, duration: 1,
-          scrollTrigger: { trigger: '.why-image', start: 'top 80%' }
-        }
-      );
+      document.querySelectorAll('.why-card').forEach((card) => {
+        gsap.fromTo(card,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
+            scrollTrigger: { trigger: card, start: 'top 90%' }
+          }
+        );
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -42,89 +36,85 @@ const WhyWebDesign = () => {
     {
       icon: TrendingUp,
       title: 'Your #1 Sales Asset',
-      description: 'Your website works 24/7 converting visitors into leads and customers while you sleep.'
+      description: 'Your website works 24/7 converting visitors into leads and customers while you sleep.',
+      stat: '24/7',
+      statLabel: 'Always selling'
     },
     {
       icon: Target,
       title: 'First Impressions Matter',
-      description: '94% of first impressions are design-related. A premium website builds instant trust.'
+      description: '94% of first impressions are design-related. A premium website builds instant trust.',
+      stat: '94%',
+      statLabel: 'Design-driven'
     },
     {
       icon: Zap,
       title: 'Speed = Revenue',
-      description: 'Every 1 second delay reduces conversions by 7%. We build lightning-fast websites.'
+      description: 'Every 1 second delay reduces conversions by 7%. We build lightning-fast websites.',
+      stat: '-7%',
+      statLabel: 'Per second delay'
     },
     {
       icon: Shield,
       title: 'Foundation for Growth',
-      description: 'Every marketing channel drives traffic to your website. Make it convert.'
+      description: 'Every marketing channel drives traffic to your website. Make it convert.',
+      stat: '∞',
+      statLabel: 'Channels converge'
     }
   ];
 
   return (
-    <section ref={sectionRef} className="why-section py-24 lg:py-32 px-6 relative overflow-hidden">
-      <div className="gradient-orb w-[500px] h-[500px] top-1/2 right-0 opacity-20" />
+    <section ref={sectionRef} className="py-24 lg:py-32 px-6 relative overflow-hidden">
+      <div className="gradient-orb w-[500px] h-[500px] top-1/2 right-0 opacity-15" />
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Content */}
+        {/* Header - left aligned */}
+        <div className="why-header grid lg:grid-cols-2 gap-8 lg:gap-16 mb-20 lg:mb-24">
           <div>
-            <div className="why-header">
-              <p className="text-xs text-primary uppercase tracking-[0.3em] mb-4 font-medium">
-                Why Web Design Matters
-              </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-6">
-                Your Website Is Your Most Important Business Asset
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-                In the digital age, your website isn't just a brochure—it's your primary growth engine. 
-                A strategically designed website attracts, engages, and converts your ideal customers.
-              </p>
-            </div>
-
-            <div className="why-grid grid sm:grid-cols-2 gap-6">
-              {reasons.map((reason, index) => (
-                <div key={index} className="why-card glass-card glow-border p-6 rounded-2xl">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <reason.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    {reason.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {reason.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <p className="text-xs text-primary uppercase tracking-[0.4em] mb-5 font-medium">
+              Why Web Design Matters
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground tracking-tight">
+              Your Website Is Your Most Important Business Asset
+            </h2>
           </div>
+          <div className="flex items-end">
+            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+              In the digital age, your website isn't just a brochure—it's your primary growth engine. 
+              A strategically designed website attracts, engages, and converts your ideal customers.
+            </p>
+          </div>
+        </div>
 
-          {/* Right - Image */}
-          <div className="why-image relative hidden lg:block">
-            <div className="relative">
-              <div className="glass-card glow-border rounded-3xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" 
-                  alt="Web design team collaborating on UX"
-                  className="w-full aspect-[4/5] object-cover"
-                  loading="lazy"
-                />
-              </div>
+        {/* Cards - 2x2 grid with generous spacing */}
+        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+          {reasons.map((reason, index) => (
+            <div key={index} className="why-card group glass-card rounded-2xl lg:rounded-3xl p-8 lg:p-10 relative overflow-hidden hover:border-primary/20 transition-all duration-500">
+              {/* Subtle gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              {/* Floating stat */}
-              <div className="absolute -top-6 -left-6 glass-card rounded-xl p-4 glow-border">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-green-400" />
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-8">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <reason.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <div>
-                    <div className="text-2xl font-bold text-foreground">94%</div>
-                    <div className="text-xs text-muted-foreground">Design-First Impressions</div>
+                  <div className="text-right">
+                    <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                      {reason.stat}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{reason.statLabel}</div>
                   </div>
                 </div>
+                
+                <h3 className="text-xl lg:text-2xl font-semibold text-foreground mb-3">
+                  {reason.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
+                  {reason.description}
+                </p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
