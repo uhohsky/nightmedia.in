@@ -58,7 +58,8 @@ const WebDesignServices = () => {
       features: ['Conversion Mapping', 'User Psychology', 'A/B Ready', 'Mobile-First'],
       color: 'from-purple-500/20 to-pink-500/10',
       accent: 'from-purple-500 to-pink-500',
-      href: '/services/ui-ux-design'
+      href: '/services/ui-ux-design',
+      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=75&fm=webp'
     },
     {
       icon: Code,
@@ -67,7 +68,8 @@ const WebDesignServices = () => {
       features: ['React/Next.js', 'Headless CMS', 'API-First', 'Performance-Tuned'],
       color: 'from-blue-500/20 to-cyan-500/10',
       accent: 'from-blue-500 to-cyan-500',
-      href: '/services/web-design'
+      href: '/services/web-design',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=75&fm=webp'
     },
     {
       icon: Smartphone,
@@ -76,7 +78,8 @@ const WebDesignServices = () => {
       features: ['Mobile-First', 'Touch-Optimized', 'Fast Load', 'Cross-Browser'],
       color: 'from-emerald-500/20 to-teal-500/10',
       accent: 'from-emerald-500 to-teal-500',
-      href: '/services/web-design'
+      href: '/services/web-design',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=75&fm=webp'
     },
     {
       icon: Gauge,
@@ -85,7 +88,8 @@ const WebDesignServices = () => {
       features: ['Core Web Vitals', 'CDN Setup', 'Image Optimization', 'Code Splitting'],
       color: 'from-orange-500/20 to-amber-500/10',
       accent: 'from-orange-500 to-amber-500',
-      href: '/services/web-design'
+      href: '/services/web-design',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=75&fm=webp'
     },
     {
       icon: Search,
@@ -94,7 +98,8 @@ const WebDesignServices = () => {
       features: ['Semantic HTML', 'Schema Markup', 'Site Structure', 'Speed Optimized'],
       color: 'from-green-500/20 to-lime-500/10',
       accent: 'from-green-500 to-lime-500',
-      href: '/services/seo'
+      href: '/services/seo',
+      image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=75&fm=webp'
     },
     {
       icon: Shield,
@@ -103,7 +108,8 @@ const WebDesignServices = () => {
       features: ['24/7 Monitoring', 'Security Audits', 'Regular Updates', 'Backup Systems'],
       color: 'from-red-500/20 to-rose-500/10',
       accent: 'from-red-500 to-rose-500',
-      href: '/services/web-design'
+      href: '/services/web-design',
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=75&fm=webp'
     }
   ];
 
@@ -166,23 +172,19 @@ const WebDesignServices = () => {
                   </div>
                 </div>
 
-                {/* Right: Abstract Visual */}
+                {/* Right: Image Visual */}
                 <div className="wds-block-visual relative hidden lg:flex items-center justify-center">
                   <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-                    {/* Abstract gradient visual */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-50 group-hover:opacity-80 transition-opacity duration-700`} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-                    
-                    {/* Geometric pattern */}
-                    <div className="absolute inset-0 grid-pattern opacity-30" />
-                    
-                    {/* Large icon centered */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <service.icon className="w-20 h-20 text-foreground/10 group-hover:text-foreground/20 group-hover:scale-110 transition-all duration-700" />
-                    </div>
-
-                    {/* Glow effect on hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.accent} opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-2xl`} />
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                    {/* Dark overlay */}
+                    <div className="absolute inset-0 bg-background/40 group-hover:bg-background/20 transition-all duration-700" />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-40 group-hover:opacity-60 transition-opacity duration-700 mix-blend-multiply`} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </div>
                 </div>
               </div>
