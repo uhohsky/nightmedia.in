@@ -13,40 +13,38 @@ gsap.registerPlugin(ScrollTrigger);
 
 const WebDesignProcess = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo('.process-header',
+      gsap.fromTo('.process-header-new',
         { opacity: 0, y: 40 },
         {
           opacity: 1, y: 0, duration: 0.8,
-          scrollTrigger: { trigger: '.process-section', start: 'top 80%' }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' }
         }
       );
 
-      // Timeline line animation
-      gsap.fromTo('.process-line',
+      document.querySelectorAll('.process-step-new').forEach((step) => {
+        gsap.fromTo(step,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
+            scrollTrigger: { trigger: step, start: 'top 88%' }
+          }
+        );
+      });
+
+      // Line animation
+      gsap.fromTo('.process-line-new',
         { scaleY: 0 },
         {
-          scaleY: 1,
-          duration: 1.5,
-          ease: 'power2.out',
+          scaleY: 1, ease: 'none',
           scrollTrigger: {
-            trigger: '.process-timeline',
+            trigger: sectionRef.current?.querySelector('.process-steps-wrapper'),
             start: 'top 70%',
-            end: 'bottom 50%',
+            end: 'bottom 60%',
             scrub: 1
           }
-        }
-      );
-
-      // Steps animation
-      gsap.fromTo('.process-step',
-        { opacity: 0, x: -50 },
-        {
-          opacity: 1, x: 0, duration: 0.6, stagger: 0.2,
-          scrollTrigger: { trigger: '.process-timeline', start: 'top 75%' }
         }
       );
     }, sectionRef);
@@ -93,77 +91,72 @@ const WebDesignProcess = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="process-section py-24 lg:py-32 px-6 bg-muted/20 relative overflow-hidden">
-      <div className="gradient-orb w-[500px] h-[500px] right-0 top-0 opacity-15" />
+    <section ref={sectionRef} className="py-24 lg:py-32 px-6 bg-muted/10 relative overflow-hidden">
+      <div className="gradient-orb w-[500px] h-[500px] right-0 top-0 opacity-10" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="process-header text-center mb-20">
-          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-4 font-medium">
-            Our Process
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-6">
-            How We Build Winning Websites
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A proven 5-step process refined over hundreds of projects to deliver 
-            websites that convert.
-          </p>
+        <div className="process-header-new grid lg:grid-cols-2 gap-8 lg:gap-16 mb-20 lg:mb-28">
+          <div>
+            <p className="text-xs text-primary uppercase tracking-[0.4em] mb-5 font-medium">
+              Our Process
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground tracking-tight">
+              How We Build Winning Websites
+            </h2>
+          </div>
+          <div className="flex items-end">
+            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+              A proven 5-step process refined over hundreds of projects to deliver 
+              websites that convert.
+            </p>
+          </div>
         </div>
 
-        {/* Timeline */}
-        <div ref={timelineRef} className="process-timeline relative max-w-4xl mx-auto">
+        {/* Steps */}
+        <div className="process-steps-wrapper relative max-w-5xl mx-auto">
           {/* Vertical line */}
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-border">
-            <div className="process-line absolute inset-0 bg-gradient-to-b from-primary to-accent origin-top" />
+          <div className="absolute left-6 lg:left-8 top-0 bottom-0 w-px bg-border/40">
+            <div className="process-line-new absolute inset-0 bg-gradient-to-b from-primary via-accent to-primary/30 origin-top" />
           </div>
 
-          {/* Steps */}
-          <div className="space-y-16">
+          <div className="space-y-12 lg:space-y-16">
             {steps.map((step, index) => (
-              <div 
-                key={index}
-                className={`process-step relative flex items-start gap-8 ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                }`}
-              >
-                {/* Circle marker */}
-                <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary ring-4 ring-background z-10" />
+              <div key={index} className="process-step-new relative flex gap-8 lg:gap-14 pl-3">
+                {/* Dot on line */}
+                <div className="absolute left-6 lg:left-8 -translate-x-1/2 top-2 w-3 h-3 rounded-full bg-primary ring-4 ring-background z-10" />
                 
                 {/* Content */}
-                <div className={`flex-1 ml-20 lg:ml-0 ${index % 2 === 0 ? 'lg:pr-20 lg:text-right' : 'lg:pl-20'}`}>
-                  <div className="glass-card glow-border rounded-2xl p-6 lg:p-8">
-                    <div className={`flex items-center gap-4 mb-4 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                        <step.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <span className="text-4xl font-bold text-muted-foreground/30">
+                <div className="flex-1 ml-10 lg:ml-14">
+                  <div className="grid lg:grid-cols-[1fr_1.5fr] gap-6 lg:gap-12">
+                    {/* Left: Number + Title */}
+                    <div>
+                      <span className="text-5xl lg:text-6xl font-bold text-muted-foreground/15 block mb-2">
                         {step.number}
                       </span>
+                      <h3 className="text-xl lg:text-2xl font-semibold text-foreground">
+                        {step.title}
+                      </h3>
                     </div>
                     
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-4">
-                      {step.description}
-                    </p>
-                    
-                    <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
-                      {step.deliverables.map((item, i) => (
-                        <span 
-                          key={i}
-                          className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary"
-                        >
-                          {item}
-                        </span>
-                      ))}
+                    {/* Right: Description + Deliverables */}
+                    <div>
+                      <p className="text-muted-foreground leading-relaxed text-base lg:text-lg mb-5">
+                        {step.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {step.deliverables.map((item, i) => (
+                          <span 
+                            key={i}
+                            className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/10"
+                          >
+                            {item}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                {/* Spacer for alternating layout */}
-                <div className="hidden lg:block flex-1" />
               </div>
             ))}
           </div>
