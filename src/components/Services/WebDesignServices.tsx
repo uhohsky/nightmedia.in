@@ -58,7 +58,8 @@ const WebDesignServices = () => {
       features: ['Conversion Mapping', 'User Psychology', 'A/B Ready', 'Mobile-First'],
       color: 'from-purple-500/20 to-pink-500/10',
       accent: 'from-purple-500 to-pink-500',
-      href: '/services/ui-ux-design'
+      href: '/services/ui-ux-design',
+      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=75&fm=webp'
     },
     {
       icon: Code,
@@ -67,7 +68,8 @@ const WebDesignServices = () => {
       features: ['React/Next.js', 'Headless CMS', 'API-First', 'Performance-Tuned'],
       color: 'from-blue-500/20 to-cyan-500/10',
       accent: 'from-blue-500 to-cyan-500',
-      href: '/services/web-design'
+      href: '/services/web-design',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=75&fm=webp'
     },
     {
       icon: Smartphone,
@@ -76,7 +78,8 @@ const WebDesignServices = () => {
       features: ['Mobile-First', 'Touch-Optimized', 'Fast Load', 'Cross-Browser'],
       color: 'from-emerald-500/20 to-teal-500/10',
       accent: 'from-emerald-500 to-teal-500',
-      href: '/services/web-design'
+      href: '/services/web-design',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=75&fm=webp'
     },
     {
       icon: Gauge,
@@ -85,7 +88,8 @@ const WebDesignServices = () => {
       features: ['Core Web Vitals', 'CDN Setup', 'Image Optimization', 'Code Splitting'],
       color: 'from-orange-500/20 to-amber-500/10',
       accent: 'from-orange-500 to-amber-500',
-      href: '/services/web-design'
+      href: '/services/web-design',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=75&fm=webp'
     },
     {
       icon: Search,
@@ -94,7 +98,8 @@ const WebDesignServices = () => {
       features: ['Semantic HTML', 'Schema Markup', 'Site Structure', 'Speed Optimized'],
       color: 'from-green-500/20 to-lime-500/10',
       accent: 'from-green-500 to-lime-500',
-      href: '/services/seo'
+      href: '/services/seo',
+      image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=75&fm=webp'
     },
     {
       icon: Shield,
@@ -103,7 +108,8 @@ const WebDesignServices = () => {
       features: ['24/7 Monitoring', 'Security Audits', 'Regular Updates', 'Backup Systems'],
       color: 'from-red-500/20 to-rose-500/10',
       accent: 'from-red-500 to-rose-500',
-      href: '/services/web-design'
+      href: '/services/web-design',
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=75&fm=webp'
     }
   ];
 
