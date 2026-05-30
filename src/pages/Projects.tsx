@@ -120,8 +120,8 @@ const Projects = () => {
           </div>
           
           <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
-            Proof of{' '}
-            <span className="gradient-text-primary">Execution</span>
+            Portfolio and Case Studies:{' '}
+            <span className="gradient-text-primary">Proof of Execution</span>
           </h1>
           
           <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
