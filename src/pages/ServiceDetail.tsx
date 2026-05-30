@@ -960,6 +960,7 @@ const ServiceDetail = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
