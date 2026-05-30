@@ -122,8 +122,8 @@ const Blog = () => {
           </div>
           
           <h1 className="blog-hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
-            Growth Intelligence{' '}
-            <span className="gradient-text-primary">That Compounds</span>
+            Growth and Marketing Blog:{' '}
+            <span className="gradient-text-primary">Intelligence That Compounds</span>
           </h1>
           
           <p className="blog-hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
