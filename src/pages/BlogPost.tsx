@@ -167,7 +167,35 @@ const BlogPost = () => {
     );
   }
 
+  const canonical = `https://night-media.lovable.app/blog/${slug}`;
+  const description = post.content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 155);
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    image: [typeof post.image === 'string' ? post.image : ''],
+    datePublished: post.date,
+    author: { '@type': 'Organization', name: post.author },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Night Media',
+      logo: { '@type': 'ImageObject', url: 'https://night-media.lovable.app/n-icon-dark.svg' },
+    },
+    mainEntityOfPage: canonical,
+  };
   return (
+    <>
+    <Helmet>
+      <title>{`${post.title} | Night Media Blog`.slice(0, 60)}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={canonical} />
+      <meta property="og:title" content={post.title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:type" content="article" />
+      {typeof post.image === 'string' && <meta property="og:image" content={post.image} />}
+      <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+    </Helmet>
     <article ref={articleRef} className="pt-24 pb-20 bg-background min-h-screen relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
