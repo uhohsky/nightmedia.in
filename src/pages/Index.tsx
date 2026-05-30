@@ -57,6 +57,7 @@ const Index = () => {
         <CallToAction />
       </div>
     </main>
+    </>
   );
 };
 
