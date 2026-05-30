@@ -297,6 +297,7 @@ const BlogPost = () => {
         </div>
       </div>
     </article>
+    </>
   );
 };
 
