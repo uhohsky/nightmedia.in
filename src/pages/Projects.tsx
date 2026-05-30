@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
@@ -102,6 +103,16 @@ const Projects = () => {
   }, []);
 
   return (
+    <>
+    <Helmet>
+      <title>Portfolio & Case Studies | Night Media</title>
+      <meta name="description" content="Selected work from Night Media: high-converting websites, growth systems, and brand campaigns with measurable outcomes." />
+      <link rel="canonical" href="https://night-media.lovable.app/projects" />
+      <meta property="og:title" content="Portfolio & Case Studies | Night Media" />
+      <meta property="og:description" content="Selected work from Night Media: high-converting websites, growth systems, and brand campaigns." />
+      <meta property="og:url" content="https://night-media.lovable.app/projects" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <div ref={containerRef} className="bg-background min-h-screen relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -120,8 +131,8 @@ const Projects = () => {
           </div>
           
           <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
-            Proof of{' '}
-            <span className="gradient-text-primary">Execution</span>
+            Portfolio and Case Studies:{' '}
+            <span className="gradient-text-primary">Proof of Execution</span>
           </h1>
           
           <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -201,6 +212,7 @@ const Projects = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Sections/Hero';
 import TrustSection from '../components/Sections/TrustSection';
 import ProcessSection from '../components/Sections/ProcessSection';
@@ -10,6 +11,16 @@ import CallToAction from '../components/Sections/CallToAction';
 
 const Index = () => {
   return (
+    <>
+    <Helmet>
+      <title>NightMedia | Website Development & Growth Agency in India</title>
+      <meta name="description" content="Night Media builds high-converting websites, funnels, and growth systems for startups and businesses in India." />
+      <link rel="canonical" href="https://night-media.lovable.app/" />
+      <meta property="og:title" content="NightMedia | Website Development & Growth Agency in India" />
+      <meta property="og:description" content="Night Media builds high-converting websites, funnels, and growth systems for startups and businesses in India." />
+      <meta property="og:url" content="https://night-media.lovable.app/" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <main className="relative bg-background pt-16 selection:bg-primary selection:text-white">
       {/* Optimized Noise Overlay: 
           Using pointer-events-none and absolute positioning to prevent 
@@ -46,6 +57,7 @@ const Index = () => {
         <CallToAction />
       </div>
     </main>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
@@ -133,6 +134,16 @@ const About = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+      <title>About Night Media — Operators Building Growth Systems</title>
+      <meta name="description" content="Meet Night Media: a team of operators building revenue-focused websites, funnels, and growth systems for startups and businesses." />
+      <link rel="canonical" href="https://night-media.lovable.app/about" />
+      <meta property="og:title" content="About Night Media — Operators Building Growth Systems" />
+      <meta property="og:description" content="Meet Night Media: a team of operators building revenue-focused websites, funnels, and growth systems." />
+      <meta property="og:url" content="https://night-media.lovable.app/about" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <div ref={containerRef} className="bg-background min-h-screen relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -228,7 +239,7 @@ const About = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={member.image}
-                    alt={member.name}
+                    alt={`${member.name.trim()} - ${member.role}`}
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -285,6 +296,7 @@ const About = () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

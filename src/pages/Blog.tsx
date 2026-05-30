@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
@@ -104,6 +105,16 @@ const Blog = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+      <title>Growth & Marketing Blog | Night Media</title>
+      <meta name="description" content="Frameworks, case studies, and operator insights on building revenue systems, growth marketing, and high-converting websites." />
+      <link rel="canonical" href="https://night-media.lovable.app/blog" />
+      <meta property="og:title" content="Growth & Marketing Blog | Night Media" />
+      <meta property="og:description" content="Frameworks, case studies, and operator insights on building revenue systems and growth marketing." />
+      <meta property="og:url" content="https://night-media.lovable.app/blog" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <section ref={sectionRef} className="pt-24 pb-20 bg-background min-h-screen relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -122,8 +133,8 @@ const Blog = () => {
           </div>
           
           <h1 className="blog-hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-6">
-            Growth Intelligence{' '}
-            <span className="gradient-text-primary">That Compounds</span>
+            Growth and Marketing Blog:{' '}
+            <span className="gradient-text-primary">Intelligence That Compounds</span>
           </h1>
           
           <p className="blog-hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -269,6 +280,7 @@ const Blog = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -1,0 +1,34 @@
+# Night Media
+
+> Night Media is a website development and growth agency in India that builds high-converting websites, funnels, and growth systems for startups and businesses.
+
+## Pages
+
+- [Home](/): Website development and growth agency overview.
+- [About](/about): Team, story, and operating principles.
+- [Services](/services): Web design, development, and growth services.
+- [Projects](/projects): Portfolio and case studies of client work.
+- [Blog](/blog): Articles on growth systems, marketing, and design.
+- [Contact](/contact): Get in touch to start a project.
+
+## Services
+
+- [Web Design](/services/web-design): High-converting website design and development.
+- [Influencer Marketing](/services/influencer-marketing): Creator-led growth campaigns.
+- [CGI Ads](/services/cgi-ads): Photorealistic 3D and CGI advertising creative.
+- [Video Editing](/services/video-editing): Short-form and brand video production.
+
+## Blog
+
+- [Influencer Marketing ROI 2025](/blog/influencer-marketing-roi-2025)
+- [CGI & WebGL Design Process](/blog/cgi-webgl-design-process)
+- [Visual Design Trends 2025](/blog/visual-design-trends-2025)
+- [Rebranding in the 3D Era](/blog/rebranding-3d-era-case-study)
+- [Performance Marketing Trends 2025](/blog/performance-marketing-trends-2025)
+- [AI Marketing Automation Guide](/blog/ai-marketing-automation-guide)
+- [Growth Systems Framework](/blog/growth-systems-framework)
+
+## Optional
+
+- [Privacy Policy](/privacy-policy)
+- [Terms of Service](/terms-of-service)
