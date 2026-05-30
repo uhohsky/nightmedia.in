@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { toast } from 'sonner';
 import { Mail, Phone, MapPin, ArrowRight, Instagram, MessageCircle, Youtube, Sparkles, Linkedin } from 'lucide-react';
 import { gsap } from 'gsap';
