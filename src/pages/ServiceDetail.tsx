@@ -609,9 +609,37 @@ const ServiceDetail = () => {
     );
   }
 
+  const serviceName = `${service.hero?.title || ''} ${service.hero?.subtitle || ''}`.trim().toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+  const seoTitle = `${serviceName} | Night Media`.slice(0, 60);
+  const seoDescription = (service.hero?.description || `${serviceName} services by Night Media.`).slice(0, 160);
+  const canonical = `https://night-media.lovable.app/services/${slug}`;
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: serviceName,
+    description: seoDescription,
+    provider: { '@type': 'Organization', name: 'Night Media', url: 'https://night-media.lovable.app/' },
+    areaServed: 'IN',
+    url: canonical,
+  };
+  const seoHead = (
+    <Helmet>
+      <title>{seoTitle}</title>
+      <meta name="description" content={seoDescription} />
+      <link rel="canonical" href={canonical} />
+      <meta property="og:title" content={seoTitle} />
+      <meta property="og:description" content={seoDescription} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:type" content="website" />
+      <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+    </Helmet>
+  );
+
   // Special handling for Influencer Marketing page
   if (slug === 'influencer-marketing') {
     return (
+      <>
+      {seoHead}
       <div className="pt-16 bg-black text-white">
         {/* Hero Section - Fullscreen */}
         <section className="service-hero min-h-screen relative flex items-center justify-center overflow-hidden">
