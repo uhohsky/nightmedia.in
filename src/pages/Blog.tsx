@@ -105,6 +105,16 @@ const Blog = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+      <title>Growth & Marketing Blog | Night Media</title>
+      <meta name="description" content="Frameworks, case studies, and operator insights on building revenue systems, growth marketing, and high-converting websites." />
+      <link rel="canonical" href="https://night-media.lovable.app/blog" />
+      <meta property="og:title" content="Growth & Marketing Blog | Night Media" />
+      <meta property="og:description" content="Frameworks, case studies, and operator insights on building revenue systems and growth marketing." />
+      <meta property="og:url" content="https://night-media.lovable.app/blog" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <section ref={sectionRef} className="pt-24 pb-20 bg-background min-h-screen relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
