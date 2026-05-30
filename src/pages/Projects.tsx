@@ -103,6 +103,16 @@ const Projects = () => {
   }, []);
 
   return (
+    <>
+    <Helmet>
+      <title>Portfolio & Case Studies | Night Media</title>
+      <meta name="description" content="Selected work from Night Media: high-converting websites, growth systems, and brand campaigns with measurable outcomes." />
+      <link rel="canonical" href="https://night-media.lovable.app/projects" />
+      <meta property="og:title" content="Portfolio & Case Studies | Night Media" />
+      <meta property="og:description" content="Selected work from Night Media: high-converting websites, growth systems, and brand campaigns." />
+      <meta property="og:url" content="https://night-media.lovable.app/projects" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <div ref={containerRef} className="bg-background min-h-screen relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
