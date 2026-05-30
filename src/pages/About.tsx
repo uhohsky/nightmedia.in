@@ -134,6 +134,16 @@ const About = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+      <title>About Night Media — Operators Building Growth Systems</title>
+      <meta name="description" content="Meet Night Media: a team of operators building revenue-focused websites, funnels, and growth systems for startups and businesses." />
+      <link rel="canonical" href="https://night-media.lovable.app/about" />
+      <meta property="og:title" content="About Night Media — Operators Building Growth Systems" />
+      <meta property="og:description" content="Meet Night Media: a team of operators building revenue-focused websites, funnels, and growth systems." />
+      <meta property="og:url" content="https://night-media.lovable.app/about" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <div ref={containerRef} className="bg-background min-h-screen relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
