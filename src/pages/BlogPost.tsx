@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { gsap } from 'gsap';
 import { ArrowLeft, ArrowRight, Clock, Calendar, User } from 'lucide-react';
 
