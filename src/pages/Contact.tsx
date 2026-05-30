@@ -154,6 +154,16 @@ const Contact = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+      <title>Contact Night Media — Start Your Growth Project</title>
+      <meta name="description" content="Get in touch with Night Media to build high-converting websites, funnels, and growth systems. Tell us about your project." />
+      <link rel="canonical" href="https://night-media.lovable.app/contact" />
+      <meta property="og:title" content="Contact Night Media — Start Your Growth Project" />
+      <meta property="og:description" content="Get in touch with Night Media to build high-converting websites, funnels, and growth systems." />
+      <meta property="og:url" content="https://night-media.lovable.app/contact" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <div ref={containerRef} className="bg-background min-h-screen relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
