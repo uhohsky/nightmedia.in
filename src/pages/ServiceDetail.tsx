@@ -796,11 +796,14 @@ const ServiceDetail = () => {
           </div>
         </section>
       </div>
+      </>
     );
   }
 
   // Cinematic layout for all other services
   return (
+    <>
+    {seoHead}
     <div className="pt-16 bg-black text-white">
       {/* Hero Section - Fullscreen */}
       <section className="service-hero min-h-screen relative flex items-center justify-center overflow-hidden">
