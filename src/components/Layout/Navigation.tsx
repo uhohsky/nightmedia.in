@@ -43,7 +43,7 @@ const Navigation = () => {
                 key={item.name}
                 to={item.path}
                 className={`text-sm font-medium transition-colors hover:text-white magnetic ${
-                  location.pathname === item.path ? 'text-white' : 'text-gray-400'
+                  location.pathname === item.path ? 'text-white' : 'text-muted-foreground'
                 }`}
               >
                 {item.name}
@@ -78,7 +78,7 @@ const Navigation = () => {
                 className={`block py-3 px-4 rounded-xl text-base font-medium transition-colors ${
                   location.pathname === item.path 
                     ? 'text-white bg-white/10' 
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                    : 'text-foreground/90 hover:text-white hover:bg-white/5'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
