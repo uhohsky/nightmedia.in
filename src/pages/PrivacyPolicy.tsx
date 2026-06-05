@@ -11,17 +11,17 @@ const PrivacyPolicy = () => {
         
         <div className="glass rounded-2xl p-8 space-y-8">
           <div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-muted-foreground mb-6">
               Last updated: December 2024
             </p>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-foreground/90 leading-relaxed">
               At NightMedia ("we," "our," or "us"), we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold mb-4">Information We Collect</h2>
-            <div className="space-y-4 text-gray-300">
+            <div className="space-y-4 text-foreground/90">
               <div>
                 <h3 className="text-lg font-semibold mb-2">Personal Information</h3>
                 <p>We may collect personal information that you provide directly to us, including:</p>
@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
 
           <div>
             <h2 className="text-2xl font-bold mb-4">How We Use Your Information</h2>
-            <div className="text-gray-300 space-y-2">
+            <div className="text-foreground/90 space-y-2">
               <p>We use the information we collect to:</p>
               <ul className="list-disc list-inside ml-4 space-y-1">
                 <li>Provide and improve our services</li>
@@ -62,7 +62,7 @@ const PrivacyPolicy = () => {
 
           <div>
             <h2 className="text-2xl font-bold mb-4">Information Sharing</h2>
-            <div className="text-gray-300 space-y-4">
+            <div className="text-foreground/90 space-y-4">
               <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
               <ul className="list-disc list-inside ml-4 space-y-1">
                 <li>With trusted service providers who assist in our operations</li>
@@ -75,14 +75,14 @@ const PrivacyPolicy = () => {
 
           <div>
             <h2 className="text-2xl font-bold mb-4">Data Security</h2>
-            <p className="text-gray-300">
+            <p className="text-foreground/90">
               We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no internet transmission is 100% secure, and we cannot guarantee absolute security.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold mb-4">Your Rights</h2>
-            <div className="text-gray-300 space-y-2">
+            <div className="text-foreground/90 space-y-2">
               <p>You have the right to:</p>
               <ul className="list-disc list-inside ml-4 space-y-1">
                 <li>Access and update your personal information</li>
@@ -95,10 +95,10 @@ const PrivacyPolicy = () => {
 
           <div>
             <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
-            <p className="text-gray-300">
+            <p className="text-foreground/90">
               If you have any questions about this Privacy Policy or our data practices, please contact us at:
             </p>
-            <div className="mt-4 text-gray-300">
+            <div className="mt-4 text-foreground/90">
               <p>Email: privacy@nightmedia.com</p>
               <p>Phone: +1 (555) 123-4567</p>
               <p>Address: New York, NY</p>
@@ -107,7 +107,7 @@ const PrivacyPolicy = () => {
 
           <div>
             <h2 className="text-2xl font-bold mb-4">Changes to This Policy</h2>
-            <p className="text-gray-300">
+            <p className="text-foreground/90">
               We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
             </p>
           </div>

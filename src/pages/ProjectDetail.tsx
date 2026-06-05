@@ -101,11 +101,11 @@ const ProjectDetail = () => {
       <section className="project-hero px-6 py-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <span className="text-gray-400 font-medium">{project.category}</span>
+            <span className="text-muted-foreground font-medium">{project.category}</span>
             <h1 className="text-4xl md:text-6xl font-mono font-bold my-6 gradient-text">
               {project.title}
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {project.overview}
             </p>
           </div>
@@ -127,11 +127,11 @@ const ProjectDetail = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div className="glass rounded-2xl p-8">
                 <h2 className="text-3xl font-bold mb-6 text-red-400">The Challenge</h2>
-                <p className="text-gray-400 text-lg">{project.challenge}</p>
+                <p className="text-muted-foreground text-lg">{project.challenge}</p>
               </div>
               <div className="glass rounded-2xl p-8">
                 <h2 className="text-3xl font-bold mb-6 text-green-400">Our Solution</h2>
-                <p className="text-gray-400 text-lg">{project.solution}</p>
+                <p className="text-muted-foreground text-lg">{project.solution}</p>
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@ const ProjectDetail = () => {
                   <div className="text-2xl font-bold mb-2 gradient-text">
                     {result.split(' ')[0]}
                   </div>
-                  <div className="text-gray-400">
+                  <div className="text-muted-foreground">
                     {result.split(' ').slice(1).join(' ')}
                   </div>
                 </div>
@@ -184,7 +184,7 @@ const ProjectDetail = () => {
             <h2 className="text-4xl font-mono font-bold mb-6 gradient-text">
               Want Similar Results?
             </h2>
-            <p className="text-xl text-gray-400 mb-8">
+            <p className="text-xl text-muted-foreground mb-8">
               Let's discuss how we can help you achieve your goals with a similar approach.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

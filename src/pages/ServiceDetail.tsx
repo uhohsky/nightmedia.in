@@ -658,7 +658,7 @@ const ServiceDetail = () => {
               <div className="gradient-text">{service.title}</div>
               <div className="gradient-text">{service.subtitle}</div>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-foreground/90 max-w-3xl mx-auto">
               {service.description}
             </p>
           </div>
@@ -675,7 +675,7 @@ const ServiceDetail = () => {
                       <h2 className="text-4xl md:text-6xl font-mono font-bold">
                         {section.title}
                       </h2>
-                      <p className="text-xl text-gray-400 leading-relaxed">
+                      <p className="text-xl text-muted-foreground leading-relaxed">
                         {section.content}
                       </p>
                     </div>
@@ -700,7 +700,7 @@ const ServiceDetail = () => {
                       {section.stats?.map((stat, i) => (
                         <div key={i} className="glass rounded-2xl p-8">
                           <div className="text-5xl font-bold mb-4">{stat.number}</div>
-                          <div className="text-gray-400">{stat.label}</div>
+                          <div className="text-muted-foreground">{stat.label}</div>
                         </div>
                       ))}
                     </div>
@@ -721,7 +721,7 @@ const ServiceDetail = () => {
                             {step.number}
                           </div>
                           <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                          <p className="text-gray-400">{step.description}</p>
+                          <p className="text-muted-foreground">{step.description}</p>
                         </div>
                       ))}
                     </div>
@@ -745,7 +745,7 @@ const ServiceDetail = () => {
                           />
                           <div className="p-8">
                             <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                            <p className="text-gray-400 mb-6">{project.description}</p>
+                            <p className="text-muted-foreground mb-6">{project.description}</p>
                             <div className="grid grid-cols-3 gap-4 text-center">
                               <div>
                                 <div className="text-xl font-bold">{project.metrics.reach}</div>
@@ -777,7 +777,7 @@ const ServiceDetail = () => {
             <h2 className="text-4xl md:text-6xl font-mono font-bold mb-8">
               READY TO AMPLIFY YOUR BRAND?
             </h2>
-            <p className="text-xl text-gray-400 mb-12">
+            <p className="text-xl text-muted-foreground mb-12">
               Let's create an influencer marketing strategy that drives real results.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -822,7 +822,7 @@ const ServiceDetail = () => {
             <div className="gradient-text">{service.title}</div>
             <div className="gradient-text">{service.subtitle}</div>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-foreground/90 max-w-3xl mx-auto">
             {service.description}
           </p>
         </div>
@@ -839,7 +839,7 @@ const ServiceDetail = () => {
                     <h2 className="text-4xl md:text-6xl font-mono font-bold">
                       {section.title}
                     </h2>
-                    <p className="text-xl text-gray-400 leading-relaxed">
+                    <p className="text-xl text-muted-foreground leading-relaxed">
                       {section.content}
                     </p>
                   </div>
@@ -864,7 +864,7 @@ const ServiceDetail = () => {
                     {section.stats?.map((stat, i) => (
                       <div key={i} className="glass rounded-2xl p-8">
                         <div className="text-5xl font-bold mb-4">{stat.number}</div>
-                        <div className="text-gray-400">{stat.label}</div>
+                        <div className="text-muted-foreground">{stat.label}</div>
                       </div>
                     ))}
                   </div>
@@ -885,7 +885,7 @@ const ServiceDetail = () => {
                           {step.number}
                         </div>
                         <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                        <p className="text-gray-400">{step.description}</p>
+                        <p className="text-muted-foreground">{step.description}</p>
                       </div>
                     ))}
                   </div>
@@ -909,7 +909,7 @@ const ServiceDetail = () => {
                         />
                         <div className="p-8">
                           <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                          <p className="text-gray-400 mb-6">{project.description}</p>
+                          <p className="text-muted-foreground mb-6">{project.description}</p>
                           <div className="grid grid-cols-3 gap-4 text-center">
                             <div>
                               <div className="text-xl font-bold">{project.metrics.reach}</div>
@@ -941,7 +941,7 @@ const ServiceDetail = () => {
           <h2 className="text-4xl md:text-6xl font-mono font-bold mb-8">
             READY TO GET STARTED?
           </h2>
-          <p className="text-xl text-gray-400 mb-12">
+          <p className="text-xl text-muted-foreground mb-12">
             Let's create something extraordinary together.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
