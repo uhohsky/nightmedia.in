@@ -108,7 +108,7 @@ const SecondaryServices = () => {
             >
               <div className="flex items-center gap-6 lg:gap-12 py-8 lg:py-10">
                 {/* Number */}
-                <span className="text-sm text-muted-foreground/30 font-mono hidden sm:block w-8 shrink-0">
+                <span className="text-sm text-muted-foreground/70 font-mono hidden sm:block w-8 shrink-0">
                   {String(index + 1).padStart(2, '0')}
                 </span>
 
