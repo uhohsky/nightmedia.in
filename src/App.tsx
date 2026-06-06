@@ -26,6 +26,7 @@ import Rebranding3DEraCaseStudy from "./pages/Rebranding3DEraCaseStudy";
 import PerformanceMarketingTrends2025 from "./pages/performance-marketing-trends-2025";
 import AIMarketingAutomationGuide from "./pages/ai-marketing-automation-guide";
 import GrowthSystemsFramework from "./pages/growth-systems-framework";
+import AIAudit from "./pages/AIAudit";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ const App = () => (
               <Route path="/blog/performance-marketing-trends-2025" element={<PerformanceMarketingTrends2025 />} />
               <Route path="/blog/ai-marketing-automation-guide" element={<AIMarketingAutomationGuide />} />
               <Route path="/blog/growth-systems-framework" element={<GrowthSystemsFramework />} />
+              <Route path="/ai-audit" element={<AIAudit />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />

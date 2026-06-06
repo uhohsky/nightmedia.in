@@ -1,13 +1,31 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Instagram, Linkedin, Youtube, Sparkles } from 'lucide-react';
 import nightMediaLogo from '@/assets/night-media-logo.jpg';
+import NewsletterSignup from '@/components/Newsletter/NewsletterSignup';
 
 const Footer = () => {
   return (
     <footer className="bg-black border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 py-12">
+        {/* Newsletter module */}
+        <div className="mb-12 pb-12 border-b border-gray-800 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-primary" />
+              <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">The Compound · Weekly</span>
+            </div>
+            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+              Growth systems, in your inbox.
+            </h3>
+            <p className="text-sm text-muted-foreground max-w-md">
+              One operator-grade email a week on AI-powered websites, automation, and revenue infrastructure.
+            </p>
+          </div>
+          <NewsletterSignup variant="footer" source="footer" />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
@@ -15,7 +33,7 @@ const Footer = () => {
               <h3 className="text-2xl font-mono font-bold">NIGHTMEDIA</h3>
             </div>
             <p className="text-muted-foreground max-w-md mb-6">
-              Creating cinematic digital experiences that push the boundaries of creativity and technology.
+              AI-powered growth infrastructure for ambitious brands — websites, content systems, and automation engineered to compound revenue.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.instagram.com/_nightmedia.in" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-white transition-colors magnetic">
@@ -46,6 +64,7 @@ const Footer = () => {
               <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
               <li><Link to="/projects" className="hover:text-white transition-colors">Projects</Link></li>
               <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link to="/ai-audit" className="hover:text-white transition-colors">Free AI Audit</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>

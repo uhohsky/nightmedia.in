@@ -1,12 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/Sections/Hero';
+import FounderTrustBar from '../components/Sections/FounderTrustBar';
 import TrustSection from '../components/Sections/TrustSection';
 import ProcessSection from '../components/Sections/ProcessSection';
 import ServicesPreview from '../components/Sections/ServicesPreview';
 import SeoSupportSection from '../components/Sections/SeoSupportSection';
 import FeaturedProjects from '../components/Sections/FeaturedProjects';
 import FounderSection from '../components/Sections/FounderSection';
+import NewsletterSignup from '../components/Newsletter/NewsletterSignup';
 import CallToAction from '../components/Sections/CallToAction';
 
 const Index = () => {
@@ -32,28 +34,38 @@ const Index = () => {
       />
       
       <div className="relative z-10 flex flex-col gap-0">
-        {/* 1. ATTENTION: The 'Big Hook' for International Revenue */}
+        {/* 1. ATTENTION: AI-first hook + tiered CTAs */}
         <Hero />
-        
-        {/* 2. AUTHORITY: Immediate Social Proof & Trust Indicators */}
+
+        {/* 2. FOUNDER TRUST: Sky + UpGrad + AI-first + building in public */}
+        <FounderTrustBar />
+
+        {/* 3. AUTHORITY: Immediate Social Proof & Trust Indicators */}
         <TrustSection />
-        
-        {/* 3. CLARITY: How your 'Growth Engine' works step-by-step */}
+
+        {/* 4. CLARITY: How your 'Growth Engine' works step-by-step */}
         <ProcessSection />
-        
-        {/* 4. UTILITY: The specific technical pillars (Web, Ads, Design) */}
+
+        {/* 5. UTILITY: The specific technical pillars (Web, Ads, Design) */}
         <ServicesPreview />
-        
-        {/* 5. EDUCATION: Highlighting the SEO bottleneck for brands */}
+
+        {/* 6. EDUCATION: Highlighting the SEO bottleneck for brands */}
         <SeoSupportSection />
-        
-        {/* 6. PROOF: High-ticket case studies and visual evidence */}
+
+        {/* 7. PROOF: High-ticket case studies and visual evidence */}
         <FeaturedProjects />
-        
-        {/* 7. TRUST: The personal connection with Sky (The Founder) */}
+
+        {/* 8. TRUST: The personal connection with Sky (The Founder) */}
         <FounderSection />
-        
-        {/* 8. CONVERSION: The high-intent Call to Action */}
+
+        {/* 9. LEVEL-1 CAPTURE: Newsletter for visitors not ready to buy */}
+        <section className="px-4 sm:px-6 py-20">
+          <div className="max-w-4xl mx-auto">
+            <NewsletterSignup variant="card" source="homepage" />
+          </div>
+        </section>
+
+        {/* 10. CONVERSION: The high-intent Call to Action */}
         <CallToAction />
       </div>
     </main>
