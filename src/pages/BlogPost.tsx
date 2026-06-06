@@ -268,22 +268,35 @@ const BlogPost = () => {
         </div>
       </div>
 
+      {/* Related services — internal linking */}
+      <div className="relative z-10 px-6 pt-4 pb-10">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-3 font-medium">Apply this</p>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-5">Services that put this into practice</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <Link to="/services/web-design" className="glass-card glow-border rounded-xl p-4 hover-lift block text-sm font-medium text-foreground">Web Design →</Link>
+            <Link to="/services/influencer-marketing" className="glass-card glow-border rounded-xl p-4 hover-lift block text-sm font-medium text-foreground">Performance Marketing →</Link>
+            <Link to="/services/cgi-ads" className="glass-card glow-border rounded-xl p-4 hover-lift block text-sm font-medium text-foreground">Creative &amp; CGI →</Link>
+          </div>
+        </div>
+      </div>
+
       {/* CTA Section */}
       <div className="relative z-10 px-6 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="glass-card glow-border rounded-3xl p-8 md:p-12 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Inspired by What You Read?
+              Want this applied to your business?
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              Let us help you apply these insights to grow your business.
+              Get a free AI Growth Audit — we'll teardown your funnel and send a 30/60/90 plan within 72 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/contact"
+                to="/ai-audit"
                 className="inline-flex items-center gap-2 btn-primary-glow px-8 py-4 rounded-full text-primary-foreground font-semibold group"
               >
-                <span>Start Your Project</span>
+                <span>Get Free AI Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link

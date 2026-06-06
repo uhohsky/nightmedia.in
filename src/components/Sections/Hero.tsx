@@ -79,42 +79,51 @@ const Hero = () => {
         <div className="hero-badge inline-flex items-center gap-2 px-5 py-2 rounded-full glass-card mb-8">
           <Sparkles className="w-4 h-4 text-primary" />
           <span className="text-sm text-muted-foreground font-medium">
-            Revenue-Focused Growth Systems
+            AI-Powered Growth Infrastructure
           </span>
         </div>
 
         {/* ✅ SEO-SAFE H1 (single H1, animated spans inside) */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6 sm:mb-8">
           <span className="hero-line-1 block text-foreground">
-            Revenue Systems That Compound
+            AI-Powered Growth Infrastructure
           </span>
           <span className="hero-line-2 block gradient-text-primary mt-2">
-            Built Through High-Performance Websites
+            for Ambitious Brands
           </span>
         </h1>
 
         {/* Subtitle */}
         <p className="hero-subtitle text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-12 px-2">
-          NightMedia is a global website development and performance marketing
-          agency building high-converting websites, funnels, and SEO systems for
-          ambitious brands.
+          Night Media designs the websites, automations, and content engines that
+          turn ambitious brands into compounding revenue machines — built AI-first,
+          tuned for performance, and engineered to scale.
         </p>
 
-        {/* CTAs */}
-        <div className="hero-cta-group flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center mb-12 sm:mb-20 px-4 sm:px-0">
+        {/* Tiered CTAs — Level 2 (audit) primary, Level 3 (call) secondary */}
+        <div className="hero-cta-group flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center mb-6 sm:mb-8 px-4 sm:px-0">
           <Link
-            to="/contact"
+            to="/ai-audit"
             className="px-10 py-4 rounded-full btn-primary-glow font-semibold"
           >
-            Get Free Growth Audit
+            Get Your Free AI Growth Audit
           </Link>
           <Link
-            to="/projects"
+            to="/contact"
             className="px-10 py-4 rounded-full glass-card glow-border font-semibold"
           >
-            View Our Work
+            Book a Strategy Call
           </Link>
         </div>
+
+        {/* Level 1 — newsletter (lowest-friction capture) */}
+        <p className="hero-cta-group text-sm text-muted-foreground mb-12 sm:mb-20">
+          Not ready?{' '}
+          <Link to="/blog" className="text-primary hover:underline font-medium">
+            Read The Compound
+          </Link>
+          {' '}— our weekly note on AI growth systems.
+        </p>
 
         {/* Stats */}
         <div className="flex flex-wrap gap-6 sm:gap-10 md:gap-20 justify-center px-2">

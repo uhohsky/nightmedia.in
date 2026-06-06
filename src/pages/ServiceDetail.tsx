@@ -935,6 +935,28 @@ const ServiceDetail = () => {
         ))}
       </div>
 
+      {/* Related reading — internal linking to blog */}
+      <section className="service-section py-16 px-6 border-t border-border/40">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-xs text-primary uppercase tracking-[0.3em] mb-3 font-medium">Go deeper</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Related from The Compound</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Link to="/blog/growth-systems-framework" className="glass-card glow-border rounded-2xl p-5 hover-lift block">
+              <p className="text-xs text-primary mb-2">Framework</p>
+              <h3 className="font-semibold text-foreground">The Growth Systems Framework</h3>
+            </Link>
+            <Link to="/blog/ai-marketing-automation-guide" className="glass-card glow-border rounded-2xl p-5 hover-lift block">
+              <p className="text-xs text-primary mb-2">AI &amp; Automation</p>
+              <h3 className="font-semibold text-foreground">AI in Marketing: Beyond Automation</h3>
+            </Link>
+            <Link to="/blog/performance-marketing-trends-2025" className="glass-card glow-border rounded-2xl p-5 hover-lift block">
+              <p className="text-xs text-primary mb-2">Performance</p>
+              <h3 className="font-semibold text-foreground">From Campaigns to Systems (2025)</h3>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="service-section py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -942,20 +964,20 @@ const ServiceDetail = () => {
             READY TO GET STARTED?
           </h2>
           <p className="text-xl text-muted-foreground mb-12">
-            Let's create something extraordinary together.
+            Get a free AI Growth Audit, or jump straight to a strategy call.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link
+              to="/ai-audit"
+              className="btn-primary-glow px-12 py-6 rounded-full text-lg font-semibold text-primary-foreground"
+            >
+              Get Free AI Audit
+            </Link>
             <Link
               to="/contact"
               className="glass px-12 py-6 rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all magnetic"
             >
-              Start Your Project
-            </Link>
-            <Link
-              to="/services"
-              className="border border-white px-12 py-6 rounded-full text-lg font-medium hover:bg-white hover:text-black transition-all magnetic"
-            >
-              View All Services
+              Book a Strategy Call
             </Link>
           </div>
         </div>

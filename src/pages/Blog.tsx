@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, TrendingUp } from 'lucide-react';
+import NewsletterSignup from '@/components/Newsletter/NewsletterSignup';
 
 // Blog images
 import influencerMarketingImg from '@/assets/blog/influencer-marketing.jpg';
@@ -247,24 +248,9 @@ const Blog = () => {
           ))}
         </div>
 
-        {/* Newsletter CTA */}
-        <div className="glass-card glow-border rounded-3xl p-8 md:p-12 text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            The Operators Newsletter
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            Weekly breakdowns on growth systems, acquisition strategies, and what is actually working. For founders who think in systems.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 bg-secondary/50 border border-border rounded-full px-5 py-3.5 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors"
-            />
-            <button className="btn-primary-glow px-6 py-3.5 rounded-full text-primary-foreground font-medium whitespace-nowrap">
-              Subscribe
-            </button>
-          </div>
+        {/* Newsletter CTA — The Compound */}
+        <div className="max-w-3xl mx-auto mb-20">
+          <NewsletterSignup variant="card" source="blog-index" />
         </div>
 
         {/* Bottom CTA */}
