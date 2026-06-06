@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, TrendingUp } from 'lucide-react';
+import NewsletterSignup from '@/components/Newsletter/NewsletterSignup';
 
 // Blog images
 import influencerMarketingImg from '@/assets/blog/influencer-marketing.jpg';
