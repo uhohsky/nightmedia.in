@@ -22,11 +22,8 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
-import Rebranding3DEraCaseStudy from "./pages/Rebranding3DEraCaseStudy";
-import PerformanceMarketingTrends2025 from "./pages/performance-marketing-trends-2025";
-import AIMarketingAutomationGuide from "./pages/ai-marketing-automation-guide";
-import GrowthSystemsFramework from "./pages/growth-systems-framework";
 import AIAudit from "./pages/AIAudit";
+import BlogAdmin from "./pages/BlogAdmin";
 
 const queryClient = new QueryClient();
 
