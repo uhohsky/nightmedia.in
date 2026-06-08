@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, Check } from 'lucide-react';
+import { subscribeEmail } from '@/lib/postsApi';
 
 interface NewsletterSignupProps {
   variant?: 'inline' | 'card' | 'footer';
@@ -9,8 +10,8 @@ interface NewsletterSignupProps {
 
 /**
  * "The Compound" — Night Media's growth-systems newsletter.
- * Captures top-of-funnel visitors not ready to buy.
- * Submits to the existing Getform endpoint with a `source` tag.
+ * Persists to the Lovable Cloud `subscribers` table and also fans out
+ * to the legacy Getform endpoint so existing email workflows keep firing.
  */
 const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   variant = 'inline',
@@ -29,16 +30,20 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     }
     setStatus('loading');
     try {
-      const fd = new FormData();
-      fd.append('email', trimmed);
-      fd.append('form', 'newsletter');
-      fd.append('source', source);
-      const res = await fetch('https://getform.io/f/bnlxyrxb', {
-        method: 'POST',
-        body: fd,
-        headers: { Accept: 'application/json' },
-      });
-      if (!res.ok) throw new Error('failed');
+      // Primary: store in DB
+      await subscribeEmail(trimmed, source);
+      // Secondary: legacy Getform notification (best-effort)
+      try {
+        const fd = new FormData();
+        fd.append('email', trimmed);
+        fd.append('form', 'newsletter');
+        fd.append('source', source);
+        await fetch('https://getform.io/f/bnlxyrxb', {
+          method: 'POST',
+          body: fd,
+          headers: { Accept: 'application/json' },
+        });
+      } catch { /* non-blocking */ }
       setStatus('success');
       setEmail('');
     } catch {

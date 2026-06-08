@@ -22,11 +22,8 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
-import Rebranding3DEraCaseStudy from "./pages/Rebranding3DEraCaseStudy";
-import PerformanceMarketingTrends2025 from "./pages/performance-marketing-trends-2025";
-import AIMarketingAutomationGuide from "./pages/ai-marketing-automation-guide";
-import GrowthSystemsFramework from "./pages/growth-systems-framework";
 import AIAudit from "./pages/AIAudit";
+import BlogAdmin from "./pages/BlogAdmin";
 
 const queryClient = new QueryClient();
 
@@ -50,11 +47,10 @@ const App = () => (
               <Route path="/projects/:slug" element={<ProjectDetail />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
+              {/* Admin route MUST be declared before :slug to avoid collision */}
+              <Route path="/blog/admin" element={<BlogAdmin />} />
+              <Route path="/admin" element={<BlogAdmin />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/blog/rebranding-3d-era-case-study" element={<Rebranding3DEraCaseStudy />} />
-              <Route path="/blog/performance-marketing-trends-2025" element={<PerformanceMarketingTrends2025 />} />
-              <Route path="/blog/ai-marketing-automation-guide" element={<AIMarketingAutomationGuide />} />
-              <Route path="/blog/growth-systems-framework" element={<GrowthSystemsFramework />} />
               <Route path="/ai-audit" element={<AIAudit />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
