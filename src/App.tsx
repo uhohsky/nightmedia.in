@@ -48,11 +48,10 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/blog/rebranding-3d-era-case-study" element={<Rebranding3DEraCaseStudy />} />
-              <Route path="/blog/performance-marketing-trends-2025" element={<PerformanceMarketingTrends2025 />} />
-              <Route path="/blog/ai-marketing-automation-guide" element={<AIMarketingAutomationGuide />} />
-              <Route path="/blog/growth-systems-framework" element={<GrowthSystemsFramework />} />
+              <Route path="/blog-admin" element={<BlogAdmin />} />
               <Route path="/ai-audit" element={<AIAudit />} />
+              {/* Legacy admin path alias */}
+              <Route path="/admin" element={<BlogAdmin />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
