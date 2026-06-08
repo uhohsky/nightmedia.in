@@ -47,11 +47,11 @@ const App = () => (
               <Route path="/projects/:slug" element={<ProjectDetail />} />
               <Route path="/about" element={<About />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/blog-admin" element={<BlogAdmin />} />
-              <Route path="/ai-audit" element={<AIAudit />} />
-              {/* Legacy admin path alias */}
+              {/* Admin route MUST be declared before :slug to avoid collision */}
+              <Route path="/blog/admin" element={<BlogAdmin />} />
               <Route path="/admin" element={<BlogAdmin />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/ai-audit" element={<AIAudit />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
