@@ -93,38 +93,37 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Animated gradient orbs */
+/* Animated gradient orbs — neutered for enterprise calm (much less glow) */
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(140px);
   will-change: transform, opacity;
+  opacity: 0.18;
 }
 
 .gradient-orb-1 {
-  background: linear-gradient(135deg, 
-    hsl(var(--gradient-purple) / 0.5) 0%, 
-    hsl(var(--gradient-blue) / 0.3) 50%,
-    hsl(var(--gradient-cyan) / 0.2) 100%);
-  animation: float-slow 25s ease-in-out infinite, pulse-glow 8s ease-in-out infinite;
+  background: radial-gradient(circle,
+    hsl(var(--primary) / 0.35) 0%,
+    transparent 70%);
+  animation: float-slow 40s ease-in-out infinite;
 }
 
 .gradient-orb-2 {
-  background: linear-gradient(225deg, 
-    hsl(var(--gradient-cyan) / 0.4) 0%, 
-    hsl(var(--gradient-purple) / 0.3) 50%,
-    hsl(var(--gradient-pink) / 0.2) 100%);
-  animation: float-medium 30s ease-in-out infinite, pulse-glow 10s ease-in-out infinite 2s;
+  background: radial-gradient(circle,
+    hsl(var(--accent) / 0.25) 0%,
+    transparent 70%);
+  animation: float-medium 50s ease-in-out infinite;
 }
 
 .gradient-orb-3 {
-  background: linear-gradient(315deg, 
-    hsl(var(--gradient-blue) / 0.3) 0%, 
-    hsl(var(--gradient-pink) / 0.2) 100%);
-  animation: float-fast 20s ease-in-out infinite, pulse-glow 6s ease-in-out infinite 1s;
+  background: radial-gradient(circle,
+    hsl(var(--primary) / 0.2) 0%,
+    transparent 70%);
+  animation: float-fast 35s ease-in-out infinite;
 }
 
-/* Ambient background animation */
+/* Ambient background — barely there */
 .ambient-bg {
   position: fixed;
   inset: 0;
@@ -140,10 +139,9 @@
   height: 200%;
   top: -50%;
   left: -50%;
-  background: radial-gradient(circle at 20% 30%, hsl(var(--gradient-purple) / 0.08) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, hsl(var(--gradient-cyan) / 0.06) 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, hsl(var(--gradient-blue) / 0.04) 0%, transparent 50%);
-  animation: ambient-rotate 120s linear infinite;
+  background: radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.04) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.03) 0%, transparent 50%);
+  animation: ambient-rotate 180s linear infinite;
 }
 
 /* ===== GLASSMORPHISM SYSTEM ===== */
