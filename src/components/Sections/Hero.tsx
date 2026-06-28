@@ -1,151 +1,107 @@
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
 import { Link } from "react-router-dom";
-import { Sparkles, ChevronDown } from "lucide-react";
-import NightMediaIcon from "../Logo/NightMediaIcon";
-
-const isSafari =
-  typeof navigator !== "undefined" &&
-  /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+import { ArrowRight, Sparkles } from "lucide-react";
+import HeroAILattice from "../Visuals/HeroAILattice";
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!heroRef.current || isSafari) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-      tl.fromTo(
-        ".hero-badge",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6 }
-      )
-        .fromTo(
-          ".hero-line-1",
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          "-=0.3"
-        )
-        .fromTo(
-          ".hero-line-2",
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          "-=0.5"
-        )
-        .fromTo(
-          ".hero-subtitle",
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6 },
-          "-=0.4"
-        )
-        .fromTo(
-          ".hero-cta-group",
-          { opacity: 0, scale: 0.96 },
-          { opacity: 1, scale: 1, duration: 0.5 },
-          "-=0.3"
-        )
-        .fromTo(
-          ".hero-stat",
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, stagger: 0.12, duration: 0.4 },
-          "-=0.2"
-        );
-    }, heroRef);
-
-    return () => ctx.revert();
+    const el = heroRef.current;
+    if (!el) return;
+    const items = el.querySelectorAll<HTMLElement>("[data-reveal]");
+    items.forEach((node, i) => {
+      node.style.opacity = "0";
+      node.style.transform = "translateY(16px)";
+      node.style.transition = `opacity 0.7s ease ${i * 80}ms, transform 0.7s ease ${i * 80}ms`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          node.style.opacity = "1";
+          node.style.transform = "translateY(0)";
+        });
+      });
+    });
   }, []);
-
-  const stats = [
-    { value: "₹1M+", label: "Revenue Generated" },
-    { value: "150+", label: "Systems Deployed" },
-    { value: "3.2x", label: "Avg. ROI" },
-  ];
 
   return (
     <section
       ref={heroRef}
-      className="min-h-screen flex items-center relative overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-32"
     >
-      {/* Oversized N watermark */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-        <NightMediaIcon size={600} variant="white" className="opacity-[0.04] hero-watermark" />
-      </div>
+      {/* Single, quiet ambient orb */}
+      <div className="gradient-orb gradient-orb-1 w-[700px] h-[700px] -top-40 -right-40" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-32 text-center">
-
-        {/* Badge */}
-        <div className="hero-badge inline-flex items-center gap-2 px-5 py-2 rounded-full glass-card mb-8">
-          <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm text-muted-foreground font-medium">
-            AI-Powered Growth Infrastructure
-          </span>
-        </div>
-
-        {/* ✅ SEO-SAFE H1 (single H1, animated spans inside) */}
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6 sm:mb-8">
-          <span className="hero-line-1 block text-foreground">
-            AI-Powered Growth Infrastructure
-          </span>
-          <span className="hero-line-2 block gradient-text-primary mt-2">
-            for Ambitious Brands
-          </span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="hero-subtitle text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-12 px-2">
-          Night Media designs the websites, automations, and content engines that
-          turn ambitious brands into compounding revenue machines — built AI-first,
-          tuned for performance, and engineered to scale.
-        </p>
-
-        {/* Tiered CTAs — Level 2 (audit) primary, Level 3 (call) secondary */}
-        <div className="hero-cta-group flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center mb-6 sm:mb-8 px-4 sm:px-0">
-          <Link
-            to="/ai-audit"
-            className="px-10 py-4 rounded-full btn-primary-glow font-semibold"
-          >
-            Get Your Free AI Growth Audit
-          </Link>
-          <Link
-            to="/contact"
-            className="px-10 py-4 rounded-full glass-card glow-border font-semibold"
-          >
-            Book a Strategy Call
-          </Link>
-        </div>
-
-        {/* Level 1 — newsletter (lowest-friction capture) */}
-        <p className="hero-cta-group text-sm text-muted-foreground mb-12 sm:mb-20">
-          Not ready?{' '}
-          <Link to="/blog" className="text-primary hover:underline font-medium">
-            Read The Compound
-          </Link>
-          {' '}— our weekly note on AI growth systems.
-        </p>
-
-        {/* Stats */}
-        <div className="flex flex-wrap gap-6 sm:gap-10 md:gap-20 justify-center px-2">
-          {stats.map((s, i) => (
-            <div key={i} className="hero-stat text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-1 sm:mb-2">
-                {s.value}
-              </div>
-              <div className="text-sm text-muted-foreground uppercase tracking-wider">
-                {s.label}
-              </div>
+      <div className="container-enterprise relative z-10 w-full">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left: copy */}
+          <div className="lg:col-span-7">
+            <div
+              data-reveal
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full surface-card text-xs"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-accent" />
+              <span className="text-muted-foreground font-medium tracking-wide">
+                AI-Powered Growth Infrastructure
+              </span>
             </div>
-          ))}
+
+            <h1
+              data-reveal
+              className="text-hero text-foreground mt-8 max-w-[18ch]"
+            >
+              Enterprise growth systems,{" "}
+              <span className="text-gradient-brand">engineered with AI.</span>
+            </h1>
+
+            <p
+              data-reveal
+              className="text-body-lg text-muted-foreground mt-8 max-w-[58ch]"
+            >
+              Night Media designs the websites, automations, and content engines
+              that turn ambitious brands into compounding revenue machines —
+              built AI-first, tuned for performance, engineered to scale.
+            </p>
+
+            <div data-reveal className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Link
+                to="/ai-audit"
+                className="btn-primary-glow inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-[15px]"
+              >
+                Get Your Free AI Audit
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/contact"
+                className="btn-secondary-enterprise inline-flex items-center justify-center px-7 py-3.5 rounded-full font-semibold text-[15px]"
+              >
+                Book a Strategy Call
+              </Link>
+            </div>
+
+            <div data-reveal className="mt-14 flex flex-wrap gap-x-12 gap-y-6">
+              {[
+                { value: "₹1M+", label: "Revenue generated" },
+                { value: "150+", label: "Systems deployed" },
+                { value: "3.2×", label: "Average ROI" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="text-3xl lg:text-4xl font-bold text-foreground tracking-tight">
+                    {s.value}
+                  </div>
+                  <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground mt-1">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: AI lattice illustration */}
+          <div data-reveal className="lg:col-span-5 flex justify-center lg:justify-end">
+            <HeroAILattice />
+          </div>
         </div>
       </div>
-
-      {!isSafari && (
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ChevronDown className="w-5 h-5 animate-bounce" />
-        </div>
-      )}
     </section>
   );
 };

@@ -9,41 +9,44 @@ const Navigation = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'Projects', path: '/projects' },
     { name: 'About', path: '/about' },
     { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'nav-backdrop' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 py-4">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'nav-backdrop' : 'bg-transparent'
+      }`}
+    >
+      <div className="container-enterprise py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 magnetic">
-            <NightMediaIcon size={28} variant="white" />
-            <span className="text-xl font-mono font-bold tracking-wide">NIGHTMEDIA</span>
+          <Link to="/" className="flex items-center gap-2.5">
+            <NightMediaIcon size={26} variant="white" />
+            <span className="text-[15px] font-mono font-bold tracking-wide text-foreground">
+              NIGHTMEDIA
+            </span>
           </Link>
-          
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-white magnetic ${
-                  location.pathname === item.path ? 'text-white' : 'text-muted-foreground'
+                className={`px-4 py-2 rounded-full text-[14px] font-medium transition-colors ${
+                  location.pathname === item.path
+                    ? 'text-foreground bg-white/5'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {item.name}
@@ -51,34 +54,32 @@ const Navigation = () => {
             ))}
             <Link
               to="/contact"
-              className="glass px-6 py-2 rounded-full text-sm font-medium hover:bg-white hover:text-black transition-all magnetic"
+              className="ml-3 btn-primary-glow px-5 py-2 rounded-full text-[14px] font-semibold"
             >
-              Get In Touch
+              Get in touch
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden magnetic"
+            className="md:hidden text-foreground"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 glass rounded-2xl p-5 space-y-1">
+          <div className="md:hidden mt-4 surface-card rounded-2xl p-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 className={`block py-3 px-4 rounded-xl text-base font-medium transition-colors ${
-                  location.pathname === item.path 
-                    ? 'text-white bg-white/10' 
-                    : 'text-foreground/90 hover:text-white hover:bg-white/5'
+                  location.pathname === item.path
+                    ? 'text-foreground bg-white/5'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -87,10 +88,10 @@ const Navigation = () => {
             ))}
             <Link
               to="/contact"
-              className="block mt-3 text-center glass px-6 py-3 rounded-full text-base font-medium hover:bg-white hover:text-black transition-all"
+              className="block mt-2 text-center btn-primary-glow px-6 py-3 rounded-full text-base font-semibold"
               onClick={() => setIsOpen(false)}
             >
-              Get In Touch
+              Get in touch
             </Link>
           </div>
         )}
