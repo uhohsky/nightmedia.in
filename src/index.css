@@ -9,32 +9,38 @@
 /* Premium Dark Theme - Motion-First Design System */
 @layer base {
   :root {
-    --background: 220 30% 3%;
-    --foreground: 0 0% 98%;
-    --card: 220 25% 6%;
-    --card-foreground: 0 0% 98%;
-    --popover: 220 25% 6%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 250 90% 65%;
+    /* Dark enterprise — blue/teal identity (Linear / Vercel / Anthropic register) */
+    --background: 210 73% 9%;          /* #071A2B */
+    --foreground: 204 50% 98%;         /* #F8FBFD */
+    --card: 210 62% 13%;               /* #0C2236 */
+    --card-foreground: 204 50% 98%;
+    --popover: 210 62% 13%;
+    --popover-foreground: 204 50% 98%;
+    --primary: 218 99% 53%;            /* #0F62FE */
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 20% 10%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 55%;
-    --accent: 190 95% 55%;
-    --accent-foreground: 0 0% 100%;
+    --secondary: 210 60% 16%;          /* #102A40 */
+    --secondary-foreground: 204 50% 98%;
+    --muted: 210 50% 18%;
+    --muted-foreground: 210 22% 70%;   /* #9AB0C4 */
+    --accent: 184 79% 46%;             /* #19C6D1 */
+    --accent-foreground: 210 73% 9%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 20% 12%;
-    --input: 220 20% 10%;
-    --ring: 250 90% 65%;
-    --radius: 0.75rem;
-    
-    /* Premium gradient colors */
-    --gradient-purple: 250 90% 65%;
-    --gradient-blue: 220 90% 60%;
-    --gradient-cyan: 190 95% 55%;
-    --gradient-pink: 320 85% 60%;
+    --border: 210 30% 22%;             /* whisper border in dark */
+    --input: 210 50% 16%;
+    --ring: 218 99% 53%;
+    --radius: 1rem;                    /* 16px per brief */
+
+    /* Brand gradient tokens (calmer, blue/teal only) */
+    --gradient-purple: 218 99% 53%;    /* legacy alias → primary */
+    --gradient-blue: 218 99% 53%;
+    --gradient-cyan: 184 79% 46%;
+    --gradient-pink: 190 100% 39%;     /* legacy alias → secondary teal */
+
+    /* Elevation (dark-mode soft lifts) */
+    --shadow-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-elevation-2: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --shadow-elevation-3: 0 20px 48px rgba(0, 0, 0, 0.45);
   }
 }
 
