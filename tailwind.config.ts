@@ -60,8 +60,13 @@ export default {
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				md: 'calc(var(--radius) - 4px)',
+				sm: 'calc(var(--radius) - 8px)'
+			},
+			boxShadow: {
+				'elevation-1': '0 1px 2px rgba(0, 0, 0, 0.4)',
+				'elevation-2': '0 8px 24px rgba(0, 0, 0, 0.35)',
+				'elevation-3': '0 20px 48px rgba(0, 0, 0, 0.45)',
 			},
 			keyframes: {
 				'accordion-down': {

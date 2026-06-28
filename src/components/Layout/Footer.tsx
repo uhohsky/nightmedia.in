@@ -1,87 +1,100 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Linkedin, Youtube, Sparkles } from 'lucide-react';
-import nightMediaLogo from '@/assets/night-media-logo.jpg';
+import { Instagram, Linkedin, Youtube } from 'lucide-react';
+import NightMediaIcon from '../Logo/NightMediaIcon';
 import NewsletterSignup from '@/components/Newsletter/NewsletterSignup';
 
 const Footer = () => {
   return (
-    <footer className="bg-black border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Newsletter module */}
-        <div className="mb-12 pb-12 border-b border-gray-800 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <footer className="border-t border-border bg-[hsl(var(--background))]">
+      <div className="container-enterprise py-16 lg:py-20">
+        {/* Newsletter band */}
+        <div className="grid md:grid-cols-2 gap-10 items-center pb-14 mb-14 border-b border-border">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-primary" />
-              <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">The Compound · Weekly</span>
-            </div>
-            <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+            <p className="eyebrow mb-3">The Compound · Weekly</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Growth systems, in your inbox.
             </h3>
-            <p className="text-sm text-muted-foreground max-w-md">
-              One operator-grade email a week on AI-powered websites, automation, and revenue infrastructure.
+            <p className="text-muted-foreground max-w-md">
+              One operator-grade email a week on AI-powered websites, automation, and revenue
+              infrastructure.
             </p>
           </div>
           <NewsletterSignup variant="footer" source="footer" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <img src={nightMediaLogo} alt="Night Media" className="h-8 w-8 rounded object-cover" />
-              <h3 className="text-2xl font-mono font-bold">NIGHTMEDIA</h3>
+        {/* Columns */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10">
+          <div className="col-span-2">
+            <div className="flex items-center gap-2.5 mb-5">
+              <NightMediaIcon size={26} variant="white" />
+              <span className="text-[15px] font-mono font-bold tracking-wide text-foreground">
+                NIGHTMEDIA
+              </span>
             </div>
-            <p className="text-muted-foreground max-w-md mb-6">
-              AI-powered growth infrastructure for ambitious brands — websites, content systems, and automation engineered to compound revenue.
+            <p className="text-sm text-muted-foreground max-w-sm mb-6 leading-relaxed">
+              AI-powered growth infrastructure for ambitious brands — websites, content systems,
+              and automation engineered to compound revenue.
             </p>
-            <div className="flex space-x-4">
-              <a href="https://www.instagram.com/_nightmedia.in" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-white transition-colors magnetic">
-                <Instagram size={20} />
-              </a>
-              <a href="https://www.linkedin.com/company/nightmediaindia/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-white transition-colors magnetic">
-                <Linkedin size={20} />
-              </a>
-              <a href="https://www.youtube.com/@NightMediaindia" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-white transition-colors magnetic">
-                <Youtube size={20} />
-              </a>
+            <div className="flex gap-3">
+              {[
+                { Icon: Instagram, href: 'https://www.instagram.com/_nightmedia.in', label: 'Instagram' },
+                { Icon: Linkedin, href: 'https://www.linkedin.com/company/nightmediaindia/', label: 'LinkedIn' },
+                { Icon: Youtube, href: 'https://www.youtube.com/@NightMediaindia', label: 'YouTube' },
+              ].map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-9 h-9 rounded-full surface-card flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><Link to="/services/web-design" className="hover:text-white transition-colors">Web Design</Link></li>
-              <li><Link to="/services/influencer-marketing" className="hover:text-white transition-colors">Influencer Marketing</Link></li>
-              <li><Link to="/services/cgi-ads" className="hover:text-white transition-colors">CGI Ads</Link></li>
-              <li><Link to="/services/video-editing" className="hover:text-white transition-colors">Video Editing</Link></li>
+            <h4 className="text-xs uppercase tracking-[0.16em] text-foreground font-semibold mb-4">
+              Services
+            </h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li><Link to="/services/web-design" className="hover:text-foreground transition-colors">Web Design</Link></li>
+              <li><Link to="/services/performance-marketing" className="hover:text-foreground transition-colors">Performance</Link></li>
+              <li><Link to="/services/seo" className="hover:text-foreground transition-colors">SEO</Link></li>
+              <li><Link to="/services/video-editing" className="hover:text-foreground transition-colors">Video</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link to="/projects" className="hover:text-white transition-colors">Projects</Link></li>
-              <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link to="/ai-audit" className="hover:text-white transition-colors">Free AI Audit</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+            <h4 className="text-xs uppercase tracking-[0.16em] text-foreground font-semibold mb-4">
+              Company
+            </h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li><Link to="/about" className="hover:text-foreground transition-colors">About</Link></li>
+              <li><Link to="/projects" className="hover:text-foreground transition-colors">Projects</Link></li>
+              <li><Link to="/blog" className="hover:text-foreground transition-colors">Blog</Link></li>
+              <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.16em] text-foreground font-semibold mb-4">
+              Resources
+            </h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li><Link to="/ai-audit" className="hover:text-foreground transition-colors">Free AI Audit</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-foreground transition-colors">Terms</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">
-            © 2025 NightMedia. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy-policy" className="text-muted-foreground hover:text-white text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms-of-service" className="text-muted-foreground hover:text-white text-sm transition-colors">
-              Terms of Service
-            </Link>
-          </div>
+        <div className="mt-14 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3">
+          <p className="text-xs text-muted-foreground">© 2026 Night Media India. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">Built AI-first in Mumbai.</p>
         </div>
       </div>
     </footer>
