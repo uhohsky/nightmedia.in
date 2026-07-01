@@ -20,8 +20,10 @@ export default {
 		},
 		extend: {
       fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'monospace'],
+        'inter': ['Geist', 'Inter', 'sans-serif'],
+        'display': ['Geist', 'Inter', 'sans-serif'],
+        'sans': ['Geist', 'Inter', 'sans-serif'],
+        'mono': ['Geist Mono', 'JetBrains Mono', 'monospace'],
       },
 			colors: {
 				border: 'hsl(var(--border))',
@@ -108,6 +110,10 @@ export default {
 				'pulse-glow': {
 					'0%, 100%': { opacity: '0.5', filter: 'blur(100px)' },
 					'50%': { opacity: '0.8', filter: 'blur(120px)' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' }
 				}
 			},
 			animation: {
@@ -120,7 +126,8 @@ export default {
 				'slide-in-right': 'slide-in-right 0.5s ease-out',
 				'gradient-shift': 'gradient-shift 4s ease infinite',
 				'float': 'float 8s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 8s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 8s ease-in-out infinite',
+				'shimmer': 'shimmer 6s linear infinite'
 			}
 		}
 	},
