@@ -604,4 +604,49 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+
+  /* ===== METALLIC "N" DESIGN LANGUAGE ===== */
+  /* Chromed text — the signature metallic finish, keyed to brand palette */
+  .text-metallic {
+    background: linear-gradient(
+      135deg,
+      #DCE7F5 0%,
+      #8FA6C2 22%,
+      #3C6FB3 48%,
+      #0F62FE 72%,
+      #19C6D1 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 12s ease-in-out infinite;
+  }
+
+  /* Metallic surface fill (chips, borders) */
+  .bg-metallic {
+    background: linear-gradient(135deg, #DCE7F5 0%, #3C6FB3 55%, #0F62FE 100%);
+  }
+
+  /* Signature "N" shimmer — used on the hero mark */
+  @keyframes n-shimmer {
+    0%, 100% { filter: drop-shadow(0 0 12px hsl(var(--primary) / 0.25)); }
+    50%      { filter: drop-shadow(0 0 24px hsl(var(--accent) / 0.35)); }
+  }
+  .n-shimmer {
+    animation: n-shimmer 4.5s ease-in-out infinite;
+  }
+
+  /* Subtle "N" watermark — for interior tiles */
+  .n-watermark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M12 56V8L52 48V8' stroke='%23ffffff' stroke-width='7' fill='none' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: bottom -20px right -20px;
+    background-size: 180px;
+    pointer-events: none;
+  }
 }
+
