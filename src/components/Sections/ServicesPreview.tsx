@@ -1,19 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  ArrowRight, Globe, Rocket, Target, Megaphone, Search, Share2, Palette, Film, Users,
+  ArrowRight, Globe, FileText, Palette, Cpu, LineChart, Film,
 } from 'lucide-react';
 
 const services = [
-  { icon: Globe, title: 'Web Design & Development', description: 'Your website as a 24/7 sales system, built to close.', outcome: 'Higher conversion, faster pages', href: '/services/web-design' },
-  { icon: Rocket, title: 'Performance Marketing', description: 'Profitable acquisition at scale. Optimized for ROAS, not impressions.', outcome: 'Lower CAC, predictable spend', href: '/services/performance-marketing' },
-  { icon: Target, title: 'Lead Generation', description: 'Predictable pipeline, not random inquiries. Systems that compound.', outcome: 'Qualified, sales-ready leads', href: '/services/lead-generation' },
-  { icon: Megaphone, title: 'Paid Advertising', description: 'Google, Meta, LinkedIn — deployed as one revenue engine.', outcome: 'Unified attribution & ROAS', href: '/services/paid-advertising' },
-  { icon: Search, title: 'SEO', description: 'Own your category in search. Long-term traffic you don\u2019t pay for.', outcome: 'Compounding organic traffic', href: '/services/seo' },
-  { icon: Share2, title: 'Social Media Marketing', description: 'Build authority, not just followers. Content that drives decisions.', outcome: 'Brand pull & demand capture', href: '/services/social-media' },
-  { icon: Palette, title: 'Branding', description: 'Positioning that commands premium. Identity that scales with you.', outcome: 'Premium pricing power', href: '/services/branding' },
-  { icon: Film, title: 'Video Editing', description: 'Stop the scroll, move the needle. Video engineered to perform.', outcome: 'Higher VTR & engagement', href: '/services/video-editing' },
-  { icon: Users, title: 'Influencer Marketing', description: 'Strategic creator partnerships measured by revenue, not reach.', outcome: 'Trackable revenue uplift', href: '/services/influencer-marketing' },
+  {
+    icon: Globe,
+    title: 'AI-Powered Websites',
+    description: 'Sites engineered with AI at the core — personalised, conversion-tuned, always shipping.',
+    outcome: 'Higher conversion, faster ship cycles',
+    href: '/services/web-design',
+  },
+  {
+    icon: FileText,
+    title: 'Content Systems',
+    description: 'Editorial pipelines that scale — briefs, drafts, distribution, measurement, on repeat.',
+    outcome: 'Compounding organic reach',
+    href: '/services/seo',
+  },
+  {
+    icon: Palette,
+    title: 'Brand Systems',
+    description: 'Positioning, identity and design language built to command premium — across every surface.',
+    outcome: 'Premium pricing power',
+    href: '/services/branding',
+  },
+  {
+    icon: Cpu,
+    title: 'AI Automation',
+    description: 'Agents, workflows and internal tools that remove manual work from your growth stack.',
+    outcome: 'Lower ops cost, faster loops',
+    href: '/services/performance-marketing',
+  },
+  {
+    icon: LineChart,
+    title: 'Growth Marketing',
+    description: 'Paid, lifecycle and lifecycle-AI — deployed as one attributable revenue engine.',
+    outcome: 'Predictable, attributable revenue',
+    href: '/services/performance-marketing',
+  },
+  {
+    icon: Film,
+    title: 'CGI & Digital Experiences',
+    description: 'Cinematic CGI, 3D and interactive experiences for launches, campaigns and flagship sites.',
+    outcome: 'Signature-grade brand moments',
+    href: '/services/cgi-ads',
+  },
 ];
 
 const ServicesPreview = () => {
@@ -21,12 +54,13 @@ const ServicesPreview = () => {
     <section className="py-24 lg:py-36 border-t border-border bg-card/40">
       <div className="container-enterprise">
         <div className="max-w-3xl mb-16">
-          <p className="eyebrow mb-4">Solutions</p>
+          <p className="eyebrow mb-4">What we do</p>
           <h2 className="text-section-title text-foreground">
-            Modular growth systems for ambitious brands.
+            One operating system for modern brand growth.
           </h2>
           <p className="text-body-lg text-muted-foreground mt-6 max-w-[58ch]">
-            Each solution is a module in your growth infrastructure. Together, they compound.
+            Six disciplines, engineered to compound. Deployed AI-first, wired
+            together as a single growth infrastructure.
           </p>
         </div>
 
@@ -63,3 +97,4 @@ const ServicesPreview = () => {
 };
 
 export default ServicesPreview;
+

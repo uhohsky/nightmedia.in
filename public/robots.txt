@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /blog/admin
 
-Sitemap: https://night-media.lovable.app/sitemap.xml
+Sitemap: https://nightmedia.in/sitemap.xml

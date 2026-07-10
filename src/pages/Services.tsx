@@ -12,27 +12,23 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Web Design & Development Agency | Night Media India</title>
-        <meta 
-          name="description" 
-          content="Night Media is a premium web design and development agency in India. We build high-converting websites, UI/UX design, and growth systems for startups and businesses." 
+        <title>Services — AI-Powered Websites, Brand & Automation | Night Media</title>
+        <meta
+          name="description"
+          content="AI-powered websites, content systems, brand systems, automation, growth marketing and CGI experiences — one operating system for modern brand growth."
         />
-        <meta 
-          name="keywords" 
-          content="web design agency, website development agency, UI UX design, web development India, conversion-focused design, responsive web design" 
+        <meta
+          name="keywords"
+          content="AI-powered websites, brand systems, AI automation, content systems, growth marketing, CGI experiences, digital experience agency"
         />
         <link rel="canonical" href="https://nightmedia.in/services" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Web Design & Development Agency | Night Media India" />
-        <meta property="og:description" content="Premium web design and development agency building high-converting websites for startups and businesses." />
+        <meta property="og:title" content="Services — AI-Powered Websites, Brand & Automation | Night Media" />
+        <meta property="og:description" content="One operating system for modern brand growth — AI-powered websites, content, brand, automation and CGI." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://nightmedia.in/services" />
-        
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Web Design & Development Agency | Night Media India" />
-        <meta name="twitter:description" content="Premium web design and development agency building high-converting websites for startups and businesses." />
+        <meta name="twitter:title" content="Services — AI-Powered Websites, Brand & Automation | Night Media" />
+        <meta name="twitter:description" content="One operating system for modern brand growth — AI-powered websites, content, brand, automation and CGI." />
       </Helmet>
 
       <div className="pt-16 bg-background relative">
