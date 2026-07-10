@@ -33,8 +33,9 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-sm mb-6 leading-relaxed">
-              AI-powered growth infrastructure for ambitious brands — websites, content systems,
-              and automation engineered to compound revenue.
+              AI-first growth and digital experience company. Websites, content
+              systems, brand systems, automation and CGI — engineered for
+              ambitious global brands.
             </p>
             <div className="flex gap-3">
               {[
@@ -93,8 +94,8 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-xs text-muted-foreground">© 2026 Night Media India. All rights reserved.</p>
-          <p className="text-xs text-muted-foreground">Built AI-first in Mumbai.</p>
+          <p className="text-xs text-muted-foreground">© 2026 Night Media. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">AI-first · Built for global brands.</p>
         </div>
       </div>
     </footer>
