@@ -46,38 +46,38 @@ const BentoHero: React.FC = () => {
               className="inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-1.5 text-[11px] font-mono tracking-[0.18em] uppercase text-muted-foreground"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              AI Growth Infrastructure
+              AI-First Growth · Digital Experience
             </div>
 
             <h1
               data-reveal
               className="mt-8 font-display text-[44px] sm:text-[60px] lg:text-[80px] leading-[0.96] tracking-[-0.03em] font-semibold text-foreground max-w-[16ch]"
             >
-              Growth systems,
+              The AI-first growth company
               <br />
-              <span className="text-metallic">engineered like software.</span>
+              <span className="text-metallic">for global brands.</span>
             </h1>
           </div>
 
           <div data-reveal className="lg:col-span-4">
             <p className="text-body-lg text-muted-foreground max-w-[42ch]">
-              Night Media builds the websites, automations and content engines
-              that turn ambitious brands into compounding revenue machines —
-              deployed AI-first, tuned for performance.
+              Night Media designs AI-powered websites, content systems, brand
+              systems, automation and CGI experiences — engineered as one growth
+              infrastructure for ambitious brands worldwide.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
-                to="/ai-audit"
+                to="/contact"
                 className="btn-primary-glow inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-semibold"
               >
-                Get your AI Audit <ArrowRight className="w-3.5 h-3.5" />
+                Book a Strategy Call <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
-                to="/contact"
+                to="/services"
                 className="btn-secondary-enterprise inline-flex items-center px-5 py-2.5 rounded-full text-[13px] font-semibold"
               >
-                Talk to a strategist
+                See what we build
               </Link>
             </div>
           </div>
@@ -96,7 +96,7 @@ const BentoHero: React.FC = () => {
             </div>
             <NightMediaIcon variant="metallic" size={280} animated className="drop-shadow-[0_20px_60px_hsl(var(--primary)/0.25)]" />
             <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-[11px] font-mono text-muted-foreground">
-              <span>nightmedia.in</span>
+              <span>nightmedia.in · global</span>
               <span className="text-accent">● system online</span>
             </div>
           </div>
