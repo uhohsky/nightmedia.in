@@ -1,16 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import HeroPremium from '../components/Sections/HeroPremium';
-import TrustedByBar from '../components/Sections/TrustedByBar';
-import ServicesPreview from '../components/Sections/ServicesPreview';
-import HorizontalCaseStudies from '../components/Sections/HorizontalCaseStudies';
-import GrowthSnapshot from '../components/AI/GrowthSnapshot';
-import ProcessSection from '../components/Sections/ProcessSection';
-import ResultsSection from '../components/Sections/ResultsSection';
+import HeroCinematic from '../components/Sections/HeroCinematic';
+import TrustBarLight from '../components/Sections/TrustBarLight';
+import CapabilityShowcase from '../components/Sections/CapabilityShowcase';
+import MetricsBand from '../components/Sections/MetricsBand';
 import TestimonialsSection from '../components/Sections/TestimonialsSection';
-import NewsletterSignup from '../components/Newsletter/NewsletterSignup';
-import CallToAction from '../components/Sections/CallToAction';
-import NDivider from '../components/Visuals/NDivider';
+import ClosingCTA from '../components/Sections/ClosingCTA';
 
 const Index = () => {
   return (
@@ -31,51 +26,14 @@ const Index = () => {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <main className="relative bg-background pt-16 selection:bg-primary selection:text-white">
-        <div
-          className="noise-overlay pointer-events-none absolute inset-0 z-0 opacity-[0.025] mix-blend-overlay"
-          aria-hidden="true"
-        />
-
-        <div className="relative z-10 flex flex-col">
-          {/* 1. HERO — Night Core */}
-          <HeroPremium />
-
-          {/* 2. TRUSTED BY */}
-          <TrustedByBar />
-
-          {/* 3. CAPABILITIES */}
-          <ServicesPreview />
-
-          <NDivider label="Selected work" />
-
-          {/* 4. FEATURED WORK */}
-          <HorizontalCaseStudies />
-
-          <NDivider label="AI Experiences" />
-
-          {/* 5. AI EXPERIENCES — Playground */}
-          <GrowthSnapshot />
-
-          {/* 6. PROCESS */}
-          <ProcessSection />
-
-          {/* 7. RESULTS */}
-          <ResultsSection />
-
-          {/* 8. TESTIMONIALS */}
-          <TestimonialsSection />
-
-          {/* 9. INSIGHTS — Newsletter */}
-          <section className="px-4 sm:px-6 py-24 lg:py-32 border-t border-border/60">
-            <div className="max-w-4xl mx-auto">
-              <NewsletterSignup variant="card" source="homepage" />
-            </div>
-          </section>
-
-          {/* 10. FINAL CTA */}
-          <CallToAction />
-        </div>
+      <main className="relative selection:bg-primary selection:text-white pt-16">
+        {/* Alternating environments — each section owns its theme via env-* */}
+        <HeroCinematic />
+        <TrustBarLight />
+        <CapabilityShowcase />
+        <MetricsBand />
+        <TestimonialsSection />
+        <ClosingCTA />
       </main>
     </>
   );
