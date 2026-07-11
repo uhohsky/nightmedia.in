@@ -648,5 +648,60 @@
     background-size: 180px;
     pointer-events: none;
   }
+  }
+
+  /* ===== ENVIRONMENTS — alternating light / dark surfaces =====
+     Scoped variable overrides so children inherit correct tokens
+     without hardcoded color classes. */
+  .env-dark {
+    --background: 214 55% 7%;
+    --foreground: 210 30% 96%;
+    --card: 214 40% 11%;
+    --card-foreground: 210 30% 96%;
+    --muted: 214 30% 15%;
+    --muted-foreground: 210 18% 66%;
+    --border: 214 22% 20%;
+    --primary: 218 99% 60%;
+    --accent: 184 79% 52%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .env-graphite {
+    --background: 216 20% 12%;
+    --foreground: 210 20% 96%;
+    --card: 216 18% 16%;
+    --muted-foreground: 210 12% 68%;
+    --border: 216 12% 24%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .env-light {
+    --background: 36 30% 97%;
+    --foreground: 214 55% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 214 55% 8%;
+    --muted: 30 15% 92%;
+    --muted-foreground: 214 15% 34%;
+    --border: 214 15% 88%;
+    --primary: 218 99% 44%;
+    --accent: 184 79% 34%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .env-pearl {
+    --background: 210 20% 95%;
+    --foreground: 214 55% 8%;
+    --card: 0 0% 100%;
+    --muted-foreground: 214 15% 36%;
+    --border: 214 15% 84%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .env-divide-top { border-top: 1px solid hsl(var(--border)); }
 }
+
 
