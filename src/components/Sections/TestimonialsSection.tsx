@@ -24,7 +24,7 @@ const testimonials = [
 
 const TestimonialsSection: React.FC = () => {
   return (
-    <section className="py-28 lg:py-40 border-t border-border/60 bg-card/30">
+    <section className="env-dark env-divide-top py-28 lg:py-40">
       <div className="container-enterprise">
         <div className="max-w-3xl mb-20">
           <p className="eyebrow mb-5">Voices</p>
