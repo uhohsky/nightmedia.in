@@ -668,11 +668,11 @@
   }
 
   .env-graphite {
-    --background: 216 20% 12%;
-    --foreground: 210 20% 96%;
-    --card: 216 18% 16%;
-    --muted-foreground: 210 12% 68%;
-    --border: 216 12% 24%;
+    --background: 220 8% 9%;
+    --foreground: 210 15% 96%;
+    --card: 220 6% 13%;
+    --muted-foreground: 220 8% 66%;
+    --border: 220 6% 20%;
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
