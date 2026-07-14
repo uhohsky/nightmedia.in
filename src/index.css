@@ -9,27 +9,27 @@
 /* Premium Dark Theme - Motion-First Design System */
 @layer base {
   :root {
-    /* Dark enterprise — blue/teal identity (Linear / Vercel / Anthropic register) */
-    --background: 210 73% 9%;          /* #071A2B */
-    --foreground: 204 50% 98%;         /* #F8FBFD */
-    --card: 210 62% 13%;               /* #0C2236 */
-    --card-foreground: 204 50% 98%;
-    --popover: 210 62% 13%;
-    --popover-foreground: 204 50% 98%;
-    --primary: 218 99% 53%;            /* #0F62FE */
+    /* Dark enterprise — near-black neutral base, restrained blue accent */
+    --background: 220 10% 5%;          /* #0B0C0E — near black, neutral */
+    --foreground: 210 15% 96%;         /* #F1F3F5 */
+    --card: 220 8% 8%;                 /* #131418 */
+    --card-foreground: 210 15% 96%;
+    --popover: 220 8% 8%;
+    --popover-foreground: 210 15% 96%;
+    --primary: 218 90% 58%;            /* #2E7BF6 — electric blue accent */
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 60% 16%;          /* #102A40 */
-    --secondary-foreground: 204 50% 98%;
-    --muted: 210 50% 18%;
-    --muted-foreground: 210 22% 70%;   /* #9AB0C4 */
-    --accent: 184 79% 46%;             /* #19C6D1 */
-    --accent-foreground: 210 73% 9%;
-    --destructive: 0 84% 60%;
+    --secondary: 220 8% 12%;           /* #1B1D22 */
+    --secondary-foreground: 210 15% 96%;
+    --muted: 220 6% 14%;
+    --muted-foreground: 220 8% 62%;    /* #9599A1 */
+    --accent: 184 65% 50%;             /* restrained teal */
+    --accent-foreground: 220 10% 5%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
-    --border: 210 30% 22%;             /* whisper border in dark */
-    --input: 210 50% 16%;
-    --ring: 218 99% 53%;
-    --radius: 1rem;                    /* 16px per brief */
+    --border: 220 8% 18%;              /* whisper border */
+    --input: 220 8% 12%;
+    --ring: 218 90% 58%;
+    --radius: 1rem;
 
     /* Brand gradient tokens (calmer, blue/teal only) */
     --gradient-purple: 218 99% 53%;    /* legacy alias → primary */
