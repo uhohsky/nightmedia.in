@@ -1,11 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import HeroCinematic from '../components/Sections/HeroCinematic';
-import TrustBarLight from '../components/Sections/TrustBarLight';
-import CapabilityShowcase from '../components/Sections/CapabilityShowcase';
-import MetricsBand from '../components/Sections/MetricsBand';
-import TestimonialsSection from '../components/Sections/TestimonialsSection';
-import ClosingCTA from '../components/Sections/ClosingCTA';
+import HeroHome from '../components/home/HeroHome';
+import TrustStrip from '../components/home/TrustStrip';
+import WhatWeDo from '../components/home/WhatWeDo';
+import CapabilityLaunches from '../components/home/CapabilityLaunches';
+import FeaturedWork from '../components/home/FeaturedWork';
+import AILab from '../components/home/AILab';
+import Method from '../components/home/Method';
+import Proof from '../components/home/Proof';
+import FinalCTA from '../components/home/FinalCTA';
+import '../home.css';
 
 const Index = () => {
   return (
@@ -26,14 +30,16 @@ const Index = () => {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <main className="relative selection:bg-primary selection:text-white pt-16">
-        {/* Alternating environments — each section owns its theme via env-* */}
-        <HeroCinematic />
-        <TrustBarLight />
-        <CapabilityShowcase />
-        <MetricsBand />
-        <TestimonialsSection />
-        <ClosingCTA />
+      <main className="home-root selection:bg-[#3B9EFF] selection:text-white">
+        <HeroHome />
+        <TrustStrip />
+        <WhatWeDo />
+        <CapabilityLaunches />
+        <FeaturedWork />
+        <AILab />
+        <Method />
+        <Proof />
+        <FinalCTA />
       </main>
     </>
   );
