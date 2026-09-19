@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Homepage-scoped architectural tokens. Scoped to .home-root so
+   About / Blog / Contact and other routes keep the global theme. */
+.home-root {
+  --h-blue: #3B9EFF;
+  --h-teal: #38C9C0;
+  --h-silver: #C9D1D8;
+  --h-bg: #071827;
+  --h-fg: #E8EDF2;
+  --h-muted: #8A9AAB;
+  --h-rule: rgba(201, 209, 216, 0.14);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--h-fg);
+  background: var(--h-bg);
+}
+.home-root h1, .home-root h2, .home-root h3, .home-root .font-h {
+  font-family: 'Geist', 'Inter', system-ui, sans-serif;
+}
+
+/* Rooms — alternating dark / light environments */
+.home-root .room-dark { --h-bg:#071827; --h-fg:#E8EDF2; --h-muted:#8A9AAB; --h-rule:rgba(201,209,216,.14); }
+.home-root .room-midnight { --h-bg:#0B2238; --h-fg:#EAF1F8; --h-muted:#9AAEC0; --h-rule:rgba(255,255,255,.12); }
+.home-root .room-pearl { --h-bg:#EEF1F2; --h-fg:#0B2238; --h-muted:#56697A; --h-rule:rgba(11,34,56,.12); }
+.home-root .room-softwhite { --h-bg:#F7F8F6; --h-fg:#0B2238; --h-muted:#56697A; --h-rule:rgba(11,34,56,.10); }
+
+/* Token-driven utilities (no hardcoded color in components) */
+.home-root .bg-room { background-color: var(--h-bg); }
+.home-root .t-fg { color: var(--h-fg); }
+.home-root .t-muted { color: var(--h-muted); }
+.home-root .t-blue { color: var(--h-blue); }
+.home-root .t-teal { color: var(--h-teal); }
+.home-root .t-silver { color: var(--h-silver); }
+.home-root .b-rule { border-color: var(--h-rule); }
+.home-root .rule { background-color: var(--h-rule); }
+
+/* Metallic text */
+.home-root .t-metallic {
+  background: linear-gradient(120deg, #F7F8F6 0%, #C9D1D8 30%, #8FA6C2 55%, #3B9EFF 78%, #38C9C0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Buttons */
+.home-root .btn-primary {
+  background: var(--h-blue);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(59,158,255,.28);
+  transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s;
+}
+.home-root .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(59,158,255,.36); }
+.home-root .btn-ghost {
+  border: 1px solid var(--h-rule);
+  color: var(--h-fg);
+  transition: border-color .4s, transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.home-root .btn-ghost:hover { transform: translateY(-2px); border-color: var(--h-blue); }
+
+/* Eyebrow / mono label */
+.home-root .mono { font-family: 'Geist', 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .22em; text-transform: uppercase; }
+
+/* Scroll reveals */
+.home-root [data-r] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1);
+}
+.home-root [data-r].r-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .home-root [data-r] { opacity: 1; transform: none; transition: none; }
+  .home-root .n-float { animation: none !important; }
+}
+
+/* Soft room divider */
+.home-root .room-divide { border-top: 1px solid var(--h-rule); }
+
+/* N Signal shimmer */
+.home-root .n-sig path { stroke: url(#n-sig-grad); }
+@keyframes n-sweep { 0%{transform:translateX(-120%)} 100%{transform:translateX(120%)} }
+.home-root .n-sig-sweep { animation: n-sweep 2.6s cubic-bezier(.4,0,.2,1) infinite; }
+
+/* Capability index hover rail */
+.home-root .cap-row { transition: background-color .5s; }
+.home-root .cap-row:hover { background-color: color-mix(in srgb, var(--h-fg) 4%, transparent); }
+.home-root .cap-row .cap-arrow { opacity: 0; transform: translateX(-8px); transition: opacity .4s, transform .4s; }
+.home-root .cap-row:hover .cap-arrow { opacity: 1; transform: none; }
+
+/* Method rail progress */
+.home-root .method-rail { background: var(--h-rule); }
+.home-root .method-rail .fill { background: var(--h-blue); }
