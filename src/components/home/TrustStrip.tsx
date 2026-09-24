@@ -20,10 +20,10 @@ const TrustStrip: React.FC = () => {
           <span className="mono t-muted text-[11px]">In production across</span>
           <span className="w-6 h-px rule" />
           {pillars.map((p, i) => (
-            <React.Fragment key={p}>
+            <span key={p} className="flex items-center gap-3">
               <span className="text-[13px] t-fg font-medium">{p}</span>
               {i < pillars.length - 1 && <span className="t-muted opacity-40">·</span>}
-            </React.Fragment>
+            </span>
           ))}
         </div>
       </div>
