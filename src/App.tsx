@@ -27,6 +27,7 @@ import PerformanceMarketingTrends2025 from "./pages/performance-marketing-trends
 import AIMarketingAutomationGuide from "./pages/ai-marketing-automation-guide";
 import GrowthSystemsFramework from "./pages/growth-systems-framework";
 import AIAudit from "./pages/AIAudit";
+import WebsiteDevelopment from "./pages/WebsiteDevelopment";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
               <Route path="/blog/ai-marketing-automation-guide" element={<AIMarketingAutomationGuide />} />
               <Route path="/blog/growth-systems-framework" element={<GrowthSystemsFramework />} />
               <Route path="/ai-audit" element={<AIAudit />} />
+              <Route path="/website-development" element={<WebsiteDevelopment />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
